@@ -203,4 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 6523799677298103784, guid: 7f1910fde0cbbe04cbd324b791923c13, type: 3}
-  canDo: 1
+  projectileParent: {fileID: 0}
+  attackTime: 0
+  attackCooldown: 0.5

@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
         return inputs;
     }
 
+    // TODO: Replace Sprinting with a roll / dash ability
     bool GetSprinting() {
         // Get input from Sprint button and turn it into a boolean
         bool sprint;

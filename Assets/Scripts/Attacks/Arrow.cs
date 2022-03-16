@@ -23,7 +23,7 @@ public class Arrow : MonoBehaviour
     }
 
     void Update() {
-        Move(FacingtoVec((double)gameObject.transform.rotation.eulerAngles.z + rotationOffset), speed);
+        Move(FacingtoVec((double)gameObject.transform.rotation.eulerAngles.z + 90), speed);
     }
 
     Vector2 FacingtoVec(double degrees) {
@@ -42,10 +42,16 @@ public class Arrow : MonoBehaviour
 
     // Collided with a Damage Hitbox
     void OnTriggerEnter2D(Collider2D col) {
+        // Collision with Environment
+        if (col.tag == "Environment") {
+            Destroy(gameObject);
+        }
+        
         // Not on the team of the creator (Such as player or enemy)
-        if (col.tag != creator.tag) {
+        else if (col.tag != creator.tag) {
             col.SendMessage("applyDamage", damage);
             Destroy(gameObject);
         }
+        
     }
 }

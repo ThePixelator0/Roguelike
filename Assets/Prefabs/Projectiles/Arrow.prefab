@@ -116,7 +116,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.000000014901161, y: 0.06213285}
@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creator: {fileID: 0}
-  projectileParent: {fileID: 1069130551896838204, guid: d273affff7769c546985df8bf9094afd, type: 3}
   rb: {fileID: 6523799677298103796}
   speed: 10
   rotationOffset: 90
