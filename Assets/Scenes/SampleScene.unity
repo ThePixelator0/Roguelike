@@ -5727,9 +5727,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123464, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5448081120162123465, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
       propertyPath: projectileParent
       value: 
       objectReference: {fileID: 1504041938}
+    - target: {fileID: 5448081120162123466, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: health
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123470, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123470, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 805003495
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123471, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
