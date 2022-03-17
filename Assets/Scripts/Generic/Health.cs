@@ -36,7 +36,4 @@ public class Health : MonoBehaviour
             print(gameObject.tag);
         }
     }
-
-    void Update() {
-    }
 }
