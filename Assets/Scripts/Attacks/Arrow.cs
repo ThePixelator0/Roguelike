@@ -47,7 +47,7 @@ public class Arrow : MonoBehaviour
             Destroy(gameObject);
         }
         
-        // Not on the team of the creator (Such as player or enemy)
+        // Doesn't have the same tag as it's creator (No Friendly Fire)
         else if (col.tag != creator.tag) {
             col.SendMessage("applyDamage", damage);
             Destroy(gameObject);

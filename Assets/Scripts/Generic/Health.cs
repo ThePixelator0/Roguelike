@@ -7,6 +7,8 @@ public class Health : MonoBehaviour
     public float health;
     [SerializeField]
     private float maxHealth;
+    [SerializeField]
+    private GameObject blood;
 
 
     void Awake() {
@@ -15,13 +17,26 @@ public class Health : MonoBehaviour
 
     public void applyDamage(float damage) {
         health -= damage;
+        bleed();
         checkAlive();
+    }
+
+    void bleed() {
+        Instantiate(blood, transform.position, Quaternion.identity);
     }
 
     void checkAlive() {
         if (health <= 0) {
-            print("Game Over!");
-            Destroy(gameObject);
+            if (gameObject.tag == "Player") {
+                print("Game Over!");
+                Destroy(gameObject);
+            } else {
+                Destroy(gameObject);
+            }
+            print(gameObject.tag);
         }
+    }
+
+    void Update() {
     }
 }

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2840163094318273511}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  blood: {fileID: 5225296768686066852, guid: 45975fe468800cc48a3afff1a430567c, type: 3}
 --- !u!61 &2840163094318273511
 BoxCollider2D:
   m_ObjectHideFlags: 0

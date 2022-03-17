@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        // Increase speed once dash implemented
         Move(GetInputs() * speed, GetSprinting(), sprintModifier);
     }
 
