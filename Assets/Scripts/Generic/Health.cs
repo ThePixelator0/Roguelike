@@ -33,7 +33,6 @@ public class Health : MonoBehaviour
             } else {
                 Destroy(gameObject);
             }
-            print(gameObject.tag);
         }
     }
 }
