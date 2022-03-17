@@ -4754,6 +4754,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3263419389652560040, guid: 45975fe468800cc48a3afff1a430567c, type: 3}
+      propertyPath: deathTimer
+      value: 5.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5225296768686066841, guid: 45975fe468800cc48a3afff1a430567c, type: 3}
       propertyPath: m_RootOrder
       value: 7
