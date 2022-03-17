@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
     }
 
     void bleed() {
-        Instantiate(blood, transform.position, Quaternion.identity);
+        var bloodClone = Instantiate(blood, transform.position, Quaternion.identity);
     }
 
     void checkAlive() {

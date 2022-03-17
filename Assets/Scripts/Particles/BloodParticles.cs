@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BloodParticles : MonoBehaviour
 {
-    public float deathTimer;
-
+    [SerializeField]
+    private float deathTimer;
+    
     // Update is called once per frame
     void Update()
     {

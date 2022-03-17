@@ -740,6 +740,15 @@ TextureImporter:
   - first:
       213: -1254183602032391468
     second: 0x72_16x16DungeonTileset.v4_245
+  - first:
+      213: -6889411281663101313
+    second: 0x72_16x16DungeonTileset.v4_246
+  - first:
+      213: -4286170095000112808
+    second: 0x72_16x16DungeonTileset.v4_247
+  - first:
+      213: -2962593606854023893
+    second: 0x72_16x16DungeonTileset.v4_248
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -5800,7 +5809,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_236
       rect:
         serializedVersion: 2
-        x: 96
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -5821,7 +5830,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_237
       rect:
         serializedVersion: 2
-        x: 112
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -5842,7 +5851,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_238
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -5863,7 +5872,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_239
       rect:
         serializedVersion: 2
-        x: 144
+        x: 96
         y: 0
         width: 16
         height: 16
@@ -5884,7 +5893,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_240
       rect:
         serializedVersion: 2
-        x: 160
+        x: 112
         y: 0
         width: 16
         height: 16
@@ -5905,7 +5914,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_241
       rect:
         serializedVersion: 2
-        x: 176
+        x: 128
         y: 0
         width: 16
         height: 16
@@ -5926,7 +5935,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_242
       rect:
         serializedVersion: 2
-        x: 192
+        x: 144
         y: 0
         width: 16
         height: 16
@@ -5947,7 +5956,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_243
       rect:
         serializedVersion: 2
-        x: 208
+        x: 160
         y: 0
         width: 16
         height: 16
@@ -5968,7 +5977,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_244
       rect:
         serializedVersion: 2
-        x: 224
+        x: 176
         y: 0
         width: 16
         height: 16
@@ -5989,7 +5998,7 @@ TextureImporter:
       name: 0x72_16x16DungeonTileset.v4_245
       rect:
         serializedVersion: 2
-        x: 240
+        x: 192
         y: 0
         width: 16
         height: 16
@@ -6002,6 +6011,69 @@ TextureImporter:
       bones: []
       spriteID: 4da4dbda8ae389ee0800000000000000
       internalID: -1254183602032391468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_16x16DungeonTileset.v4_246
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76f6e4e0f4e360a0800000000000000
+      internalID: -6889411281663101313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_16x16DungeonTileset.v4_247
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 851bd98f1077484c0800000000000000
+      internalID: -4286170095000112808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 0x72_16x16DungeonTileset.v4_248
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b256f91afc0c2e6d0800000000000000
+      internalID: -2962593606854023893
       vertices: []
       indices: 
       edges: []

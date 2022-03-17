@@ -45,7 +45,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
     - {fileID: 2800000, guid: e6dd09b88de15f24698fe7f35a222af2, type: 3}
-    totalSpriteSurfaceArea: 82432
+    totalSpriteSurfaceArea: 83200
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -249,6 +249,7 @@ SpriteAtlas:
   - {fileID: 7049507203628222962, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 3857124109520202675, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -9161254732756808080, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
+  - {fileID: -2962593606854023893, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 1022285000832635346, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 5037225173563932310, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 8687302743233086791, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
@@ -278,9 +279,11 @@ SpriteAtlas:
   - {fileID: 921905194671877148, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -4527102890844184117, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 6191260913615350971, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
+  - {fileID: -6889411281663101313, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -4560741002639928338, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -8369489974576557707, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -3609388569021777939, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
+  - {fileID: -4286170095000112808, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: 6175332149635981407, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -1091275068858770327, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   - {fileID: -1865513366290063461, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
@@ -572,6 +575,7 @@ SpriteAtlas:
   - 0x72_16x16DungeonTileset.v4_206
   - 0x72_16x16DungeonTileset.v4_207
   - 0x72_16x16DungeonTileset.v4_217
+  - 0x72_16x16DungeonTileset.v4_248
   - 0x72_16x16DungeonTileset.v4_200
   - 0x72_16x16DungeonTileset.v4_216
   - 0x72_16x16DungeonTileset.v4_201
@@ -601,9 +605,11 @@ SpriteAtlas:
   - 0x72_16x16DungeonTileset.v4_219
   - 0x72_16x16DungeonTileset.v4_221
   - 0x72_16x16DungeonTileset.v4_235
+  - 0x72_16x16DungeonTileset.v4_246
   - 0x72_16x16DungeonTileset.v4_218
   - 0x72_16x16DungeonTileset.v4_226
   - 0x72_16x16DungeonTileset.v4_234
+  - 0x72_16x16DungeonTileset.v4_247
   - 0x72_16x16DungeonTileset.v4_227
   - 0x72_16x16DungeonTileset.v4_237
   - 0x72_16x16DungeonTileset.v4_224

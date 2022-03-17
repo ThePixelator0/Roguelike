@@ -18,10 +18,6 @@ public class Arrow : MonoBehaviour
         rb.velocity = dir * speed;
     }
 
-    public void setParent(GameObject projectileParent) {
-        transform.parent = projectileParent.transform;
-    }
-
     void Update() {
         Move(FacingtoVec((double)gameObject.transform.rotation.eulerAngles.z + 90), speed);
     }

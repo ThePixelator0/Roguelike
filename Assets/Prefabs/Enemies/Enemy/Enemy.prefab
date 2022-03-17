@@ -163,6 +163,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   blood: {fileID: 5225296768686066852, guid: 45975fe468800cc48a3afff1a430567c, type: 3}
+  particleParent: {fileID: 8828773266213539246, guid: 9340bb4674995a148a8c2a8a14b60c35, type: 3}
 --- !u!61 &2840163094318273511
 BoxCollider2D:
   m_ObjectHideFlags: 0
