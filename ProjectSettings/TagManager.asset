@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - SpawnPoint
   - Rooms
+  - Grid
   layers:
   - Default
   - TransparentFX

@@ -141,13 +141,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4821698544363018365}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2791118c076c1614398c944e8841dfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
   rb: {fileID: 4821698544363018305}
+  distance: 6
 --- !u!114 &8876709753141489687
 MonoBehaviour:
   m_ObjectHideFlags: 0

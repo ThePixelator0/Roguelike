@@ -42,6 +42,11 @@ public class Arrow : MonoBehaviour
         if (col.tag == "Environment") {
             Destroy(gameObject);
         }
+
+        // Collided with Room Generation
+        else if (col.tag == "SpawnPoint") {
+
+        }
         
         // Doesn't have the same tag as it's creator (No Friendly Fire)
         else if (col.tag != creator.tag) {

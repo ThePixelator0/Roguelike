@@ -31,7 +31,7 @@ public class RoomTemplate : MonoBehaviour
                 }
             }
         } else {
-            // waitTime -= Time.deltaTime;
+            waitTime -= Time.deltaTime;
         }
     }
 }

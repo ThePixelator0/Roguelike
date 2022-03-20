@@ -9,13 +9,20 @@ public class FollowPlayer : MonoBehaviour
     private float speed;
     [SerializeField]
     private Rigidbody2D rb;
+    [SerializeField]
+    private float distance; // Max distance the entity can see the player from.
 
     void Awake() {
+        // Find player and store in var
         player = GameObject.FindWithTag("Player");
     }
     
     void Update() {
-        Move(DirTo(player) * speed);
+        if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
+            Move(DirTo(player) * speed);
+        } else {
+            rb.velocity *= 0.5f;
+        }
     }
 
     Vector2 DirTo(GameObject obj) {
@@ -29,5 +36,15 @@ public class FollowPlayer : MonoBehaviour
     void Move(Vector2 inputs) {
         // Apply velocity
         rb.velocity = inputs;
+    }
+
+    // Currently Unused
+    bool RaycastToPlayer() {
+        Vector3 dir = (player.transform.position - this.transform.position).normalized; // Direction to raycast. From entity to player.
+        if (Physics.Raycast(transform.position, dir, distance)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

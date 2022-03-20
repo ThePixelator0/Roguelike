@@ -17,6 +17,7 @@ public class AttackProjectile : MonoBehaviour
     void throwProjectile(GameObject proj, Vector2 pos, float rot) {
         var projectileClone = Instantiate(proj, pos, Quaternion.Euler(0, 0, rot - 90));
         projectileClone.GetComponent<Arrow>().creator = gameObject;
+        // print(projectileClone.GetComponent<Arrow>().creator);
         projectileClone.transform.parent = projectileParent.transform;
     }
 

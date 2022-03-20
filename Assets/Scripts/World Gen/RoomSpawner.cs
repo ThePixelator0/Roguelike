@@ -48,7 +48,7 @@ public class RoomSpawner : MonoBehaviour
         if (other.CompareTag("SpawnPoint")) {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
                 // Two rooms spawned at the same pos and time
-                // Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
             spawned = true;
