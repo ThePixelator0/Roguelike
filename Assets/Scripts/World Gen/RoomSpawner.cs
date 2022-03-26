@@ -19,13 +19,14 @@ public class RoomSpawner : MonoBehaviour
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
+        req = new List<int>();
         Invoke("Spawn", 0.5f);
     }
 
-    void Spawn() {
+    async void Spawn() {
         if (spawned == false) {
             // No Requirements
-            if (req == null) {  
+            if (req.Count == 0) {  
                 if (openingDirection == 1) {
                     // Need to spawn a room with a BOTTOM door.
                     rand = Random.Range(0, templates.bottomRooms.Length);
@@ -47,7 +48,7 @@ public class RoomSpawner : MonoBehaviour
 
             // Requirements
             else { 
-                List<GameObject> validRooms;
+                List<GameObject> validRooms = new List<GameObject>();
                 
                 if (openingDirection == 1) {
                     validRooms = new List<GameObject>(templates.bottomRooms);
@@ -121,26 +122,27 @@ public class RoomSpawner : MonoBehaviour
         }
     }
 
-    void SameSpotRooms() {
-        if (passOther.CompareTag("SpawnPoint")) {
-            if (passOther.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
-                // Two rooms spawned at the same pos
-                passOther.GetComponent<RoomSpawner>().req.Add(openingDirection);
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("SpawnPoint")) {
+            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
+                // Two rooms spawned at the same pos, this is first room
+                other.GetComponent<RoomSpawner>().req.Add(openingDirection);
                 Destroy(gameObject);
             }
+            if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false) {
+                // Two Rooms spawned at the same pos, this is second room
+                // Do nothing? 
+            }
+
             spawned = true;
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D other) {
-        passOther = other;
-        Invoke("SameSpotRooms", openingDirection / 10);
     }
 
     List<GameObject> GetValidRooms(List<GameObject> List1, GameObject[] List2) {
         List<GameObject> valid = new List<GameObject>();
         foreach (GameObject a in List2) {
             if (List1.Contains(a)) {
+                print("Original List contains " + a);
                 valid.Add(a);
             }
         }
