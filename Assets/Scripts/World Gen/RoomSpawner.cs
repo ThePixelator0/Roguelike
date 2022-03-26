@@ -52,70 +52,32 @@ public class RoomSpawner : MonoBehaviour
                 
                 if (openingDirection == 1) {
                     validRooms = new List<GameObject>(templates.bottomRooms);
-
-                    foreach (int i in req) {
-                        if (i == 2) {
-                            validRooms = GetValidRooms(validRooms, templates.topRooms);
-                        } else if (i == 3) {
-                            validRooms = GetValidRooms(validRooms, templates.rightRooms);
-                        } else if (i == 4) {
-                            validRooms = GetValidRooms(validRooms, templates.leftRooms);
-                        }
-                    }
-
-                    
-                    rand = Random.Range(0, validRooms.Count);
-                    Instantiate(validRooms[rand], transform.position, Quaternion.identity);
                 } else if (openingDirection == 2) {
                     validRooms = new List<GameObject>(templates.topRooms);
-
-                    foreach (int i in req) {
-                        if (i == 1) {
-                            validRooms = GetValidRooms(validRooms, templates.bottomRooms);
-                        } else if (i == 3) {
-                            validRooms = GetValidRooms(validRooms, templates.rightRooms);
-                        } else if (i == 4) {
-                            validRooms = GetValidRooms(validRooms, templates.leftRooms);
-                        }
-                    }
-
-                    
-                    rand = Random.Range(0, validRooms.Count);
-                    Instantiate(validRooms[rand], transform.position, Quaternion.identity);
                 } else if (openingDirection == 3) {
                     validRooms = new List<GameObject>(templates.rightRooms);
-
-                    foreach (int i in req) {
-                        if (i == 1) {
-                            validRooms = GetValidRooms(validRooms, templates.bottomRooms);
-                        } else if (i == 2) {
-                            validRooms = GetValidRooms(validRooms, templates.topRooms);
-                        } else if (i == 4) {
-                            validRooms = GetValidRooms(validRooms, templates.leftRooms);
-                        }
-                    }
-
-                    
-                    rand = Random.Range(0, validRooms.Count);
-                    Instantiate(validRooms[rand], transform.position, Quaternion.identity);
                 } else if (openingDirection == 4) {
                     validRooms = new List<GameObject>(templates.leftRooms);
-
-                    foreach (int i in req) {
-                        if (i == 1) {
-                            validRooms = GetValidRooms(validRooms, templates.bottomRooms);
-                        } else if (i == 2) {
-                            validRooms = GetValidRooms(validRooms, templates.topRooms);
-                        } else if (i == 3) {
-                            validRooms = GetValidRooms(validRooms, templates.rightRooms);
-                        }
-                    }
-
-                    
-                    rand = Random.Range(0, validRooms.Count);
-                    Instantiate(validRooms[rand], transform.position, Quaternion.identity);
                 }  
 
+                foreach (int i in req) {
+                    if (i == openingDirection) {
+                        break;
+                    }
+                    else if (i == 1) {
+                        validRooms = GetValidRooms(validRooms, templates.bottomRooms);
+                    } else if (i == 2) {
+                        validRooms = GetValidRooms(validRooms, templates.topRooms);
+                    } else if (i == 3) {
+                        validRooms = GetValidRooms(validRooms, templates.rightRooms);
+                    } else if (i == 4) {
+                        validRooms = GetValidRooms(validRooms, templates.leftRooms);
+                    }
+                    print(i == openingDirection);
+                }
+                    
+                rand = Random.Range(0, validRooms.Count);
+                Instantiate(validRooms[rand], transform.position, Quaternion.identity);
             }
             templates.waitTime = .4f;
             spawned = true;
