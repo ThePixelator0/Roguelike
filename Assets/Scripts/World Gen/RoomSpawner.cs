@@ -15,7 +15,7 @@ public class RoomSpawner : MonoBehaviour
     public bool spawned = false;
     private Vector3 offset = new Vector3(0f, 0f, 0f);
     public List<int> req;   // List of requirements for the spawned room.
-    private Collider2D passOther;   // dumb workaround
+
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
@@ -25,61 +25,45 @@ public class RoomSpawner : MonoBehaviour
 
     async void Spawn() {
         if (spawned == false) {
-            // No Requirements
-            if (req.Count == 0) {  
-                if (openingDirection == 1) {
-                    // Need to spawn a room with a BOTTOM door.
-                    rand = Random.Range(0, templates.bottomRooms.Length);
-                    Instantiate(templates.bottomRooms[rand], transform.position, Quaternion.identity);
-                } else if (openingDirection == 2) {
-                    // Need to spawn a room with a TOP door.
-                    rand = Random.Range(0, templates.topRooms.Length);
-                    Instantiate(templates.topRooms[rand], transform.position, Quaternion.identity);
-                } else if (openingDirection == 3) {
-                    // Need to spawn a room with a RIGHT door.
-                    rand = Random.Range(0, templates.rightRooms.Length);
-                    Instantiate(templates.rightRooms[rand], transform.position, Quaternion.identity);
-                } else if (openingDirection == 4) {
-                    // Need to spawn a room with a LEFT door.
-                    rand = Random.Range(0, templates.leftRooms.Length);
-                    Instantiate(templates.leftRooms[rand], transform.position, Quaternion.identity);
-                }
+
+            List<GameObject> validRooms = new List<GameObject>();
+
+            if (openingDirection == 1) {    
+                // Rooms with a BOTTOM door
+                validRooms = new List<GameObject>(templates.bottomRooms);
+            } else if (openingDirection == 2) {
+                // Rooms with a TOP door
+                validRooms = new List<GameObject>(templates.topRooms);
+            } else if (openingDirection == 3) {
+                // Rooms with a RIGHT door
+                validRooms = new List<GameObject>(templates.rightRooms);
+            } else if (openingDirection == 4) {
+                // Rooms with a LEFT door
+                validRooms = new List<GameObject>(templates.leftRooms);
             }
 
-            // Requirements
-            else { 
-                List<GameObject> validRooms = new List<GameObject>();
                 
-                if (openingDirection == 1) {
-                    validRooms = new List<GameObject>(templates.bottomRooms);
-                } else if (openingDirection == 2) {
-                    validRooms = new List<GameObject>(templates.topRooms);
-                } else if (openingDirection == 3) {
-                    validRooms = new List<GameObject>(templates.rightRooms);
-                } else if (openingDirection == 4) {
-                    validRooms = new List<GameObject>(templates.leftRooms);
-                }  
-
-                foreach (int i in req) {
-                    if (i == openingDirection) {
-                        break;
-                    }
-                    else if (i == 1) {
-                        validRooms = GetValidRooms(validRooms, templates.bottomRooms);
-                    } else if (i == 2) {
-                        validRooms = GetValidRooms(validRooms, templates.topRooms);
-                    } else if (i == 3) {
-                        validRooms = GetValidRooms(validRooms, templates.rightRooms);
-                    } else if (i == 4) {
-                        validRooms = GetValidRooms(validRooms, templates.leftRooms);
-                    }
-                    print(i == openingDirection);
+            foreach (int i in req) {
+                print(i);
+                if (i == openingDirection) {
+                    break;
                 }
-                    
-                rand = Random.Range(0, validRooms.Count);
-                Instantiate(validRooms[rand], transform.position, Quaternion.identity);
+                else if (i == 1) {
+                    validRooms = GetValidRooms(validRooms, templates.bottomRooms);
+                } else if (i == 2) {
+                    validRooms = GetValidRooms(validRooms, templates.topRooms);
+                } else if (i == 3) {
+                    validRooms = GetValidRooms(validRooms, templates.rightRooms);
+                } else if (i == 4) {
+                    validRooms = GetValidRooms(validRooms, templates.leftRooms);
+                }
             }
+                
+            rand = Random.Range(0, validRooms.Count);
+            Instantiate(validRooms[rand], transform.position, Quaternion.identity);
+            
             templates.waitTime = .4f;
+            templates.positions.Add(transform.position);
             spawned = true;
         }
     }
@@ -104,11 +88,14 @@ public class RoomSpawner : MonoBehaviour
         List<GameObject> valid = new List<GameObject>();
         foreach (GameObject a in List2) {
             if (List1.Contains(a)) {
-                print("Original List contains " + a);
                 valid.Add(a);
             }
         }
 
         return valid;
+    }
+
+    void CheckValidSpawns() {
+        
     }
 }

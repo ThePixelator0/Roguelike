@@ -16,6 +16,7 @@ public class RoomTemplate : MonoBehaviour
 
     // The List of all rooms
     public List<GameObject> rooms;
+    public List<Vector2> positions;
 
     
     public float waitTime;      // Time to wait when generating the rooms
