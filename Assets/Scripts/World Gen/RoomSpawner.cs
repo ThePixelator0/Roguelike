@@ -14,17 +14,17 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
     public bool spawned = false;
     private Vector3 offset = new Vector3(0f, 0f, 0f);
-    public List<int> req;   // List of requirements for the spawned room.
-
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
-        req = new List<int>();
-        Invoke("Spawn", 0.5f);
+        Invoke("Spawn", 0.1f);
     }
 
-    async void Spawn() {
+    void Spawn() {
         if (spawned == false) {
+            templates.positions.Add(transform.position / 14);
+            templates.rooms.Add(transform.parent.gameObject);
+            // The index of either the Room or the position will be the same.
 
             List<GameObject> validRooms = new List<GameObject>();
 
@@ -42,28 +42,61 @@ public class RoomSpawner : MonoBehaviour
                 validRooms = new List<GameObject>(templates.leftRooms);
             }
 
-                
-            foreach (int i in req) {
-                print(i);
-                if (i == openingDirection) {
-                    break;
+            int i = 0;
+            foreach (Vector2 coord in templates.positions) {
+                Vector2 real = coord * 14;
+                if (transform.position.x + 14 == coord.x) {
+                    // Space Above Occupied
+                    if (templates.topRooms.Contains(templates.rooms[i])) {
+                        // Above room has a bottom doorway
+                        // Remove rooms from validRooms that do not have an upwards doorway
+                        GetValidRooms(validRooms, templates.topRooms, true);
+                    } else {
+                        // Above room does not have a bottom doorway
+                        // Remove rooms from validRooms that have an upwards doorway
+                        GetValidRooms(validRooms, templates.topRooms, false);
+                    }
+                } else if (transform.position.x - 14 == coord.x) {
+                    // Space Below Occupied
+                    if (templates.bottomRooms.Contains(templates.rooms[i])) {
+                        // Above room has a bottom doorway
+                        // Remove rooms from validRooms that do not have a downwards doorway
+                        GetValidRooms(validRooms, templates.bottomRooms, true);
+                    } else {
+                        // Above room does not have a bottom doorway
+                        // Remove rooms from validRooms that have a downwards doorway
+                        GetValidRooms(validRooms, templates.bottomRooms, false);
+                    }
+                } else if (transform.position.y + 14 == coord.y) {
+                    // Space to Right Occupied
+                    if (templates.leftRooms.Contains(templates.rooms[i])) {
+                        // Above room has a bottom doorway
+                        // Remove rooms from validRooms that do not have a left doorway
+                        GetValidRooms(validRooms, templates.leftRooms, true);
+                    } else {
+                        // Above room does not have a bottom doorway
+                        // Remove rooms from validRooms that have a left doorway
+                        GetValidRooms(validRooms, templates.leftRooms, false);
+                    }
+                } else if (transform.position.y - 14 == coord.y) {
+                    // Space to Left Occupied
+                    if (templates.rightRooms.Contains(templates.rooms[i])) {
+                        // Above room has a bottom doorway
+                        // Remove rooms from validRooms that do not have a right doorway
+                        GetValidRooms(validRooms, templates.rightRooms, true);
+                    } else {
+                        // Above room does not have a bottom doorway
+                        // Remove rooms from validRooms that have a right doorway
+                        GetValidRooms(validRooms, templates.rightRooms, false);
+                    }
                 }
-                else if (i == 1) {
-                    validRooms = GetValidRooms(validRooms, templates.bottomRooms);
-                } else if (i == 2) {
-                    validRooms = GetValidRooms(validRooms, templates.topRooms);
-                } else if (i == 3) {
-                    validRooms = GetValidRooms(validRooms, templates.rightRooms);
-                } else if (i == 4) {
-                    validRooms = GetValidRooms(validRooms, templates.leftRooms);
-                }
+                i++;
             }
-                
+            print(validRooms.Count);   
             rand = Random.Range(0, validRooms.Count);
             Instantiate(validRooms[rand], transform.position, Quaternion.identity);
             
             templates.waitTime = .4f;
-            templates.positions.Add(transform.position);
             spawned = true;
         }
     }
@@ -72,7 +105,6 @@ public class RoomSpawner : MonoBehaviour
         if (other.CompareTag("SpawnPoint")) {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
                 // Two rooms spawned at the same pos, this is first room
-                other.GetComponent<RoomSpawner>().req.Add(openingDirection);
                 Destroy(gameObject);
             }
             if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false) {
@@ -80,22 +112,26 @@ public class RoomSpawner : MonoBehaviour
                 // Do nothing? 
             }
 
-            spawned = true;
+            //spawned = true;
         }
     }
 
-    List<GameObject> GetValidRooms(List<GameObject> List1, GameObject[] List2) {
+    List<GameObject> GetValidRooms(List<GameObject> List1, List<GameObject> List2, bool findValid) {
+        // If findValid is true, returns common items between the lists. If not, returns items in List1 that are not in List2
         List<GameObject> valid = new List<GameObject>();
-        foreach (GameObject a in List2) {
-            if (List1.Contains(a)) {
-                valid.Add(a);
+        if (findValid) {
+            foreach (GameObject a in List2) {
+                if (List1.Contains(a)) {
+                    valid.Add(a);
+                }
+            }
+        } else {
+            valid = List1;
+            foreach (GameObject b in List2) {
+                valid.Remove(b);
             }
         }
 
         return valid;
-    }
-
-    void CheckValidSpawns() {
-        
     }
 }

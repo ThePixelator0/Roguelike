@@ -6,10 +6,10 @@ public class RoomTemplate : MonoBehaviour
 {
     // Bottom Rooms are rooms that go under other rooms - ones that have access (Doorway) from the North side.
     // The same is true for the other sides.
-    public GameObject[] bottomRooms;
-    public GameObject[] topRooms;
-    public GameObject[] leftRooms;
-    public GameObject[] rightRooms;
+    public List<GameObject> bottomRooms;
+    public List<GameObject> topRooms;
+    public List<GameObject> leftRooms;
+    public List<GameObject> rightRooms;
 
     // A closed room has no access.
     public GameObject closedRoom;
@@ -23,7 +23,7 @@ public class RoomTemplate : MonoBehaviour
     private bool spawnedBoss;   // Has the boss been spawned?
     public GameObject boss;     // The boss to spawn
 
-    void Update() {
+    async void Update() {
         if (waitTime <= 0 && !spawnedBoss) {
             for (int i = 0; i < rooms.Count; i++) {
                 if (i == rooms.Count - 1) {
@@ -31,7 +31,7 @@ public class RoomTemplate : MonoBehaviour
                     spawnedBoss = true;
                 }
             }
-        } else {
+        } else if (waitTime > 0) {
             waitTime -= Time.deltaTime;
         }
     }
