@@ -18,22 +18,32 @@ public class RoomTemplate : MonoBehaviour
     public List<GameObject> rooms;
     public List<Vector2> positions;
 
+    public List<GameObject> spawnQueue;
+    public bool canSpawn;
+    public GameObject blocker;
+
     
     public float waitTime;      // Time to wait when generating the rooms
     private bool spawnedBoss;   // Has the boss been spawned?
     public GameObject boss;     // The boss to spawn
 
+    void Start() {
+        canSpawn = true;
+    }
+
     async void Update() {
-        if (waitTime <= 0 && !spawnedBoss) {
-            // Wait until rooms have stopped generating, then find most recent and spawn boss.
-            for (int i = 0; i < rooms.Count; i++) {
-                if (i == rooms.Count - 1) {
-                    Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
-                    spawnedBoss = true;
-                }
+        if (spawnQueue.Count > 0 && canSpawn && waitTime > 1) {
+            waitTime = 0;
+            canSpawn = false;
+            if (spawnQueue[0] != null) {
+                spawnQueue[0].SendMessage("Spawn");
+            } else {
+                canSpawn = true;
+                waitTime = 1;
             }
-        } else if (waitTime > 0) {
-            // waitTime -= Time.deltaTime;
+            spawnQueue.RemoveAt(0);
+        } else {
+            waitTime += Time.deltaTime;
         }
     }
 }
