@@ -25,6 +25,7 @@ public class RoomTemplate : MonoBehaviour
 
     async void Update() {
         if (waitTime <= 0 && !spawnedBoss) {
+            // Wait until rooms have stopped generating, then find most recent and spawn boss.
             for (int i = 0; i < rooms.Count; i++) {
                 if (i == rooms.Count - 1) {
                     Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
@@ -32,7 +33,7 @@ public class RoomTemplate : MonoBehaviour
                 }
             }
         } else if (waitTime > 0) {
-            waitTime -= Time.deltaTime;
+            // waitTime -= Time.deltaTime;
         }
     }
 }

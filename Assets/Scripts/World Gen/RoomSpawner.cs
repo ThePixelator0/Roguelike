@@ -14,10 +14,14 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
     public bool spawned = false;
     private Vector3 offset = new Vector3(0f, 0f, 0f);
+    public List<GameObject> validRooms;
+
+    public List<Vector2> checkedPos;
+
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 1f);
     }
 
     void Spawn() {
@@ -26,7 +30,7 @@ public class RoomSpawner : MonoBehaviour
             templates.rooms.Add(transform.parent.gameObject);
             // The index of either the Room or the position will be the same.
 
-            List<GameObject> validRooms = new List<GameObject>();
+            validRooms = new List<GameObject>();
 
             if (openingDirection == 1) {    
                 // Rooms with a BOTTOM door
@@ -45,54 +49,84 @@ public class RoomSpawner : MonoBehaviour
             int i = 0;
             foreach (Vector2 coord in templates.positions) {
                 Vector2 real = coord * 14;
-                if (transform.position.x + 14 == coord.x) {
+                if ((transform.position.x == real.x) && (transform.position.y == real.y)) {
+                    continue;
+                }
+
+                checkedPos.Add(coord);
+
+                if ((transform.position.y + 14 == real.y) && (transform.position.x == real.x)) {
                     // Space Above Occupied
-                    if (templates.topRooms.Contains(templates.rooms[i])) {
+                    if (openingDirection == 2) {
+                        break;
+                    }
+                    print("There is a room above " + (transform.position / 14));
+                    if (templates.bottomRooms.Contains(templates.rooms[i])) {
                         // Above room has a bottom doorway
-                        // Remove rooms from validRooms that do not have an upwards doorway
+                        print("There is a room above " + (transform.position / 14) + " that has a bottom doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that do not have a top doorway
                         GetValidRooms(validRooms, templates.topRooms, true);
                     } else {
                         // Above room does not have a bottom doorway
-                        // Remove rooms from validRooms that have an upwards doorway
+                        print("There is a room above " + (transform.position / 14) + " that does not have a bottom doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that have a top doorway
                         GetValidRooms(validRooms, templates.topRooms, false);
                     }
-                } else if (transform.position.x - 14 == coord.x) {
+                } else if ((transform.position.y - 14 == real.y) && (transform.position.x == real.x)) {
                     // Space Below Occupied
-                    if (templates.bottomRooms.Contains(templates.rooms[i])) {
-                        // Above room has a bottom doorway
-                        // Remove rooms from validRooms that do not have a downwards doorway
+                    if (openingDirection == 1) {
+                        break;
+                    }
+                    
+                    print("There is a room below " + (transform.position / 14));
+                    if (templates.topRooms.Contains(templates.rooms[i])) {
+                        // Below room has a top doorway
+                        print("There is a room below " + (transform.position / 14) + " that has a top doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that do not have a top doorway
                         GetValidRooms(validRooms, templates.bottomRooms, true);
                     } else {
-                        // Above room does not have a bottom doorway
-                        // Remove rooms from validRooms that have a downwards doorway
+                        // Below room does not have a top doorway
+                        print("There is a room below " + (transform.position / 14) + " that does not have a top doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that have a top doorway
                         GetValidRooms(validRooms, templates.bottomRooms, false);
                     }
-                } else if (transform.position.y + 14 == coord.y) {
+                } else if ((transform.position.x + 14 == real.x) && (transform.position.y == real.y)) {
                     // Space to Right Occupied
-                    if (templates.leftRooms.Contains(templates.rooms[i])) {
-                        // Above room has a bottom doorway
-                        // Remove rooms from validRooms that do not have a left doorway
-                        GetValidRooms(validRooms, templates.leftRooms, true);
-                    } else {
-                        // Above room does not have a bottom doorway
-                        // Remove rooms from validRooms that have a left doorway
-                        GetValidRooms(validRooms, templates.leftRooms, false);
+                    if (openingDirection == 3) {
+                        break;
                     }
-                } else if (transform.position.y - 14 == coord.y) {
-                    // Space to Left Occupied
-                    if (templates.rightRooms.Contains(templates.rooms[i])) {
-                        // Above room has a bottom doorway
+                    print("There is a room right of " + (transform.position / 14));
+                    if (templates.leftRooms.Contains(templates.rooms[i])) {
+                        // Right room has a left doorway
+                        print("There is a room to the right of " + (transform.position / 14) + " that has a left doorway - " + templates.rooms[i]);
                         // Remove rooms from validRooms that do not have a right doorway
                         GetValidRooms(validRooms, templates.rightRooms, true);
                     } else {
-                        // Above room does not have a bottom doorway
+                        // Right room does not have a left doorway
+                        print("There is a room to the right of " + (transform.position / 14) + " that does not have a left doorway - " + templates.rooms[i]);
                         // Remove rooms from validRooms that have a right doorway
                         GetValidRooms(validRooms, templates.rightRooms, false);
+                    }
+                } else if ((transform.position.x - 14 == real.x) && (transform.position.y == real.y)) {
+                    // Space to Left Occupied
+                    if (openingDirection == 4) {
+                        break;
+                    }
+                    print("There is a room left of " + (transform.position / 14));
+                    if (templates.rightRooms.Contains(templates.rooms[i])) {
+                        // Left room has a Right doorway
+                        print("There is a room to the left of " + (transform.position / 14) + " that has a right doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that do not have a right doorway
+                        GetValidRooms(validRooms, templates.leftRooms, true);
+                    } else {
+                        // Left room does not have a Right doorway
+                        print("There is a room to the left of " + (transform.position / 14) + " that does not have a right doorway - " + templates.rooms[i]);
+                        // Remove rooms from validRooms that have a right doorway
+                        GetValidRooms(validRooms, templates.leftRooms, false);
                     }
                 }
                 i++;
             }
-            print(validRooms.Count);   
             rand = Random.Range(0, validRooms.Count);
             Instantiate(validRooms[rand], transform.position, Quaternion.identity);
             
@@ -103,32 +137,32 @@ public class RoomSpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("SpawnPoint")) {
-            if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false) {
-                // Two rooms spawned at the same pos, this is first room
+            if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false) {
+                // Spawned where a room already exists
+                Destroy(gameObject);
+            } else if (other.GetComponent<RoomSpawner>().openingDirection > openingDirection) {
+                // 2 rooms spawned at the same pos. Destroy 1 of them
                 Destroy(gameObject);
             }
-            if (other.GetComponent<RoomSpawner>().spawned == true && spawned == false) {
-                // Two Rooms spawned at the same pos, this is second room
-                // Do nothing? 
-            }
-
-            //spawned = true;
         }
     }
 
     List<GameObject> GetValidRooms(List<GameObject> List1, List<GameObject> List2, bool findValid) {
         // If findValid is true, returns common items between the lists. If not, returns items in List1 that are not in List2
         List<GameObject> valid = new List<GameObject>();
-        if (findValid) {
+        if (findValid == true) {
             foreach (GameObject a in List2) {
                 if (List1.Contains(a)) {
                     valid.Add(a);
+                } else {
                 }
             }
         } else {
             valid = List1;
             foreach (GameObject b in List2) {
-                valid.Remove(b);
+                if (valid.Contains(b)) {
+                    valid.Remove(b);
+                }
             }
         }
 
