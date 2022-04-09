@@ -902,6 +902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 4
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &1005108454953627842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: -1
   spawned: 1
+  validRooms: []
+  checkedPos: []
 --- !u!1 &4047894444266377179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,6 +3408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &7803992312830765933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,6 +3504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 2
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &7895116970558988199
 GameObject:
   m_ObjectHideFlags: 0
@@ -3592,6 +3600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &8328094213977846917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,7 +3614,7 @@ GameObject:
   - component: {fileID: 3404447132494382640}
   - component: {fileID: 3152293540111878407}
   m_Layer: 0
-  m_Name: Room - 4W
+  m_Name: Room - TBLR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

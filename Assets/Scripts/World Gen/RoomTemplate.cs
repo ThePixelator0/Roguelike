@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class RoomTemplate : MonoBehaviour
 {
-    // Bottom Rooms are rooms that go under other rooms - ones that have access (Doorway) from the North side.
-    // The same is true for the other sides.
+    // Bottom Rooms are rooms that have a doorway on the bottom.
+    // The same is true for the other directions.
     public List<GameObject> bottomRooms;
     public List<GameObject> topRooms;
     public List<GameObject> leftRooms;
     public List<GameObject> rightRooms;
+
+    public List<string> bottomRooms_Names;
+    public List<string> topRooms_Names;
+    public List<string> leftRooms_Names;
+    public List<string> rightRooms_Names;
+
 
     // A closed room has no access.
     public GameObject closedRoom;
@@ -29,21 +35,50 @@ public class RoomTemplate : MonoBehaviour
 
     void Start() {
         canSpawn = true;
+
+        bottomRooms_Names = new List<string>();
+        topRooms_Names = new List<string>();
+        leftRooms_Names = new List<string>();
+        rightRooms_Names = new List<string>();
+        
+        // Set each room_names var to that room's name, avoiding duplicates
+        foreach (GameObject room in bottomRooms) {
+            if (bottomRooms_Names.Contains(room.name + "(Clone)")) {
+                continue;
+            }
+            bottomRooms_Names.Add(room.name + "(Clone)");
+        }
+        foreach (GameObject room in topRooms) {
+            if (topRooms_Names.Contains(room.name + "(Clone)")) {
+                continue;
+            }
+            topRooms_Names.Add(room.name + "(Clone)");
+        }
+        foreach (GameObject room in leftRooms) {
+            if (leftRooms_Names.Contains(room.name + "(Clone)")) {
+                continue;
+            }
+            leftRooms_Names.Add(room.name + "(Clone)");
+        }
+        foreach (GameObject room in rightRooms) {
+            if (rightRooms_Names.Contains(room.name + "(Clone)")) {
+                continue;
+            }
+            rightRooms_Names.Add(room.name + "(Clone)");
+        }
     }
 
     async void Update() {
         if (spawnQueue.Count > 0 && canSpawn && waitTime > 1) {
-            waitTime = 0;
-            canSpawn = false;
             if (spawnQueue[0] != null) {
+                waitTime = 0;
+                canSpawn = false;
                 spawnQueue[0].SendMessage("Spawn");
             } else {
-                canSpawn = true;
-                waitTime = 1;
             }
             spawnQueue.RemoveAt(0);
-        } else {
-            waitTime += Time.deltaTime;
         }
+        waitTime += Time.deltaTime;
+        
     }
 }
