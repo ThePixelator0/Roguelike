@@ -69,7 +69,7 @@ public class RoomTemplate : MonoBehaviour
     }
 
     async void Update() {
-        if (spawnQueue.Count > 0 && canSpawn && waitTime > 1) {
+        if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
             if (spawnQueue[0] != null) {
                 waitTime = 0;
                 canSpawn = false;
@@ -77,6 +77,11 @@ public class RoomTemplate : MonoBehaviour
             } else {
             }
             spawnQueue.RemoveAt(0);
+
+            if (spawnQueue.Count == 0) {
+                GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
+                print("Dungeon Completed!");
+            }
         }
         waitTime += Time.deltaTime;
         

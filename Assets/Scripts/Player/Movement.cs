@@ -5,16 +5,35 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    private float speed;    // Speed of normal movement
+
     [SerializeField]
-    private float sprintModifier;
+    private float dashMultiplier;   // How fast dash is
     [SerializeField]
-    private Rigidbody2D rb;
+    private Vector2 dashMod;    // Which direction dashing
+    [SerializeField]
+    private float dashCooldown; // How long until next dash available
+    [SerializeField]
+    private float timeBetweenDashes;    // How long between start of each dash
+    [SerializeField]
+    private float dashLength;   // How many seconds a dash lasts
+
+    [SerializeField]
+    private Rigidbody2D rb; // Local var of RigidBody2D (Physics for player)
+
+    void Start() {
+        dashMod = new Vector2(0, 0);
+        dashCooldown = 0f;
+    }
 
     void Update()
     {
-        // Increase speed once dash implemented
-        Move(GetInputs() * speed, GetSprinting(), sprintModifier);
+        if (GetDashing() && dashCooldown == 0) {
+            dashMod = InitDash(GetInputs(), dashMultiplier);
+        }
+        Move(GetInputs() * speed, dashMod);
+        
+        Cooldowns();
     }
 
     Vector2 GetInputs() {
@@ -29,18 +48,37 @@ public class Movement : MonoBehaviour
         return inputs;
     }
 
-    // TODO: Replace Sprinting with a roll / dash ability
-    bool GetSprinting() {
-        // Get input from Sprint button and turn it into a boolean
-        bool sprint;
+    bool GetDashing() {
+        // Get input from Dash button and turn it into a boolean
+        bool dash;
 
-        sprint = Input.GetAxis("Sprint") > 0 ? true : false;
+        dash = Input.GetAxis("Dash") > 0 ? true : false;
 
-        return sprint;
+        return dash;
     }
 
-    void Move(Vector2 inputs, bool sprinting, float sprintMod) {
+    Vector2 InitDash(Vector2 inputs, float dashModifier) {
+        dashCooldown = timeBetweenDashes;
+
+        Vector2 dashVec = inputs * dashModifier * speed;
+
+        return dashVec;
+    }
+
+    void Move(Vector2 inputs, Vector2 dashVec) {
         // Apply velocity
-        rb.velocity = sprinting ? inputs * sprintMod : inputs;  // If sprinting then apply sprintMod. Otherwise normal speed.
+        rb.velocity = inputs + dashVec;
+    }
+
+    void Cooldowns() {
+        if (dashCooldown > 0) {
+            dashCooldown -= Time.deltaTime;
+        }
+        if (dashCooldown < 0) {
+            dashCooldown = 0;
+        }
+        if (dashCooldown < timeBetweenDashes - dashLength && dashMod != new Vector2(0, 0)) {
+            dashMod = new Vector2(0, 0);
+        }
     }
 }

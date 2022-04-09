@@ -155,11 +155,7 @@ public class RoomSpawner : MonoBehaviour
                 }
             }
         }
-        string result = "Valid contents: ";
-        foreach (GameObject item in valid) {
-            result += item.ToString() + ", ";
-        }
-        print(result);
+        
         return valid;
     }
 }

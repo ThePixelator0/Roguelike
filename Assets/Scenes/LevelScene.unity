@@ -182,6 +182,22 @@ PrefabInstance:
       propertyPath: projectileParent
       value: 
       objectReference: {fileID: 6749851798247738396}
+    - target: {fileID: 5448081120162123468, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: dashLength
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123468, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123468, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: dashMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448081120162123468, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
+      propertyPath: timeBetweenDashes
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5448081120162123471, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1349,7 +1365,7 @@ PrefabInstance:
     - target: {fileID: 6906472319862897933, guid: c00a89c3d8cf331499962385ea766acf, type: 3}
       propertyPath: boss
       value: 
-      objectReference: {fileID: 4821698544363018365, guid: 0e8bb86d0bbcbc54481131eff428e8fa, type: 3}
+      objectReference: {fileID: 5111383324390523320, guid: 47d2938eaf7f27b41ad59cee198b373f, type: 3}
     - target: {fileID: 6906472319862897933, guid: c00a89c3d8cf331499962385ea766acf, type: 3}
       propertyPath: closedRoom
       value: 
