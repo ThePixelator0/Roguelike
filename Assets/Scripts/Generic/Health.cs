@@ -9,14 +9,25 @@ public class Health : MonoBehaviour
     private float maxHealth;
     [SerializeField]
     private GameObject blood;
+    [SerializeField]
+    private HealthBar healthBar;
 
 
     void Awake() {
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        if (gameObject.tag == "Enemy") {
+            healthBar.FadeAway(0f);
+        }
     }
 
     public void applyDamage(float damage) {
         health -= damage;
+        healthBar.SetHealth(health);
+        if (gameObject.tag == "Enemy") {
+            healthBar.FadeAway(2f);
+        }
+
         bleed();
         checkAlive();
     }

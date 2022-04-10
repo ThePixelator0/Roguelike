@@ -1673,7 +1673,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1951,7 +1951,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2074,6 +2074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: -1
   spawned: 1
+  validRooms: []
+  checkedPos: []
 --- !u!1 &3752941256959135251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,7 +4107,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4288,6 +4290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 1
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1001 &7067697585202190318
 PrefabInstance:
   m_ObjectHideFlags: 0

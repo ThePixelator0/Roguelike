@@ -17,9 +17,6 @@ public class RoomTemplate : MonoBehaviour
     public List<string> rightRooms_Names;
 
 
-    // A closed room has no access.
-    public GameObject closedRoom;
-
     // The List of all rooms
     public List<GameObject> rooms;
     public List<Vector2> positions;

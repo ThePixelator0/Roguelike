@@ -13,6 +13,11 @@ public class Arrow : MonoBehaviour
     [SerializeField]
     private double rotationOffset;
     public float damage;
+    private List<GameObject> alreadyHit;
+
+    void Awake() {
+        alreadyHit = new List<GameObject>();
+    }
 
     void Move(Vector2 dir, float speed) {
         rb.velocity = dir * speed;
@@ -38,6 +43,14 @@ public class Arrow : MonoBehaviour
 
     // Collided with a Damage Hitbox
     void OnTriggerEnter2D(Collider2D col) {
+        // Prevent multiple triggers from the same object
+        if (alreadyHit.Contains(col.gameObject)) {
+            return;
+        } else {
+            alreadyHit.Add(col.gameObject);
+        }
+
+
         // Collision with Environment
         if (col.tag == "Environment") {
             Destroy(gameObject);

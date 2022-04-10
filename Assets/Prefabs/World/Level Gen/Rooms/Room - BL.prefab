@@ -832,7 +832,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -955,6 +955,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 2
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &3886818459728140918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1051,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 3
   spawned: 0
+  validRooms: []
+  checkedPos: []
 --- !u!1 &5520785223132403133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: -1
   spawned: 1
+  validRooms: []
+  checkedPos: []
 --- !u!1 &6166284507249243411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,7 +1314,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2494,7 +2500,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4176,7 +4182,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f86f6871380238a45b3effd0bb037295, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
