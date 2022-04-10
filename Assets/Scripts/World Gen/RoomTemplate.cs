@@ -65,7 +65,7 @@ public class RoomTemplate : MonoBehaviour
         }
     }
 
-    async void Update() {
+    void Update() {
         if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
             if (spawnQueue[0] != null) {
                 waitTime = 0;
