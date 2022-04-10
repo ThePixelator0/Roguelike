@@ -10,23 +10,22 @@ public class RoomTemplate : MonoBehaviour
     public List<GameObject> topRooms;
     public List<GameObject> leftRooms;
     public List<GameObject> rightRooms;
-
+    [Space]
     public List<string> bottomRooms_Names;
     public List<string> topRooms_Names;
     public List<string> leftRooms_Names;
     public List<string> rightRooms_Names;
 
-
+    [Space]
     // The List of all rooms
     public List<GameObject> rooms;
     public List<Vector2> positions;
 
+    [Space]
     public List<GameObject> spawnQueue;
     public bool canSpawn;
-    public GameObject blocker;
-
-    
     public float waitTime;      // Time to wait when generating the rooms
+    [Space]
     private bool spawnedBoss;   // Has the boss been spawned?
     public GameObject boss;     // The boss to spawn
 

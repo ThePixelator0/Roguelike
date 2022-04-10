@@ -15,9 +15,10 @@ public class CreateLoot : MonoBehaviour
         for (int i = 0; i < entityCount; i++) {
             int posX = Random.Range((int)transform.parent.transform.position.x - 4, (int)transform.parent.transform.position.x + 4);
             int posY = Random.Range((int)transform.parent.transform.position.y - 4, (int)transform.parent.transform.position.y + 4);
-            transform.position = new Vector2(posX, posY);
 
             int rand = Random.Range(0, entities.Length);
+            transform.position = new Vector3(posX, posY, entities[rand].transform.position.z);
+
             Instantiate(entities[rand], transform.position, Quaternion.identity);
         }
     }
