@@ -7,8 +7,6 @@ public class AttackProjectile : MonoBehaviour
     [SerializeField]
     private GameObject projectile;
     [SerializeField]
-    private GameObject projectileParent;
-    [SerializeField]
     private float attackTime;
     [SerializeField]
     private float attackCooldown;
@@ -18,7 +16,6 @@ public class AttackProjectile : MonoBehaviour
         var projectileClone = Instantiate(proj, pos, Quaternion.Euler(0, 0, rot - 90));
         projectileClone.GetComponent<Arrow>().creator = gameObject;
         // print(projectileClone.GetComponent<Arrow>().creator);
-        projectileClone.transform.parent = projectileParent.transform;
     }
 
     void Update() {
@@ -32,8 +29,8 @@ public class AttackProjectile : MonoBehaviour
             mousePos.y -= objectPos.y;
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            throwProjectile(projectile, transform.position, angle);
             attackTime = attackCooldown;
+            throwProjectile(projectile, transform.position, angle);
         }
 
         // Attack Cooldown

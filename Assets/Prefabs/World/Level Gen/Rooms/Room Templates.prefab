@@ -65,7 +65,14 @@ MonoBehaviour:
   - {fileID: 6112181393077011346, guid: 68e3d28eb9f2f2147a87bf9bca171a21, type: 3}
   - {fileID: 9072722249262229709, guid: 44a6952dd2171784c87b40d62cb32a15, type: 3}
   - {fileID: 6096662398175726344, guid: d28bec450fe360e44a755d50584b62f9, type: 3}
-  closedRoom: {fileID: 9085099002176521002, guid: f4b65bae2044973428e4f92f2922c0c2, type: 3}
+  bottomRooms_Names: []
+  topRooms_Names: []
+  leftRooms_Names: []
+  rightRooms_Names: []
   rooms: []
+  positions: []
+  spawnQueue: []
+  canSpawn: 0
+  blocker: {fileID: 0}
   waitTime: 1
   boss: {fileID: 4821698544363018365, guid: 0e8bb86d0bbcbc54481131eff428e8fa, type: 3}

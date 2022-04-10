@@ -16,6 +16,7 @@ public class Arrow : MonoBehaviour
     private List<GameObject> alreadyHit;
 
     void Awake() {
+        transform.parent = GameObject.Find("Parents/Projectiles").transform;
         alreadyHit = new List<GameObject>();
     }
 

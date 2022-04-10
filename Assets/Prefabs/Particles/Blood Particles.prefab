@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathTimer: 5.1
-  particleParent: {fileID: 8828773266213539246, guid: 9340bb4674995a148a8c2a8a14b60c35, type: 3}
 --- !u!198 &5225296768686066842
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4831,7 +4830,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
