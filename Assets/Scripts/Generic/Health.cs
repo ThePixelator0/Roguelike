@@ -17,7 +17,12 @@ public class Health : MonoBehaviour
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         if (gameObject.tag == "Enemy") {
+            // Enemy Health bars disappear at start
             healthBar.FadeAway(0f);
+        }
+        if (gameObject.tag == "Player" || gameObject.tag == "Boss") {
+            // Player and Boss health bars always appear
+            healthBar.FadeAway(-69f);
         }
     }
 

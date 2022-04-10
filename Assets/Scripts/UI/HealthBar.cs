@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
     }
 
     void Update() {
-        if (timeUntilFade >= 0) {
+        if (timeUntilFade >= 0 && timeUntilFade != -69) {
             timeUntilFade -= Time.deltaTime;
             if (timeUntilFade < 0) {
                 transform.parent.GetComponent<Canvas>().enabled = false;

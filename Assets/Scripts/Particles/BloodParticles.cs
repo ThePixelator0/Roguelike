@@ -7,10 +7,13 @@ public class BloodParticles : MonoBehaviour
     [SerializeField]
     private float deathTimer;
     
-    // Update is called once per frame
+    void Start() {
+        transform.parent = GameObject.Find("Parents/Particles").transform;
+    }
+
+
     void Update()
     {
-
         if (deathTimer > 0){
             deathTimer -= Time.deltaTime;
         } else {
