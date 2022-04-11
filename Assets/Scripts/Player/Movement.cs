@@ -72,7 +72,11 @@ public class Movement : MonoBehaviour
 
     void Move(Vector2 inputs, Vector2 dashVec, Vector2 KnockbackVec) {
         // Apply velocity
-        rb.velocity = inputs + dashVec + KnockbackVec;
+        if (KnockbackVec == new Vector2(0f, 0f)) {
+            rb.velocity = inputs + dashVec;
+        } else {
+            rb.velocity = KnockbackVec;
+        }
     }
 
     void Cooldowns() {
@@ -86,13 +90,13 @@ public class Movement : MonoBehaviour
             dashMod = new Vector2(0, 0);
         }
 
-        if (knockbackDir.x > 0) {
-            knockbackDir.x *= .9f;
+        if (knockbackDir.x > speed) {
+            knockbackDir.x *= .95f;
         } else if (knockbackDir.x != 0) {
             knockbackDir.x = 0;
         }
-        if (knockbackDir.y > 0) {
-            knockbackDir.y *= .9f;
+        if (knockbackDir.y > speed) {
+            knockbackDir.y *= .95f;
         } else if (knockbackDir.y != 0) {
             knockbackDir.y = 0;
         }

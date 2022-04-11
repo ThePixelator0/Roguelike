@@ -768,7 +768,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -855,12 +855,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -2138190412523955323, guid: e6dd09b88de15f24698fe7f35a222af2, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -3242722390855433593, guid: e6dd09b88de15f24698fe7f35a222af2, type: 3}
   - m_RefCount: 8
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1183348835
   m_Mesh: {fileID: 0}
-  m_InstanceId: 152586
+  m_InstanceId: 205068
 --- !u!1 &4913294235099716230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1285,7 @@ GameObject:
   - component: {fileID: 4831049791798124437}
   - component: {fileID: 6698793132331987317}
   - component: {fileID: 3183158271670835355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collisions
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1871,7 +1871,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5431650559117634402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -1892186211
   m_Mesh: {fileID: 0}
-  m_InstanceId: 152622
+  m_InstanceId: 205100
 --- !u!1 &6716469755064194278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,7 +2216,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: 1389856669
   m_Mesh: {fileID: 0}
-  m_InstanceId: 152538
+  m_InstanceId: 205032
 --- !u!1 &6770357148843240434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2729,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 152578
+  m_InstanceId: 205060
 --- !u!1 &8541705408526776645
 GameObject:
   m_ObjectHideFlags: 0

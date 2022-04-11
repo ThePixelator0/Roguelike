@@ -62,6 +62,8 @@ public class RoomTemplate : MonoBehaviour
             }
             rightRooms_Names.Add(room.name + "(Clone)");
         }
+
+        print("Beginning Dungeon...");
     }
 
     void Update() {
@@ -80,6 +82,5 @@ public class RoomTemplate : MonoBehaviour
             }
         }
         waitTime += Time.deltaTime;
-        
     }
 }

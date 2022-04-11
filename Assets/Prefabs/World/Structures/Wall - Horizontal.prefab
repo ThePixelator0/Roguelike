@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4401205452334208982}
   - component: {fileID: 4748999724557292101}
   - component: {fileID: -3009688144871927392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall - Horizontal
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -556,4 +556,4 @@ MonoBehaviour:
   - {x: -0.95, y: 0.05, z: 0}
   m_ShapePathHash: 827820575
   m_Mesh: {fileID: 0}
-  m_InstanceId: 143052
+  m_InstanceId: 209478

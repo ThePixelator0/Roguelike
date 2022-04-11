@@ -3085,7 +3085,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 160810
+  m_InstanceId: 204450
 --- !u!1 &7363012899650643914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,7 +3144,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -2099804259
   m_Mesh: {fileID: 0}
-  m_InstanceId: 160714
+  m_InstanceId: 204372
 --- !u!1 &7416935335933368542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,7 +3298,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: 74502159
   m_Mesh: {fileID: 0}
-  m_InstanceId: 160776
+  m_InstanceId: 204420
 --- !u!1 &8104797039017597006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,7 +3313,7 @@ GameObject:
   - component: {fileID: 8651496935289531577}
   - component: {fileID: 7488914761685615193}
   - component: {fileID: 1673022414839311287}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collisions
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -3899,7 +3899,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8104797039017597006}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -4327,7 +4327,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1049131107
   m_Mesh: {fileID: 0}
-  m_InstanceId: 160802
+  m_InstanceId: 204442
 --- !u!1 &9214629381962758256
 GameObject:
   m_ObjectHideFlags: 0

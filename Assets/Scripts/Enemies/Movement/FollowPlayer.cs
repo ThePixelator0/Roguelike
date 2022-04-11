@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -38,13 +39,5 @@ public class FollowPlayer : MonoBehaviour
         rb.velocity = inputs;
     }
 
-    // Currently Unused
-    bool RaycastToPlayer() {
-        Vector3 dir = (player.transform.position - this.transform.position).normalized; // Direction to raycast. From entity to player.
-        if (Physics.Raycast(transform.position, dir, distance)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 }

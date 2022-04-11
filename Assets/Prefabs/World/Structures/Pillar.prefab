@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3698249881020086210}
   - component: {fileID: 8985533636683404229}
   - component: {fileID: 963446983900723221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillar
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -284,4 +284,4 @@ MonoBehaviour:
   - {x: 0.31684232, y: -0.046673607, z: 0}
   m_ShapePathHash: -1642234755
   m_Mesh: {fileID: 0}
-  m_InstanceId: -481584
+  m_InstanceId: 209456
