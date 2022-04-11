@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 4821698544363018366}
   - component: {fileID: 8876709753141489687}
   - component: {fileID: 2840163094318273511}
+  - component: {fileID: 3142417663521208886}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -499,7 +500,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.2}
+  m_Size: {x: 0.55, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &4821698544363018366
 MonoBehaviour:
@@ -558,3 +559,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.62, y: 0.94}
   m_EdgeRadius: 0
+--- !u!114 &3142417663521208886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821698544363018365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3a91a7acd979f4da3a04598f836d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0
+  timeBetweenAttacks: 1
+  damage: 20
+  knockbackStr: 50

@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb; // Local var of RigidBody2D (Physics for player)
 
+
+    private Vector2 knockbackDir;
+
+
     void Start() {
         dashMod = new Vector2(0, 0);
         dashCooldown = 0f;
@@ -31,7 +35,7 @@ public class Movement : MonoBehaviour
         if (GetDashing() && dashCooldown == 0) {
             dashMod = InitDash(GetInputs(), dashMultiplier);
         }
-        Move(GetInputs() * speed, dashMod);
+        Move(GetInputs() * speed, dashMod, knockbackDir);
         
         Cooldowns();
     }
@@ -65,9 +69,9 @@ public class Movement : MonoBehaviour
         return dashVec;
     }
 
-    void Move(Vector2 inputs, Vector2 dashVec) {
+    void Move(Vector2 inputs, Vector2 dashVec, Vector2 KnockbackVec) {
         // Apply velocity
-        rb.velocity = inputs + dashVec;
+        rb.velocity = inputs + dashVec + KnockbackVec;
     }
 
     void Cooldowns() {
@@ -80,5 +84,20 @@ public class Movement : MonoBehaviour
         if (dashCooldown < timeBetweenDashes - dashLength && dashMod != new Vector2(0, 0)) {
             dashMod = new Vector2(0, 0);
         }
+
+        if (knockbackDir.x > 0) {
+            knockbackDir.x *= .9f;
+        } else if (knockbackDir.x != 0) {
+            knockbackDir.x = 0;
+        }
+        if (knockbackDir.y > 0) {
+            knockbackDir.y *= .9f;
+        } else if (knockbackDir.y != 0) {
+            knockbackDir.y = 0;
+        }
+    }
+
+    public void applyKnockback(Vector2 knockback) {
+        knockbackDir = knockback;
     }
 }
