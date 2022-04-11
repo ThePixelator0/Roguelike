@@ -574,4 +574,4 @@ MonoBehaviour:
   attackCooldown: 0
   timeBetweenAttacks: 1
   damage: 20
-  knockbackStr: 50
+  knockbackStr: 25

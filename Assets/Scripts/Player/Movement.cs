@@ -32,7 +32,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (GetDashing() && dashCooldown == 0) {
+        // Dashing Currently Disabled (hence the "&& false")
+        if (GetDashing() && dashCooldown == 0 && false) {
             dashMod = InitDash(GetInputs(), dashMultiplier);
         }
         Move(GetInputs() * speed, dashMod, knockbackDir);
