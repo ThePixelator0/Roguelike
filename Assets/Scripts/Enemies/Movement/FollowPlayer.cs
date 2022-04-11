@@ -24,6 +24,8 @@ public class FollowPlayer : MonoBehaviour
             } else {
                 rb.velocity *= 0.5f;
             }
+        } else {
+            rb.velocity *= 0f;
         }
 
 

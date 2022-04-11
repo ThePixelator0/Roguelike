@@ -16,16 +16,29 @@ public class AttackMelee : MonoBehaviour
     [Space]
     public bool attacking;
     public int attackType;  // What attack to use when used
-            // 1 = Jab
-            // 2 = Slash
+            // 0 = Jab
+            // 1 = Slash
     public float timeActive;
+    public float timeInactive;
+
+    public float turnDir;   // Dir to turn during attack
 
 
     // Update is called once per frame
     void Update() {
-        if (timeActive == 0 && Input.GetAxis("Attack") != 0) {
-            attackJab();
+        if (timeActive == 0 && timeInactive == 0 && Input.GetAxis("Attack") != 0) {
+            switch (attackType) {
+                case 0:
+                    attackJab();
+                    break;
+                case 1:
+                    attackSlash();
+                    break;
+                default:
+                    break;
+            }
         } else {
+            AttackDetails();
             EndAttack();
         }
 
@@ -49,18 +62,36 @@ public class AttackMelee : MonoBehaviour
         mousePos.y -= objectPos.y;
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90 + offset));
+    }
+
+    void AttackDetails() {
+        // This is where the "Special Effects" for each attack happen
+
+        if (attacking = true && attackType == 1) {
+            // Slash attack needs to turn a total of 90 degrees over the attack time
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (turnDir * 360 * Time.deltaTime)));
+        }
     }
 
     void EndAttack() {
-        if (timeActive >= 0) {
+        if (timeActive > 0) {
             timeActive -= Time.deltaTime;
 
             if (timeActive <= 0) {
                 rend.enabled = false;
                 selfCol.enabled = false;
+                attacking = false;
                 timeActive = 0;
             }
+        } else if (timeInactive > 0) {
+            timeInactive -= Time.deltaTime;
+
+            if (timeInactive < 0) {
+                timeInactive = 0;
+            }
+        } else if (timeInactive == 0 && timeActive == 0) {
+            attacking = false;
         }
     }
 
@@ -69,7 +100,7 @@ public class AttackMelee : MonoBehaviour
     void attackJab() {
         // 0. Setup Attack
         attacking = true;
-        damage = 25;
+        damage = 40;
 
         // 1. Face Mouse
         FaceMouse();
@@ -78,15 +109,32 @@ public class AttackMelee : MonoBehaviour
         rend.enabled = true;
         selfCol.enabled = true;
 
-        // 3. Disappear after 0.5s
-        timeActive = 0.5f;
+        // 3. Disappear after a time
+        timeActive = 0.25f;
+        timeInactive = 0.25f;
     }
 
     void attackSlash() {
-        /* 
-            1. Face Mouse
-            2. Turn x degrees away instantly
-            3. Turn 2x degrees back (the swing)
-        */
+        // 0. Setup Attack
+        attacking = true;
+        damage = 25;
+
+        // 1. Face Mouse, then turn +/- 45 degrees
+        int rand = Random.Range(0, 2);      // Between 0 and 1
+        FaceMouse((rand * 90f) - 45f);      // (90 * [0 or 1]) - 45 will be (0 - 45) or (90 - 45) which will be -45 or 45
+
+        if (rand == 0) {
+            turnDir = 1;
+        } else {
+            turnDir = -1;
+        }
+
+        // 2. Appear
+        rend.enabled = true;
+        selfCol.enabled = true;
+
+        // Disappear after a time
+        timeActive = 0.2f;
+        timeInactive = 0.2f;
     }
 }
