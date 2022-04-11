@@ -35,6 +35,7 @@ public class AttackMelee : MonoBehaviour
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        transform.position = transform.parent.position;
     }
 
     void OnTriggerEnter2D(Collider2D col)

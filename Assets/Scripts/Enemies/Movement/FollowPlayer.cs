@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -19,11 +18,16 @@ public class FollowPlayer : MonoBehaviour
     }
     
     void Update() {
-        if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
-            Move(DirTo(player) * speed);
-        } else {
-            rb.velocity *= 0.5f;
+        if (player != null) {
+            if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
+                Move(DirTo(player) * speed);
+            } else {
+                rb.velocity *= 0.5f;
+            }
         }
+
+
+        
     }
 
     Vector2 DirTo(GameObject obj) {

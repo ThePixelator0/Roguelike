@@ -78,7 +78,7 @@ public class RoomTemplate : MonoBehaviour
 
             if (spawnQueue.Count == 0) {
                 GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
-                print("Dungeon Completed!");
+                print("Dungeon Completed! Number of Rooms: " + rooms.Count);
             }
         }
         waitTime += Time.deltaTime;
