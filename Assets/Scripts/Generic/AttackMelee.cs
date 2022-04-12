@@ -23,20 +23,19 @@ public class AttackMelee : MonoBehaviour
 
     public float turnDir;   // Dir to turn during attack
 
+    private List<GameObject> collisions;
+
 
     // Update is called once per frame
     void Update() {
-        if (timeActive == 0 && timeInactive == 0 && Input.GetAxis("Attack") != 0) {
-            switch (attackType) {
-                case 0:
-                    attackJab();
-                    break;
-                case 1:
-                    attackSlash();
-                    break;
-                default:
-                    break;
-            }
+        if (timeActive == 0 && timeInactive == 0 && (Input.GetAxis("Primary") != 0)) {
+            BeginAttack();
+            attackType = 0;
+            attackJab();
+        } else if (timeActive == 0 && timeInactive == 0 && (Input.GetAxis("Secondary") != 0)) {
+            BeginAttack();
+            attackType = 1;
+            attackSlash();
         } else {
             AttackDetails();
             EndAttack();
@@ -46,8 +45,29 @@ public class AttackMelee : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
+        // Check if Already Hit 
+        if (collisions.Contains(col.gameObject)) {
+            return;
+        } else {
+            collisions.Add(col.gameObject);
+        }
+        
         if (col.tag == "Enemy") {
+            // Sword hit an enemy
+
             col.SendMessage("applyDamage", damage);
+
+
+            if (attackType == 0) {
+                // Jab
+                Vector2 kbAngle = col.transform.position - transform.position;
+                col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
+            }
+            else if (attackType == 1) {
+                // Slash
+                Vector2 kbAngle = col.transform.position - transform.position;
+                col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
+            }
         }
     }
 
@@ -95,6 +115,10 @@ public class AttackMelee : MonoBehaviour
         }
     }
 
+    void BeginAttack() {
+        collisions = new List<GameObject>();
+    }
+
     // --------------- Attacks ---------------
 
     void attackJab() {
@@ -110,8 +134,8 @@ public class AttackMelee : MonoBehaviour
         selfCol.enabled = true;
 
         // 3. Disappear after a time
-        timeActive = 0.25f;
-        timeInactive = 0.25f;
+        timeActive = 0.2f;
+        timeInactive = 0.1f;
     }
 
     void attackSlash() {

@@ -11,6 +11,7 @@ public class FollowPlayer : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField]
     private float distance; // Max distance the entity can see the player from.
+    public Vector2 knockbackDir;
 
     void Awake() {
         // Find player and store in var
@@ -19,17 +20,23 @@ public class FollowPlayer : MonoBehaviour
     
     void Update() {
         if (player != null) {
-            if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
+            if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
+                Move(knockbackDir);
+                knockbackDir *= 0.95f;
+
+                if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
+                    knockbackDir = new Vector2(0f, 0f);
+                }
+            }  
+            
+            else if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
                 Move(DirTo(player) * speed);
             } else {
-                rb.velocity *= 0.5f;
+                rb.velocity *= 0.95f;
             }
         } else {
             rb.velocity *= 0f;
         }
-
-
-        
     }
 
     Vector2 DirTo(GameObject obj) {
@@ -40,10 +47,12 @@ public class FollowPlayer : MonoBehaviour
         return vec;
     }
 
-    void Move(Vector2 inputs) {
-        // Apply velocity
-        rb.velocity = inputs;
+    void Move(Vector2 vel) {
+        // Set velocity
+        rb.velocity = vel;
     }
 
-
+    public void applyKnockback(Vector2 knockback) {
+        knockbackDir = knockback;
+    }
 }
