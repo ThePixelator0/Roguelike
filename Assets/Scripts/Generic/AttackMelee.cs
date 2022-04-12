@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class AttackMelee : MonoBehaviour
 {
-    
+    public float damageMod;
     [SerializeField]
     private float damage;
     [SerializeField]
@@ -124,7 +124,7 @@ public class AttackMelee : MonoBehaviour
     void attackJab() {
         // 0. Setup Attack
         attacking = true;
-        damage = 40;
+        damage = 40 * (1 + damageMod);
 
         // 1. Face Mouse
         FaceMouse();
@@ -141,7 +141,7 @@ public class AttackMelee : MonoBehaviour
     void attackSlash() {
         // 0. Setup Attack
         attacking = true;
-        damage = 25;
+        damage = 20 * (1 + damageMod);
 
         // 1. Face Mouse, then turn +/- 45 degrees
         int rand = Random.Range(0, 2);      // Between 0 and 1

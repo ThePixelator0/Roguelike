@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AttackProjectile : MonoBehaviour
 {
+    public float damageMod; // Currently does nothing
     [SerializeField]
     private GameObject projectile;
     [SerializeField]

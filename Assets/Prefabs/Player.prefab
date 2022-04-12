@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 5448081120162123467}
   - component: {fileID: 5448081120162123466}
   - component: {fileID: 5448081120162123465}
+  - component: {fileID: 6542850161956422715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -639,6 +640,26 @@ MonoBehaviour:
   projectile: {fileID: 6523799677298103784, guid: 7f1910fde0cbbe04cbd324b791923c13, type: 3}
   attackTime: 0.5
   attackCooldown: 0.5
+--- !u!114 &6542850161956422715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448081120162123463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51d59be02179f54b9c642b78a908bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  rend: {fileID: 0}
+  selfCol: {fileID: 0}
+  attacking: 0
+  attackType: 0
+  timeActive: 0
+  timeInactive: 0
+  turnDir: 0
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,6 +667,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5448081119686077786}
     m_Modifications:
+    - target: {fileID: 8801815021625346928, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: attackType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8801815021625346943, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_Enabled
       value: 1

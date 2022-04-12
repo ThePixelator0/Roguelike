@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;    // Speed of normal movement
+    public float speed;    // Speed of normal movement
 
     [SerializeField]
     private float dashMultiplier;   // How fast dash is
