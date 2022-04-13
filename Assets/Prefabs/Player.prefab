@@ -436,12 +436,11 @@ GameObject:
   - component: {fileID: 5448081119686077786}
   - component: {fileID: 5448081120162123470}
   - component: {fileID: 5448081120162123464}
-  - component: {fileID: 5448081120162123469}
+  - component: {fileID: 4960980253896315059}
   - component: {fileID: 5448081120162123468}
   - component: {fileID: 5448081120162123467}
   - component: {fileID: 5448081120162123466}
   - component: {fileID: 5448081120162123465}
-  - component: {fileID: 6542850161956422715}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -533,13 +532,13 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 52f0b1bc262dd134b9d942407e2a3d34, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &5448081120162123469
-BoxCollider2D:
+--- !u!70 &4960980253896315059
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -547,23 +546,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 5448081120162123463}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 52f0b1bc262dd134b9d942407e2a3d34, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03, y: -0.47}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 1.125}
-    newSize: {x: 0.9375, y: 1.125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.62, y: 0.19}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.03, y: -0.4}
+  m_Size: {x: 0.4, y: 0.4}
+  m_Direction: 1
 --- !u!114 &5448081120162123468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,29 +626,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738f3d86e0ec94f4ca05ac0f369624c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMod: 0
   projectile: {fileID: 6523799677298103784, guid: 7f1910fde0cbbe04cbd324b791923c13, type: 3}
   attackTime: 0.5
   attackCooldown: 0.5
---- !u!114 &6542850161956422715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448081120162123463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51d59be02179f54b9c642b78a908bad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  rend: {fileID: 0}
-  selfCol: {fileID: 0}
-  attacking: 0
-  attackType: 0
-  timeActive: 0
-  timeInactive: 0
-  turnDir: 0
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0

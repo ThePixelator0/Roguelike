@@ -12,6 +12,7 @@ TagManager:
   - Grid
   - Map
   - Boss
+  - Minimap
   layers:
   - Default
   - TransparentFX
