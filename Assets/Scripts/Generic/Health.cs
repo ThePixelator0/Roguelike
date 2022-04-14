@@ -33,14 +33,14 @@ public class Health : MonoBehaviour
         }
 
         bleed();
-        checkAlive();
+        CheckAlive();
     }
 
     void bleed() {
         var bloodClone = Instantiate(blood, transform.position, Quaternion.identity);
     }
 
-    void checkAlive() {
+    void CheckAlive() {
         if (health <= 0) {
             if (gameObject.tag == "Player") {
                 print("Game Over!");

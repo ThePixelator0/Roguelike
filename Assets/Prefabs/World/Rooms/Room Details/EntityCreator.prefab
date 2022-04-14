@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4068803324096206048}
-  - component: {fileID: 1988534284176164468}
   - component: {fileID: 5561508152568590905}
   m_Layer: 0
   m_Name: EntityCreator
@@ -32,24 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1988534284176164468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225254454575593611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4c2ad0e7ccad94eaba5e4c3dadd7b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entityCount: 0
-  entities:
-  - {fileID: 4821698544363018365, guid: 0e8bb86d0bbcbc54481131eff428e8fa, type: 3}
-  - {fileID: 525241222103690244, guid: e129bf2068083814fabe6522ec86b2ec, type: 3}
-  - {fileID: 2333122314350464390, guid: 2a958e2db6b5daf479dd79ec309d0e6d, type: 3}
-  - {fileID: 7542682600488924584, guid: 18e69598e0619844ba84b8c4e4a2f3c5, type: 3}
 --- !u!114 &5561508152568590905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +47,4 @@ MonoBehaviour:
   rooms:
   - {fileID: 4472156658409884205, guid: 5ae6114e6a563ff4dbcd63b6e48d1020, type: 3}
   - {fileID: 7408104673419493783, guid: 02719c1bf07091945a69c140bc748da5, type: 3}
+  - {fileID: 1781936435007847033, guid: df865bc3d58d84a48ba1003f05a40ab1, type: 3}

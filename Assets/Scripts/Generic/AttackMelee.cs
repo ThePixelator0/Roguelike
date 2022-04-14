@@ -52,8 +52,8 @@ public class AttackMelee : MonoBehaviour
             collisions.Add(col.gameObject);
         }
         
+        // Sword hit an enemy
         if (col.tag == "Enemy") {
-            // Sword hit an enemy
 
             col.SendMessage("applyDamage", damage);
 
@@ -69,6 +69,11 @@ public class AttackMelee : MonoBehaviour
                 col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
             }
         }
+
+        // Sword hit a breakable object
+        else if (col.tag == "Breakable") {
+            col.SendMessage("applyDamage", damage);
+        } 
     }
 
     void FaceMouse(float offset = 0f) {
