@@ -84,14 +84,14 @@ public class RoomTemplate : MonoBehaviour
 
             if (spawnQueue.Count == 0) {
                 GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
-                print("Generated Dungeon with " + rooms.Count + " rooms. Creating Interiors...");
+                print("Generated Dungeon with " + rooms.Count + " rooms. Creating Decorations...");
 
                 foreach (Vector2 coord in positions) {
                     Vector3 real = new Vector3(coord.x, coord.y, 0);
                     real *= 14;
-                    print(real);
                     Instantiate(roomDecor, real, Quaternion.identity);
                 }
+                print("Room Decorations complete.");
             }
         } 
         waitTime += Time.deltaTime;
