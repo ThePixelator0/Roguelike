@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class chest : MonoBehaviour
 {
-    public GameObject open;
-    public GameObject closed;
+    [SerializeField]
+    private GameObject open;
+    [SerializeField]
+    private GameObject closed;
 
-    public int reward;
+    public bool isClosed;
+
+    [SerializeField]
+    private GameObject itemController;
     
     void Start() {
         closed.SetActive(true);
@@ -15,7 +20,7 @@ public class chest : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.tag == "Player") {
+        if (col.tag == "Player" && isClosed) {
             Open(col);
         }
     }
@@ -23,9 +28,11 @@ public class chest : MonoBehaviour
     void Open(Collider2D col) {
         closed.SetActive(false);
         open.SetActive(true);
+        isClosed = false;
 
-        if (reward == -1) {
-            col.SendMessage("applyDamage", 69420);
-        }
+        int rand = Random.Range(0, itemController.GetComponent<_ItemController>().itemList.Count);
+        GameObject loot = itemController.GetComponent<_ItemController>().itemList[rand];
+
+        Instantiate(loot, transform.position, Quaternion.identity);
     }
 }

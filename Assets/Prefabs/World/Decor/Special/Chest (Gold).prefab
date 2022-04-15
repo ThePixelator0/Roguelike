@@ -426,7 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 533457271405093182}
   closed: {fileID: 4944886536849301785}
-  reward: -1
+  isOpen: 1
+  itemController: {fileID: 1972745991934428291, guid: 705b9ca6ade4e5b4ebd818da4482b52f, type: 3}
 --- !u!1 &4944886536849301785
 GameObject:
   m_ObjectHideFlags: 0
