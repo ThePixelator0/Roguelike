@@ -14,12 +14,9 @@ public class AttackPlayer : MonoBehaviour
         if (col.tag == "Player" && attackCooldown == 0) {
             attackCooldown = timeBetweenAttacks;
 
-            Vector2 kb = new Vector2();
-            kb.x = col.transform.position.x - transform.position.x;
-            kb.y = col.transform.position.y - transform.position.y;
-            kb.Normalize();
+            Vector2 kbAngle = col.transform.position - transform.position;
 
-            col.SendMessage("applyKnockback", kb * knockbackStr);
+            col.SendMessage("applyKnockback", kbAngle.normalized * knockbackStr);
             col.SendMessage("applyDamage", damage);
         }
     }

@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3142417663521208886, guid: 0e8bb86d0bbcbc54481131eff428e8fa, type: 3}
       propertyPath: knockbackStr
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4821698544363018365, guid: 0e8bb86d0bbcbc54481131eff428e8fa, type: 3}
       propertyPath: m_Name

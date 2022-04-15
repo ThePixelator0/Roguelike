@@ -26,7 +26,7 @@ public class Items : MonoBehaviour
                 break;
             case 2:
                 // Increase speed by 50%
-                gameObject.GetComponent<Movement>().speedMod += 0.5f;
+                gameObject.GetComponent<Movement>().speedMod += 0.15f;
                 break;
             case 3:
                 // Increase stealth by 1

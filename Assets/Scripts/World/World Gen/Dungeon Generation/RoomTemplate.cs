@@ -93,6 +93,11 @@ public class RoomTemplate : MonoBehaviour
                         Instantiate(roomDecor, real, Quaternion.identity);
                     }
                 }
+
+                // Clear all Room Spawners (Probably Helps with Lag)
+                foreach (GameObject roomSpawn in GameObject.FindGameObjectsWithTag("SpawnPoint")) {
+                    Destroy(roomSpawn);
+                }
             }
         } else if (spawnQueue.Count > 0) {
             waitTime += Time.deltaTime;

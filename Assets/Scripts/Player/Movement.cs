@@ -34,13 +34,18 @@ public class Movement : MonoBehaviour
 
     void Update() {
         // Dashing Currently Disabled (hence the "&& false")
-        if (GetDashing() && dashCooldown == 0 && canDash) {
-            dashMod = InitDash(GetInputs(), dashMultiplier) * speedMod;
-        }
-        if (knockbackDir == new Vector2(0, 0)) {
-            Move(GetInputs() * speed * speedMod, dashMod);
-        } else {
+        
+        if (Mathf.Abs(knockbackDir.x) > speed / 2 || Mathf.Abs(knockbackDir.y) > speed / 2) {
+            // Being Knocked Back
             Move(knockbackDir);
+            knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
+
+        } else {
+            // Not Being Knocked Back
+            if (GetDashing() && dashCooldown == 0 && canDash) {
+                dashMod = InitDash(GetInputs(), dashMultiplier) * speedMod;
+            }
+            Move(GetInputs() * speed * speedMod, dashMod);
         }
         
         Cooldowns();
@@ -81,23 +86,24 @@ public class Movement : MonoBehaviour
     }
 
     void Cooldowns() {
+        // Dash Cooldowns
         if (dashCooldown > 0) {
             dashCooldown -= Time.deltaTime;
-        }
-        if (dashCooldown < 0) {
-            dashCooldown = 0;
+
+            if (dashCooldown < 0) {
+                dashCooldown = 0;
+            }
         }
         if (dashCooldown < timeBetweenDashes - dashLength && dashMod != new Vector2(0, 0)) {
+            // Stop Dash
             dashMod = new Vector2(0, 0);
         }
 
-        if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
-            knockbackDir *= 0.95f;
-
-            if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
-                knockbackDir = new Vector2(0f, 0f);
-            }
-        }  
+        // Clear Knockback
+        if ((Mathf.Abs(knockbackDir.x) < speed / 2 && Mathf.Abs(knockbackDir.y) < speed / 2) && (knockbackDir != new Vector2() )) {
+            knockbackDir = new Vector2(0f, 0f);
+        }
+        
     }
 
     public void applyKnockback(Vector2 knockback) {

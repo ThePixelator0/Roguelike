@@ -22,7 +22,7 @@ public class FollowPlayer : MonoBehaviour
         if (player != null) {
             if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
                 Move(knockbackDir);
-                knockbackDir *= 0.95f;
+                knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
 
                 if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
                     knockbackDir = new Vector2(0f, 0f);
@@ -32,7 +32,7 @@ public class FollowPlayer : MonoBehaviour
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance / player.GetComponent<Stealth>().stealthMod) {
                 Move(DirTo(player) * speed);
             } else if ( rb.velocity != new Vector2(0, 0) ) {
-                rb.velocity *= 0.95f;
+                rb.velocity = new Vector2(0, 0);
             }
         } else {
             rb.velocity *= 0f;

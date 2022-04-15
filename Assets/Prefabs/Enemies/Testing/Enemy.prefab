@@ -517,6 +517,7 @@ MonoBehaviour:
   speed: 2
   rb: {fileID: 4821698544363018305}
   distance: 6
+  knockbackDir: {x: 0, y: 0}
 --- !u!114 &8876709753141489687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,4 +575,4 @@ MonoBehaviour:
   attackCooldown: 0
   timeBetweenAttacks: 1
   damage: 20
-  knockbackStr: 10
+  knockbackStr: 5
