@@ -29,7 +29,7 @@ public class FollowPlayer : MonoBehaviour
                 }
             }  
             
-            else if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
+            else if (Vector2.Distance(transform.position, player.transform.position) <= distance / player.GetComponent<Stealth>().stealthMod) {
                 Move(DirTo(player) * speed);
             } else if ( rb.velocity != new Vector2(0, 0) ) {
                 rb.velocity *= 0.95f;

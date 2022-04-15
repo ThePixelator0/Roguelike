@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;    // Speed of normal movement
+    // Normal Movement
+    public float speed = 5;     // Speed of normal movement
+    public float speedMod = 1f; // Multiplier for Speed
 
-    [SerializeField]
-    private float dashMultiplier;   // How fast dash is
-    [SerializeField]
-    private Vector2 dashMod;    // Which direction dashing
-    [SerializeField]
-    private float dashCooldown; // How long until next dash available
-    [SerializeField]
-    private float timeBetweenDashes;    // How long between start of each dash
-    [SerializeField]
-    private float dashLength;   // How many seconds a dash lasts
+    // Dash
+    [Space]
+    public bool canDash = false;
+    private float dashMultiplier = 2f;      // How fast dash is
+    private Vector2 dashMod;                // Which direction dashing
+    public float dashCooldown = 0f;         // How long until next dash available
+    private float timeBetweenDashes = 2f;   // How long between start of each dash
+    private float dashLength = 0.15f;       // How many seconds a dash lasts
 
+
+    [Space]
     [SerializeField]
     private Rigidbody2D rb; // Local var of RigidBody2D (Physics for player)
 
-
+    // Knockback
+    [SerializeField]
     private Vector2 knockbackDir;
 
 
@@ -29,13 +32,16 @@ public class Movement : MonoBehaviour
         dashCooldown = 0f;
     }
 
-    void Update()
-    {
+    void Update() {
         // Dashing Currently Disabled (hence the "&& false")
-        if (GetDashing() && dashCooldown == 0 && false) {
-            dashMod = InitDash(GetInputs(), dashMultiplier);
+        if (GetDashing() && dashCooldown == 0 && canDash) {
+            dashMod = InitDash(GetInputs(), dashMultiplier) * speedMod;
         }
-        Move(GetInputs() * speed, dashMod, knockbackDir);
+        if (knockbackDir == new Vector2(0, 0)) {
+            Move(GetInputs() * speed * speedMod, dashMod);
+        } else {
+            Move(knockbackDir);
+        }
         
         Cooldowns();
     }
@@ -69,13 +75,9 @@ public class Movement : MonoBehaviour
         return dashVec;
     }
 
-    void Move(Vector2 inputs, Vector2 dashVec, Vector2 KnockbackVec) {
+    void Move(Vector2 moveVec, Vector2 dashVec = new Vector2() ) {
         // Apply velocity
-        if (KnockbackVec == new Vector2(0f, 0f)) {
-            rb.velocity = inputs + dashVec;
-        } else {
-            rb.velocity = KnockbackVec;
-        }
+        rb.velocity = moveVec + dashVec;
     }
 
     void Cooldowns() {
@@ -89,16 +91,13 @@ public class Movement : MonoBehaviour
             dashMod = new Vector2(0, 0);
         }
 
-        if (knockbackDir.x > speed) {
-            knockbackDir.x *= .95f;
-        } else if (knockbackDir.x != 0) {
-            knockbackDir.x = 0;
-        }
-        if (knockbackDir.y > speed) {
-            knockbackDir.y *= .95f;
-        } else if (knockbackDir.y != 0) {
-            knockbackDir.y = 0;
-        }
+        if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
+            knockbackDir *= 0.95f;
+
+            if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
+                knockbackDir = new Vector2(0f, 0f);
+            }
+        }  
     }
 
     public void applyKnockback(Vector2 knockback) {

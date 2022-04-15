@@ -17,6 +17,8 @@ public class chest : MonoBehaviour
     void Start() {
         closed.SetActive(true);
         open.SetActive(false);
+
+        itemController = GameObject.Find("_ItemController");
     }
 
     void OnTriggerEnter2D(Collider2D col) {
@@ -30,9 +32,18 @@ public class chest : MonoBehaviour
         open.SetActive(true);
         isClosed = false;
 
-        int rand = Random.Range(0, itemController.GetComponent<_ItemController>().itemList.Count);
-        GameObject loot = itemController.GetComponent<_ItemController>().itemList[rand];
+        List<GameObject> itemList = itemController.GetComponent<_ItemController>().itemList;
+        if (itemList.Count > 0) {
+            int rand = Random.Range(0, itemList.Count);
+            GameObject loot = itemList[rand];
+            itemController.GetComponent<_ItemController>().itemList.RemoveAt(rand);
 
-        Instantiate(loot, transform.position, Quaternion.identity);
+            Instantiate(loot, transform.position, Quaternion.identity);
+        } else {
+            print("No more items to give");
+        }
+        
+
+
     }
 }

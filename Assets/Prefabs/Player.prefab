@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.8
+  m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 5448081120162123466}
   - component: {fileID: 5448081120162123465}
   - component: {fileID: 9071414498082657094}
+  - component: {fileID: 1220615446888706390}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -567,12 +568,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  dashMultiplier: 2
-  dashMod: {x: 0, y: 0}
+  speedMod: 1
+  canDash: 0
   dashCooldown: 0
-  timeBetweenDashes: 2
-  dashLength: 0.15
   rb: {fileID: 5448081120162123464}
+  knockbackDir: {x: 0, y: 0}
 --- !u!61 &5448081120162123467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -644,6 +644,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: 
+--- !u!114 &1220615446888706390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448081120162123463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7624b8c267db1f468f4aa73ea2bb568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stealthMod: 1
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -251,7 +251,7 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: 0}
   m_ShapePathHash: 1234564373
   m_Mesh: {fileID: 0}
-  m_InstanceId: 35654
+  m_InstanceId: 41212
 --- !u!114 &4387394090619867895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,8 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 4236954520919046307}
   closed: {fileID: 8733696994879338628}
-  isOpen: 1
-  itemController: {fileID: 1972745991934428291, guid: 705b9ca6ade4e5b4ebd818da4482b52f, type: 3}
+  isClosed: 1
+  itemController: {fileID: 0}
 --- !u!1 &4236954520919046307
 GameObject:
   m_ObjectHideFlags: 0
