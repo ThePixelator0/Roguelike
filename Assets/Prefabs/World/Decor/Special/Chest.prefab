@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2306239838535024948}
   - component: {fileID: 6016861779956150992}
   - component: {fileID: 1243000260803958790}
+  - component: {fileID: 4387394090619867895}
   m_Layer: 6
   m_Name: Chest
   m_TagString: Environment
@@ -248,4 +249,16 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: 0}
   m_ShapePathHash: 1234564373
   m_Mesh: {fileID: 0}
-  m_InstanceId: 27864
+  m_InstanceId: 81042
+--- !u!114 &4387394090619867895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916398306657455377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a167dbc3217123847aa6b3910735efef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

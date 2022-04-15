@@ -31,7 +31,7 @@ public class FollowPlayer : MonoBehaviour
             
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance) {
                 Move(DirTo(player) * speed);
-            } else {
+            } else if ( rb.velocity != new Vector2(0, 0) ) {
                 rb.velocity *= 0.95f;
             }
         } else {
