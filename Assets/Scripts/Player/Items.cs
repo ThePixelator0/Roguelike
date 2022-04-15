@@ -34,7 +34,7 @@ public class Items : MonoBehaviour
                 break;
             case 4:
                 // Heal player to Full
-                gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
+                gameObject.SendMessage("SetHealth", gameObject.GetComponent<Health>().maxHealth);
                 break; 
         }
     }

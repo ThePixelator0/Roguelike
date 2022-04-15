@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
             healthBar.FadeAway(0f);
         }
         if (gameObject.tag == "Player" || gameObject.tag == "Boss") {
-            // Player and Boss health bars always appear
+            // Player and Boss health bars never disappear
             healthBar.FadeAway(-69f);
         }
     }
@@ -33,6 +33,13 @@ public class Health : MonoBehaviour
         }
 
         bleed();
+        CheckAlive();
+    }
+
+    public void SetHealth(float newHealth) {
+        health = newHealth;
+        healthBar.SetHealth(health);
+
         CheckAlive();
     }
 

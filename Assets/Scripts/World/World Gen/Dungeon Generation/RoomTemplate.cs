@@ -99,7 +99,7 @@ public class RoomTemplate : MonoBehaviour
                     Destroy(roomSpawn);
                 }
             }
-        } else if (spawnQueue.Count > 0) {
+        } else if (spawnQueue.Count > 0 && canSpawn) {
             waitTime += Time.deltaTime;
         }
     }
