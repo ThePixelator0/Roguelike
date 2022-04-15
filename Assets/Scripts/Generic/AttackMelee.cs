@@ -28,6 +28,8 @@ public class AttackMelee : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        transform.position = transform.parent.position;
+
         if (timeActive == 0 && timeInactive == 0 && (Input.GetAxis("Primary") != 0)) {
             BeginAttack();
             attackType = 0;
@@ -40,33 +42,32 @@ public class AttackMelee : MonoBehaviour
             AttackDetails();
             EndAttack();
         }
-
-        transform.position = transform.parent.position;
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        // Check if Already Hit 
-        if (collisions.Contains(col.gameObject)) {
-            return;
-        } else {
-            collisions.Add(col.gameObject);
-        }
-        
-        // Sword hit an enemy
         if (col.tag == "Enemy") {
-
-            col.SendMessage("applyDamage", damage);
-
+            // Check if Already Hit 
+            if (collisions.Contains(col.gameObject)) {
+                return;
+            } else {
+                collisions.Add(col.gameObject);
+            }
 
             if (attackType == 0) {
                 // Jab
-                Vector2 kbAngle = col.transform.position - transform.position;
-                col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
+                if (collisions.Count == 1) {
+                    // Jab can only hit 1 enemy
+
+                    Vector2 kbAngle = col.transform.position - transform.position;
+                    col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
+                    col.SendMessage("applyDamage", damage);
+                }
             }
             else if (attackType == 1) {
                 // Slash
                 Vector2 kbAngle = col.transform.position - transform.position;
                 col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
+                col.SendMessage("applyDamage", damage);
             }
         }
 
@@ -93,7 +94,13 @@ public class AttackMelee : MonoBehaviour
     void AttackDetails() {
         // This is where the "Special Effects" for each attack happen
 
-        if (attacking = true && attackType == 1) {
+        if (attacking == true && attackType == 0) {
+            // Jab attack moves in, then out
+            
+            // Do this later
+        }
+
+        else if (attacking == true && attackType == 1) {
             // Slash attack needs to turn a total of 90 degrees over the attack time
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (turnDir * 360 * Time.deltaTime)));
         }

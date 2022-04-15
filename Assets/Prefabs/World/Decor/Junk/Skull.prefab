@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6690444287392583626}
   - component: {fileID: 3411613756277832750}
   - component: {fileID: 8127892123329376641}
+  - component: {fileID: 1079180374155690821}
   m_Layer: 6
   m_Name: Skull
   m_TagString: Breakable
@@ -236,3 +237,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+--- !u!114 &1079180374155690821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098282386157585391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c185507b148b4a4283d007a8549c7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowerBounds: {x: -5.5, y: -5.5}
+  upperBounds: {x: 6.5, y: 6.5}

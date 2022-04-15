@@ -34,6 +34,7 @@ public class RoomTemplate : MonoBehaviour
     public GameObject boss;     // The boss to spawn
     [Space]
     public GameObject roomDecor;
+    public GameObject junkDecor;
     public GameObject bossRoomDecor;
 
     void Start() {
@@ -91,6 +92,7 @@ public class RoomTemplate : MonoBehaviour
                         Instantiate(bossRoomDecor, real, Quaternion.identity);
                     } else {
                         Instantiate(roomDecor, real, Quaternion.identity);
+                        Instantiate(junkDecor, real, Quaternion.identity);
                     }
                 }
 
