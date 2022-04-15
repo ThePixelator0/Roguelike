@@ -10,10 +10,14 @@ public class RoomTemplate : MonoBehaviour
     public List<GameObject> topRooms;
     public List<GameObject> leftRooms;
     public List<GameObject> rightRooms;
-    [Space]
+
+    [HideInInspector]
     public List<string> bottomRooms_Names;
+    [HideInInspector]
     public List<string> topRooms_Names;
+    [HideInInspector]
     public List<string> leftRooms_Names;
+    [HideInInspector]
     public List<string> rightRooms_Names;
 
     [Space]
@@ -28,6 +32,8 @@ public class RoomTemplate : MonoBehaviour
     [Space]
     private bool spawnedBoss;   // Has the boss been spawned?
     public GameObject boss;     // The boss to spawn
+    [Space]
+    public GameObject roomDecor;
 
     void Start() {
         canSpawn = true;
@@ -78,9 +84,16 @@ public class RoomTemplate : MonoBehaviour
 
             if (spawnQueue.Count == 0) {
                 GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
-                print("Dungeon Completed! Number of Rooms: " + rooms.Count);
+                print("Generated Dungeon with " + rooms.Count + " rooms. Creating Interiors...");
+
+                foreach (Vector2 coord in positions) {
+                    Vector3 real = new Vector3(coord.x, coord.y, 0);
+                    real *= 14;
+                    print(real);
+                    Instantiate(roomDecor, real, Quaternion.identity);
+                }
             }
-        }
+        } 
         waitTime += Time.deltaTime;
     }
 }
