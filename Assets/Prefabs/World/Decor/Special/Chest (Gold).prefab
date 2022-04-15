@@ -411,7 +411,7 @@ MonoBehaviour:
   - {x: 0, y: 0.5, z: 0}
   m_ShapePathHash: 1234564373
   m_Mesh: {fileID: 0}
-  m_InstanceId: 84566
+  m_InstanceId: 94722
 --- !u!114 &92517933290736490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 533457271405093182}
   closed: {fileID: 4944886536849301785}
+  reward: -1
 --- !u!1 &4944886536849301785
 GameObject:
   m_ObjectHideFlags: 0
