@@ -34,6 +34,7 @@ public class RoomTemplate : MonoBehaviour
     public GameObject boss;     // The boss to spawn
     [Space]
     public GameObject roomDecor;
+    public GameObject bossRoomDecor;
 
     void Start() {
         canSpawn = true;
@@ -68,8 +69,6 @@ public class RoomTemplate : MonoBehaviour
             }
             rightRooms_Names.Add(room.name + "(Clone)");
         }
-
-        print("Beginning Dungeon...");
     }
 
     void Update() {
@@ -78,22 +77,25 @@ public class RoomTemplate : MonoBehaviour
                 waitTime = 0;
                 canSpawn = false;
                 spawnQueue[0].SendMessage("Spawn");
-            } else {
             }
             spawnQueue.RemoveAt(0);
 
             if (spawnQueue.Count == 0) {
                 GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
-                print("Generated Dungeon with " + rooms.Count + " rooms. Creating Decorations...");
 
                 foreach (Vector2 coord in positions) {
                     Vector3 real = new Vector3(coord.x, coord.y, 0);
                     real *= 14;
-                    Instantiate(roomDecor, real, Quaternion.identity);
+                    
+                    if (coord == positions[positions.Count - 1]) {
+                        Instantiate(bossRoomDecor, real, Quaternion.identity);
+                    } else {
+                        Instantiate(roomDecor, real, Quaternion.identity);
+                    }
                 }
-                print("Room Decorations complete.");
             }
-        } 
-        waitTime += Time.deltaTime;
+        } else if (spawnQueue.Count > 0) {
+            waitTime += Time.deltaTime;
+        }
     }
 }
