@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
 {
     // Normal Movement
     public float speed = 5;     // Speed of normal movement
-    public float speedMod = 1f; // Multiplier for Speed
 
     // Dash
     [Space]
@@ -19,8 +18,11 @@ public class Movement : MonoBehaviour
 
 
     [Space]
+    // External Components
     [SerializeField]
-    private Rigidbody2D rb; // Local var of RigidBody2D (Physics for player)
+    private Rigidbody2D rb;     // Local var of RigidBody2D (Physics for player)
+    [SerializeField]
+    private PlayerStats stats;  // Local var of player stats
 
     // Knockback
     [SerializeField]
@@ -43,9 +45,9 @@ public class Movement : MonoBehaviour
         } else {
             // Not Being Knocked Back
             if (GetDashing() && dashCooldown == 0 && canDash) {
-                dashMod = InitDash(GetInputs(), dashMultiplier) * speedMod;
+                dashMod = InitDash(GetInputs(), dashMultiplier) * stats.speedMod;
             }
-            Move(GetInputs() * speed * speedMod, dashMod);
+            Move(GetInputs() * speed * stats.speedMod, dashMod);
         }
         
         Cooldowns();

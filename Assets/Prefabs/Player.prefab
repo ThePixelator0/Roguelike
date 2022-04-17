@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.8
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
@@ -434,6 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5448081119686077786}
+  - component: {fileID: 2345428904718214095}
   - component: {fileID: 5448081120162123470}
   - component: {fileID: 5448081120162123464}
   - component: {fileID: 4960980253896315059}
@@ -467,6 +468,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2345428904718214095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448081120162123463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdfcc3dd5a5f2b4f8abdd15a91fa592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stealthMod: 1
+  damageMod: 1
+  moveSpeedMod: 1
 --- !u!212 &5448081120162123470
 SpriteRenderer:
   m_ObjectHideFlags: 0
