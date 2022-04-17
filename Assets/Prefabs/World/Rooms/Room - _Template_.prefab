@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -147355747
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58458
+  m_InstanceId: 71980
 --- !u!1 &736129912323641981
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -2099804259
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58512
+  m_InstanceId: 72034
 --- !u!1 &790329086097845609
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1183348835
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58366
+  m_InstanceId: 71892
 --- !u!1 &1381889279168437277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3211,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58402
+  m_InstanceId: 71926
 --- !u!1 &2749097650931249886
 GameObject:
   m_ObjectHideFlags: 0
@@ -3648,7 +3648,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1049131107
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58508
+  m_InstanceId: 72030
 --- !u!1 &4854148197746534757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,7 +3707,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58432
+  m_InstanceId: 71956
 --- !u!1 &4980172096046688892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,7 +3765,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -776941553
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58422
+  m_InstanceId: 71946
 --- !u!1 &6341605710702777284
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,7 +3823,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -1938763761
   m_Mesh: {fileID: 0}
-  m_InstanceId: 58488
+  m_InstanceId: 72010
 --- !u!1 &7655523378688109634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4547,7 +4547,7 @@ GameObject:
   - component: {fileID: 3869983471081944066}
   m_Layer: 0
   m_Name: Room - _Template_
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

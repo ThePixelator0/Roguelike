@@ -14,6 +14,7 @@ TagManager:
   - Boss
   - Minimap
   - Breakable
+  - Room
   layers:
   - Default
   - TransparentFX

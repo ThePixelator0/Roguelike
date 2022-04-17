@@ -6,7 +6,7 @@ public class BossDie : MonoBehaviour
 {
     public GameObject exit;
 
-    void Die() {
+    public void Die_Boss() {
         Instantiate(exit, transform.position, Quaternion.identity);
         print("Created Exit at " + transform.position);
         Destroy(gameObject);

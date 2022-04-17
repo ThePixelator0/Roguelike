@@ -45,7 +45,7 @@ public class AttackMelee : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (col.tag == "Enemy") {
+        if (col.tag == "Enemy" || col.tag == "Boss") {
             // Check if Already Hit 
             if (collisions.Contains(col.gameObject)) {
                 return;

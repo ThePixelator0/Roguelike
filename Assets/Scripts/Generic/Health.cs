@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
             } 
 
             else if (gameObject.tag == "Boss") {
-               gameObject.SendMessage("BossDie"); 
+                gameObject.SendMessage("Die_Boss"); 
             } 
             
             else {

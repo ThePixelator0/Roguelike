@@ -37,7 +37,7 @@ public class RoomTemplate : MonoBehaviour
     public GameObject junkDecor;
     public GameObject bossRoomDecor;
 
-    void Start() {
+    public void Start() {
         canSpawn = true;
 
         bottomRooms_Names = new List<string>();
