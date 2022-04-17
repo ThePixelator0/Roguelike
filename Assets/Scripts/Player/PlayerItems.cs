@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerItems : MonoBehaviour
+public static class PlayerItems
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // This script stores variables for the player that other scripts may want to access.
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public static List<int> items = new List<int>();
+    
+    public static void PickupItem(int itemnum) {
+        // Gives the player an item.
+        items.Add(itemnum);
+        GameObject.Find("Player").SendMessage("ReceiveItem", itemnum);
     }
+    
 }

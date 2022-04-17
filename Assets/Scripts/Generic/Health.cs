@@ -51,17 +51,16 @@ public class Health : MonoBehaviour
         if (health <= 0) {
             if (gameObject.tag == "Player") {
                 print("Game Over!");
+                Destroy(gameObject);
             } 
 
             else if (gameObject.tag == "Boss") {
-                
+               gameObject.SendMessage("BossDie"); 
             } 
             
             else {
-                
+                Destroy(gameObject);
             }
-
-            Destroy(gameObject);
         }
     }
 }

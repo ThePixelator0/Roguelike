@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BossDie : MonoBehaviour
 {
-    public GameObject goldChest;
+    public GameObject exit;
 
     void Die() {
-        GameObject templates = GameObject.FindGameObjectWithTag("Rooms");
-        Instantiate(goldChest, templates.GetComponent<RoomTemplate>().positions[templates.GetComponent<RoomTemplate>().positions.Count - 1] * 14, Quaternion.identity);
+        Instantiate(exit, transform.position, Quaternion.identity);
+        print("Created Exit at " + transform.position);
+        Destroy(gameObject);
     }
 }

@@ -9,7 +9,7 @@ public class RestartGame : MonoBehaviour
     
     void Start() {
         player = GameObject.Find("Player");
-        
+
         if (PlayerStats.setup != true) {
             InitPlayerVars();
         }
@@ -27,10 +27,17 @@ public class RestartGame : MonoBehaviour
         SceneManager.LoadScene(scene.name);
     }
 
+    public void NextLevel() {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
+    }
+
 
     void InitPlayerVars() {
         PlayerStats.speedMod = 1;
         PlayerStats.stealthMod = 1;
         PlayerStats.damageMod = 1;
+
+        PlayerItems.items = new List<int>();
     }
 }

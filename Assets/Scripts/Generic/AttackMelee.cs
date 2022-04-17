@@ -60,14 +60,14 @@ public class AttackMelee : MonoBehaviour
 
                     Vector2 kbAngle = col.transform.position - transform.position;
                     col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
-                    col.SendMessage("applyDamage", damage);
+                    col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
                 }
             }
             else if (attackType == 1) {
                 // Slash
                 Vector2 kbAngle = col.transform.position - transform.position;
                 col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
-                col.SendMessage("applyDamage", damage);
+                col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
             }
         }
 

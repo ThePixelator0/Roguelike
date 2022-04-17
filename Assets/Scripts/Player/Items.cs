@@ -5,21 +5,14 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Items : MonoBehaviour
 {
-    public List<int> items;
-
-    public void PickupItem(int itemnum) {
-        // Another GameObject will call this script to give the player an item.
-        items.Add(itemnum);
-        ReceiveItem(itemnum);
-    }
-
     void ReceiveItem(int item) {
         // Some items do something when they are picked up. This is where that happens.
         switch (item) {
             case 0:
                 // Turn the Lights Up
                 gameObject.transform.Find("Player Light").GetComponent<Light2D>().intensity = 1;
-                PlayerStats.stealthMod -= 0.5f;
+                PlayerStats.stealthMod -= 0.15f;
+                PlayerStats.damageMod += 1f;
                 break;
             case 1:
                 // Enable Dashing
