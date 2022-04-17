@@ -434,7 +434,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5448081119686077786}
-  - component: {fileID: 2345428904718214095}
   - component: {fileID: 5448081120162123470}
   - component: {fileID: 5448081120162123464}
   - component: {fileID: 4960980253896315059}
@@ -443,7 +442,6 @@ GameObject:
   - component: {fileID: 5448081120162123466}
   - component: {fileID: 5448081120162123465}
   - component: {fileID: 9071414498082657094}
-  - component: {fileID: 1220615446888706390}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -468,21 +466,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2345428904718214095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448081120162123463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cdfcc3dd5a5f2b4f8abdd15a91fa592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stealthMod: 1
-  damageMod: 1
-  moveSpeedMod: 1
 --- !u!212 &5448081120162123470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -584,7 +567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  speedMod: 1
   canDash: 0
   dashCooldown: 0
   rb: {fileID: 5448081120162123464}
@@ -660,19 +642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: 
---- !u!114 &1220615446888706390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5448081120162123463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7624b8c267db1f468f4aa73ea2bb568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stealthMod: 1
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0

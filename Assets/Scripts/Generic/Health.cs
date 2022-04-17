@@ -51,10 +51,17 @@ public class Health : MonoBehaviour
         if (health <= 0) {
             if (gameObject.tag == "Player") {
                 print("Game Over!");
-                Destroy(gameObject);
-            } else {
-                Destroy(gameObject);
+            } 
+
+            else if (gameObject.tag == "Boss") {
+                
+            } 
+            
+            else {
+                
             }
+
+            Destroy(gameObject);
         }
     }
 }

@@ -21,8 +21,6 @@ public class Movement : MonoBehaviour
     // External Components
     [SerializeField]
     private Rigidbody2D rb;     // Local var of RigidBody2D (Physics for player)
-    [SerializeField]
-    private PlayerStats stats;  // Local var of player stats
 
     // Knockback
     [SerializeField]
@@ -32,8 +30,9 @@ public class Movement : MonoBehaviour
     void Start() {
         dashMod = new Vector2(0, 0);
         dashCooldown = 0f;
-        stats = gameObject.GetComponent<PlayerStats>();
+
     }
+
 
     void Update() {
         // Dashing Currently Disabled (hence the "&& false")
@@ -46,9 +45,9 @@ public class Movement : MonoBehaviour
         } else {
             // Not Being Knocked Back
             if (GetDashing() && dashCooldown == 0 && canDash) {
-                dashMod = InitDash(GetInputs(), dashMultiplier) * stats.speedMod;
+                dashMod = InitDash(GetInputs(), dashMultiplier) * PlayerStats.speedMod;
             }
-            Move(GetInputs() * speed * stats.speedMod, dashMod);
+            Move(GetInputs() * speed * PlayerStats.speedMod, dashMod);
         }
         
         Cooldowns();

@@ -9,6 +9,10 @@ public class RestartGame : MonoBehaviour
     
     void Start() {
         player = GameObject.Find("Player");
+        
+        if (PlayerStats.setup != true) {
+            InitPlayerVars();
+        }
     }
 
     void Update() {
@@ -18,7 +22,15 @@ public class RestartGame : MonoBehaviour
     }
 
     void Restart() {
+        PlayerStats.setup = false;
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
+    }
+
+
+    void InitPlayerVars() {
+        PlayerStats.speedMod = 1;
+        PlayerStats.stealthMod = 1;
+        PlayerStats.damageMod = 1;
     }
 }
