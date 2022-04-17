@@ -73,7 +73,7 @@ public class RoomTemplate : MonoBehaviour
     }
 
     void Update() {
-        if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
+        if (spawnQueue.Count > 0 && canSpawn && waitTime > 0) {
             if (spawnQueue[0] != null) {
                 waitTime = 0;
                 canSpawn = false;
@@ -97,9 +97,9 @@ public class RoomTemplate : MonoBehaviour
                 }
 
                 // Clear all Room Spawners (Probably Helps with Lag)
-                foreach (GameObject roomSpawn in GameObject.FindGameObjectsWithTag("SpawnPoint")) {
-                    Destroy(roomSpawn);
-                }
+                // foreach (GameObject roomSpawn in GameObject.FindGameObjectsWithTag("SpawnPoint")) {
+                //     Destroy(roomSpawn);
+                // }
             }
         } else if (spawnQueue.Count > 0 && canSpawn) {
             waitTime += Time.deltaTime;

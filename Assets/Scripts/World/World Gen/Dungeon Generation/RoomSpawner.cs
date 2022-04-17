@@ -46,6 +46,7 @@ public class RoomSpawner : MonoBehaviour
 
             int i = -1;
             foreach (Vector2 coord in templates.positions) {
+                checkedPos.Add(coord);
                 // I have no idea why, but adding 1 at the start instead of the end fixed an issue where sometimes i would not increase. That's why it starts at -1.
                 i += 1;
 
