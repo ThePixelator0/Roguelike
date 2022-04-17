@@ -19,6 +19,7 @@ public class Items : MonoBehaviour
             case 0:
                 // Turn the Lights Up
                 gameObject.transform.Find("Player Light").GetComponent<Light2D>().intensity = 1;
+                gameObject.GetComponent<PlayerStats>().stealthMod -= 0.5f;
                 break;
             case 1:
                 // Enable Dashing
@@ -30,7 +31,8 @@ public class Items : MonoBehaviour
                 break;
             case 3:
                 // Increase stealth by 1
-                gameObject.GetComponent<PlayerStats>().stealthMod += 1f;
+                gameObject.GetComponent<PlayerStats>().stealthMod += 0.75f;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
                 break;
             case 4:
                 // Heal player to Full
