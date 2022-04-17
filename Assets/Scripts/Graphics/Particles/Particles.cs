@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BloodParticles : MonoBehaviour
+public class Particles : MonoBehaviour
 {
     [SerializeField]
     private float deathTimer;

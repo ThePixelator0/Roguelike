@@ -5,9 +5,9 @@ using UnityEngine;
 public class RandomPos : MonoBehaviour
 {
     [SerializeField]
-    private Vector2 lowerBounds = new Vector2(-5.5f, -5.5f);
+    private Vector2 lowerBounds = new Vector2(-4.5f, -4.5f);
     [SerializeField]
-    private Vector2 upperBounds = new Vector2(6.5f, 6.5f);
+    private Vector2 upperBounds = new Vector2(5.5f, 5.5f);
 
 
     // Start is called before the first frame update

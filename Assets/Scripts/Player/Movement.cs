@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
     void Start() {
         dashMod = new Vector2(0, 0);
         dashCooldown = 0f;
+        stats = gameObject.GetComponent<PlayerStats>();
     }
 
     void Update() {

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6098282386157585389}
   - component: {fileID: 6690444287392583626}
   - component: {fileID: 3411613756277832750}
+  - component: {fileID: 4871733746691594676}
   - component: {fileID: 8127892123329376641}
   - component: {fileID: 1079180374155690821}
   m_Layer: 6
@@ -224,6 +225,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190dbe71cb20b9a4ea53c4ebfa4c53b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4871733746691594676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098282386157585391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03c1b3013c2a3d4ea9ab64fdeab8252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 1122449313942517700, guid: a73dafa4784bdb241812d60ccbb0c70e, type: 3}
 --- !u!114 &8127892123329376641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  particleOffset: {x: 0.5, y: 0.35}
 --- !u!114 &1079180374155690821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,5 +264,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c185507b148b4a4283d007a8549c7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerBounds: {x: -5.5, y: -5.5}
-  upperBounds: {x: 6.5, y: 6.5}
+  lowerBounds: {x: -4.5, y: -4.5}
+  upperBounds: {x: 5.5, y: 5.5}
