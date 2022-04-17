@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4293198416747572381}
   - component: {fileID: 3741586470958293178}
   - component: {fileID: 4642522996025938782}
-  - component: {fileID: 192994933650258312}
   - component: {fileID: 6952253565662259251}
   m_Layer: 6
   m_Name: Exit
@@ -224,32 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190dbe71cb20b9a4ea53c4ebfa4c53b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &192994933650258312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4293198416747572383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 000000009b996237b7626cdde760fb2f
-  m_ShapePath:
-  - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 1, y: 0.5, z: 0}
-  - {x: 0, y: 0.5, z: 0}
-  m_ShapePathHash: 1234564373
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 56782
 --- !u!114 &6952253565662259251
 MonoBehaviour:
   m_ObjectHideFlags: 0
