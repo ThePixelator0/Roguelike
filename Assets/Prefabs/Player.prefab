@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.3
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000009b996237b7626cdde760fb2f
+  m_ApplyToSortingLayers: 000000009b996237e1344fd2b7626cdde760fb2f
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4334783836991956000, guid: 3a886114f084281489a7a58c80e5541e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aec1a2ef0f1e684193fb2c51ee11676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: 
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0

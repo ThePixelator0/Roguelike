@@ -20,4 +20,10 @@ public class breakable : MonoBehaviour
 
         CheckAlive();
     }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.tag == "Environment") {
+            Destroy(gameObject);
+        }
+    }
 }

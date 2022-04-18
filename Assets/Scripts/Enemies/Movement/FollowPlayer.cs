@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
     
-    void Update() {
+    void FixedUpdate() {
         if (player != null) {
             if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
                 Move(knockbackDir);
