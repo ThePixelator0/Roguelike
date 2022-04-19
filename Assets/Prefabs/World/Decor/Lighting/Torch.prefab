@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 335670422411517934}
   - component: {fileID: 5610470983790176181}
   - component: {fileID: -2497872171260411577}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Torch
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 8864499142121988628}
   - component: {fileID: 6122645714456744426}
   - component: {fileID: 3630672522860083019}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

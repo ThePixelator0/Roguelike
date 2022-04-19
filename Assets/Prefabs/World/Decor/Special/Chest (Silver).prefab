@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6016861779956150992}
   - component: {fileID: 1243000260803958790}
   - component: {fileID: 4387394090619867895}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Chest (Silver)
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 765379103117062137}
   - component: {fileID: 7503621088411992664}
   - component: {fileID: 5503521188233716302}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Open
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 873580334649970848}
   - component: {fileID: 4783629594121958613}
   - component: {fileID: 1649775706748304687}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Closed
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

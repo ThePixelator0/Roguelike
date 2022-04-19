@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using LineOfSight;
 
 public class AttackMelee : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class AttackMelee : MonoBehaviour
     public float turnDir;   // Dir to turn during attack
 
     private List<GameObject> collisions;
+    LOS sight = new LOS();
 
 
     // Update is called once per frame
@@ -46,6 +48,13 @@ public class AttackMelee : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.tag == "Enemy" || col.tag == "Boss") {
+            // Check line of sight
+            bool inLOS = sight.PositionLOS(transform.position, col.transform.position, col.tag);
+            if (inLOS == false) {
+                return;
+            }
+
+
             // Check if Already Hit 
             if (collisions.Contains(col.gameObject)) {
                 return;
@@ -73,7 +82,7 @@ public class AttackMelee : MonoBehaviour
 
         // Sword hit a breakable object
         else if (col.tag == "Breakable") {
-            col.SendMessage("applyDamage", damage);
+            col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
         } 
     }
 

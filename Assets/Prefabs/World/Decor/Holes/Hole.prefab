@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6490062080861987970}
   - component: {fileID: 7740824334247764538}
   - component: {fileID: 3881391992955670060}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Darkness
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 1620291472155923035}
   - component: {fileID: 40199266518772189}
   - component: {fileID: 7811594724384488415}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Hole
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 4770553122537893320}
   - component: {fileID: 2729039201202506365}
   - component: {fileID: 6686849349987546881}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Hole
   m_TagString: Environment
   m_Icon: {fileID: 0}

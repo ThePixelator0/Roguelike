@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3978009991761294948}
   - component: {fileID: 6163634175695068101}
   - component: {fileID: 8199920652769033171}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Open
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 7938642001204308813}
   - component: {fileID: 3236840294441697691}
   - component: {fileID: 92517933290736490}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Chest (Gold)
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 3581491522718812477}
   - component: {fileID: 9207973352994581832}
   - component: {fileID: 3120635535381718194}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Closed
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

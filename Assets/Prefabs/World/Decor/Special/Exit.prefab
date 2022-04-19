@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3741586470958293178}
   - component: {fileID: 4642522996025938782}
   - component: {fileID: 6952253565662259251}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Exit
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

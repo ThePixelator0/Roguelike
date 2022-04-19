@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4871733746691594676}
   - component: {fileID: 8127892123329376641}
   - component: {fileID: 1079180374155690821}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Skull
   m_TagString: Breakable
   m_Icon: {fileID: 0}
@@ -266,3 +266,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowerBounds: {x: -4.5, y: -4.5}
   upperBounds: {x: 5.5, y: 5.5}
+  coverEnterance: 1
