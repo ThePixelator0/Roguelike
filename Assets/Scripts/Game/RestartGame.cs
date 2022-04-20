@@ -48,7 +48,7 @@ public class RestartGame : MonoBehaviour
         }
 
         foreach (Transform child in GameObject.Find("Grid").transform) {
-
+            
             Destroy(child.gameObject);
         }
 

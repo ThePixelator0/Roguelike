@@ -5,17 +5,22 @@ using UnityEngine;
 public class randomChild : MonoBehaviour
 {
     // This script chooses one out of a number of children to remain.
-    // Used for randomizing visuals
     public List<GameObject> children;
-
+    private List<Transform> childrenMarkedForDeath;
 
     void Start()
     {
-        int i;
-        while (children.Count > 1) {
-            i = Random.Range(0, children.Count);
-            Destroy(children[i]);
-            children.RemoveAt(i);
-        } 
+        childrenMarkedForDeath = new List<Transform>();
+        int i = Random.Range(0, transform.childCount);
+
+        foreach (Transform child in transform) {
+            if (transform.GetChild(i) != child) {
+                childrenMarkedForDeath.Add(child);
+            }
+        }
+
+        foreach (Transform child in childrenMarkedForDeath) {
+            Destroy(child.gameObject);
+        }
     }
 }
