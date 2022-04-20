@@ -15,6 +15,7 @@ TagManager:
   - Minimap
   - Breakable
   - Room
+  - Shield
   layers:
   - Default
   - TransparentFX

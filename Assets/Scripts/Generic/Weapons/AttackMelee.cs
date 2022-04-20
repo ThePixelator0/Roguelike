@@ -13,6 +13,9 @@ public class AttackMelee : MonoBehaviour
     private TilemapRenderer rend;
     [SerializeField]
     private BoxCollider2D selfCol;
+
+    public bool primaryEnabled = false;
+    public bool secondaryEnabled = false;
     
     [Space]
     public bool attacking;
@@ -27,20 +30,16 @@ public class AttackMelee : MonoBehaviour
     private List<GameObject> collisions;
     LOS sight = new LOS();
 
+    void Start() {
+        rend.enabled = false;
+        selfCol.enabled = false;
+    }
 
-    // Update is called once per frame
     void Update() {
-        transform.position = transform.parent.position;
-
-        if (timeActive == 0 && timeInactive == 0 && (Input.GetAxis("Primary") != 0)) {
-            BeginAttack();
-            attackType = 0;
-            attackJab();
-        } else if (timeActive == 0 && timeInactive == 0 && (Input.GetAxis("Secondary") != 0)) {
-            BeginAttack();
-            attackType = 1;
-            attackSlash();
-        } else {
+        if (attacking) {
+            transform.position = transform.parent.position;
+        } 
+        if (timeInactive != 0 || timeActive != 0) {
             AttackDetails();
             EndAttack();
         }
@@ -136,8 +135,25 @@ public class AttackMelee : MonoBehaviour
         }
     }
 
-    void BeginAttack() {
+    public void BeginAttack(int attack) {
         collisions = new List<GameObject>();
+
+        if (attack == 0) {
+            attackType = 0;
+            attackJab();
+        } else if (attack == 1) {
+            attackType = 1;
+            attackSlash();
+        }
+    }
+
+    public void EnableSword(int button) {
+        // button | 1 = primary, 2 = secondary
+        if (button == 0) {
+            primaryEnabled = true;
+        } else if (button == 1) {
+            secondaryEnabled = true;
+        }
     }
 
     // --------------- Attacks ---------------

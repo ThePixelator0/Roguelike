@@ -714,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8801815022026263369, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_Name
-      value: PlayerMelee
+      value: PlayerWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 8801815022026263369, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_Layer

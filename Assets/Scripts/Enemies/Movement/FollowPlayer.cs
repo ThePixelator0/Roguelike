@@ -14,17 +14,20 @@ public class FollowPlayer : MonoBehaviour
     private float distance; // Max distance the entity can see the player from.
     public Vector2 knockbackDir;
     private Vector2 lastPlayerPos;
+    
+    private bool touchingShield;
 
     LOS sight = new LOS();
 
     void Awake() {
         // Find player and store in var
+        touchingShield = false;
         player = GameObject.FindWithTag("Player");
         lastPlayerPos = transform.position;
     }
     
     void FixedUpdate() {
-        if (player != null) {
+        if (player != null && !touchingShield) {
             if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
                 Move(knockbackDir);
                 knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
@@ -45,7 +48,7 @@ public class FollowPlayer : MonoBehaviour
                 Move(DirTo(lastPlayerPos) * speed);
             }
         } else {
-            Move(DirTo(lastPlayerPos) * speed);
+            rb.velocity *= 0f;
         }
     }
 
@@ -64,5 +67,31 @@ public class FollowPlayer : MonoBehaviour
 
     public void applyKnockback(Vector2 knockback) {
         knockbackDir = knockback;
+    }
+
+
+
+    // void OnTriggerEnter2D(Collider2D col) {
+    //     if (col.tag == "Shield") {
+    //         touchingShield = true;
+    //     }
+    // }
+
+    // void OnTriggerExit2D(Collider2D col) {
+    //     if (col.tag == "Shield") {
+    //         touchingShield = false;
+    //     }
+    // }
+
+    void OnCollisionEnter2D(Collision2D col) {
+        if (col.gameObject.tag == "Shield") {
+            touchingShield = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col) {
+        if (col.gameObject.tag == "Shield") {
+            touchingShield = false;
+        }
     }
 }

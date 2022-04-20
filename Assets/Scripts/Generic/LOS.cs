@@ -13,7 +13,7 @@ namespace LineOfSight {
             float distance = Vector2.Distance(pos1, pos2);
             bool boolReturn = false;
 
-            List<string> badTags = new List<string>(){"Player", "Boss", "Enemy", "Environment"};
+            List<string> badTags = new List<string>(){"Player", "Boss", "Enemy", "Environment", "Shield"};
             badTags.Remove(goodTag); 
             badTags.Remove(ignoreTag); 
 
