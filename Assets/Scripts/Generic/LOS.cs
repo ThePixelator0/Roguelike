@@ -7,21 +7,27 @@ namespace LineOfSight {
     {
         public bool PositionLOS(Vector2 pos1, Vector2 pos2, string goodTag) {
             Vector2 posDir = (pos2 - pos1).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(pos1, posDir);
+            float distance = Vector2.Distance(pos1, pos2);
 
+            List<string> badTags = new List<string>("Player", "Boss", "Enemy", "Environment");
+            badTags.Remove(goodTag); 
 
-            if (hit.collider == null) {
-                // Raycast hit nothing
-                return false;
+            List<RaycastHit2D> hits = Physics2D.RaycastAll(pos1, posDir);
+
+            foreach (RaycastHit2D hit in hits) {
+                if (hit.collider.collider.tag == goodTag) {
+                    // Raycast hit has the correct tag
+                    return true;
+                }
+                else if (badTags.Contains(hit.collider.tag) ) {
+                    // Raycast hit something with a bad tag before the correct tag
+                    print("Raycast hit " + hit.collider.tag + " before " + goodTag);
+                    return false;
+                }
             }
-            else if (hit.collider.tag == goodTag) {
-                // Raycast hit something with the right tag
-                return true;
-            }
-            else {
-                // Raycast hit something with the wrong tag
-                return false;
-            }
+
+            // If all collisions did not meet criteria
+            return false;
         }
     }
 }

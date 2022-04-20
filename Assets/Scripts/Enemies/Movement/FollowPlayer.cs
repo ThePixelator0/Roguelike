@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LineOfSight;
 
 public class FollowPlayer : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private float distance; // Max distance the entity can see the player from.
     public Vector2 knockbackDir;
+
+    LOS sight = new LOS();
 
     void Awake() {
         // Find player and store in var
@@ -30,7 +33,11 @@ public class FollowPlayer : MonoBehaviour
             }  
             
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) {
-                Move(DirTo(player) * speed);
+                if (sight.PositionLOS(transform.position, player.transform.position, player.tag) ) {
+                    Move(DirTo(player) * speed);
+                } else {
+                    print("Player is close enough, not in LOS");
+                }
             } else if ( rb.velocity != new Vector2(0, 0) ) {
                 rb.velocity = new Vector2(0, 0);
             }

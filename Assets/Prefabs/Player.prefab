@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342831223507990851}
   - component: {fileID: 2633015008487215848}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 5448081120162123466}
   - component: {fileID: 5448081120162123465}
   - component: {fileID: 9071414498082657094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -652,6 +652,10 @@ PrefabInstance:
       propertyPath: attackType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8801815021625346930, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8801815021625346943, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -711,6 +715,10 @@ PrefabInstance:
     - target: {fileID: 8801815022026263369, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_Name
       value: PlayerMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801815022026263369, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
