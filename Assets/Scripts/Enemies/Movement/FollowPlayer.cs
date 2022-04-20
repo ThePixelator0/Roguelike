@@ -13,12 +13,14 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField]
     private float distance; // Max distance the entity can see the player from.
     public Vector2 knockbackDir;
+    private Vector2 lastPlayerPos;
 
     LOS sight = new LOS();
 
     void Awake() {
         // Find player and store in var
         player = GameObject.FindWithTag("Player");
+        lastPlayerPos = transform.position;
     }
     
     void FixedUpdate() {
@@ -34,21 +36,22 @@ public class FollowPlayer : MonoBehaviour
             
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) {
                 if (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag) ) {
-                    Move(DirTo(player) * speed);
+                    Move(DirTo(player.transform.position) * speed);
+                    lastPlayerPos = player.transform.position;
                 } else {
-                    rb.velocity *= 1 - (Time.deltaTime * 2);
+                    Move(DirTo(lastPlayerPos) * speed);
                 }
-            } else if ( rb.velocity != new Vector2(0, 0) ) {
-                rb.velocity *= 1 - (Time.deltaTime * 2);
+            } else {
+                Move(DirTo(lastPlayerPos) * speed);
             }
         } else {
-            rb.velocity *= 1 - (Time.deltaTime * 2);
+            Move(DirTo(lastPlayerPos) * speed);
         }
     }
 
-    Vector2 DirTo(GameObject obj) {
+    Vector2 DirTo(Vector2 pos) {
         Vector2 vec;
-        vec = new Vector2(obj.transform.position.x - gameObject.transform.position.x, obj.transform.position.y - gameObject.transform.position.y);
+        vec = new Vector2(pos.x - gameObject.transform.position.x, pos.y - gameObject.transform.position.y);
         vec = vec.normalized;
 
         return vec;

@@ -5,7 +5,6 @@ using UnityEngine;
 public class randomChild : MonoBehaviour
 {
     // This script chooses one out of a number of children to remain.
-    public List<GameObject> children;
     private List<Transform> childrenMarkedForDeath;
 
     void Start()
