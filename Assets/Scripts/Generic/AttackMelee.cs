@@ -49,7 +49,7 @@ public class AttackMelee : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.tag == "Enemy" || col.tag == "Boss") {
             // Check line of sight
-            bool inLOS = sight.PositionLOS(transform.position, col.transform.position, col.tag);
+            bool inLOS = sight.PositionLOS(transform.position, col.transform.position, col.tag, "Player");
             if (inLOS == false) {
                 return;
             }

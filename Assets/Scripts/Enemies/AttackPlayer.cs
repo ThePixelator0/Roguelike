@@ -16,7 +16,7 @@ public class AttackPlayer : MonoBehaviour
     void OnTriggerStay2D(Collider2D col) {
         if (col.tag == "Player" && attackCooldown == 0) {
             // Check line of sight
-            bool inLOS = sight.PositionLOS(transform.position, col.transform.position, "Enemy");
+            bool inLOS = sight.PositionLOS(transform.position, col.transform.position, "Player", "Enemy");
             if (inLOS == false) {
                 return;
             }

@@ -29,5 +29,6 @@ public class exit : MonoBehaviour
     public void ShowExit() {
         rend.enabled = true;
         selfCol.enabled = true;
+        active = true;
     }
 }

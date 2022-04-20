@@ -33,16 +33,16 @@ public class FollowPlayer : MonoBehaviour
             }  
             
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) {
-                if (sight.PositionLOS(transform.position, player.transform.position, player.tag) ) {
+                if (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag) ) {
                     Move(DirTo(player) * speed);
                 } else {
-                    print("Player is close enough, not in LOS");
+                    rb.velocity *= 1 - (Time.deltaTime * 2);
                 }
             } else if ( rb.velocity != new Vector2(0, 0) ) {
-                rb.velocity = new Vector2(0, 0);
+                rb.velocity *= 1 - (Time.deltaTime * 2);
             }
         } else {
-            rb.velocity *= 0f;
+            rb.velocity *= 1 - (Time.deltaTime * 2);
         }
     }
 
