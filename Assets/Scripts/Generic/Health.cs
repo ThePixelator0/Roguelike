@@ -38,6 +38,9 @@ public class Health : MonoBehaviour
 
     public void applyHealing(float heal) {
         health += heal;
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
         healthBar.SetHealth(health);
     }
 

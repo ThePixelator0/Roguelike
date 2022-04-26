@@ -7,7 +7,7 @@ public class Pickup : MonoBehaviour
     public int itemnum;
     public float pickupDelay = 1;
 
-    void fixedUpdate() {
+    void FixedUpdate() {
         if (pickupDelay > 0) {
             pickupDelay -= Time.deltaTime;
         }
