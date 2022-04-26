@@ -9,10 +9,21 @@ public class WeaponController : MonoBehaviour
     private Shield shield;
     [SerializeField]
     private AttackMelee sword;
+
     [SerializeField]
     private int primary;
     [SerializeField]
     private int secondary;
+    /* values:
+        0 - Sword Jab
+        1 - Shield Bash
+        2 - Sword Slash
+    
+    
+    */
+
+    public float timeActive;
+    public float timeInactive;
 
     void Start() {
         // sword.GetComponent<AttackMelee>().EnableSword(0);
@@ -20,33 +31,42 @@ public class WeaponController : MonoBehaviour
     }
 
     void Update() {
-        if ((Input.GetAxis("Primary") != 0)) {
-            usePrimary(primary);
-        } else if ((Input.GetAxis("Secondary") != 0)) {
-            useSecondary(secondary);
+        if (timeActive == 0 && timeInactive == 0) {
+            if ((Input.GetAxis("Primary") != 0)) {
+                useEquipment(primary);
+            } else if ((Input.GetAxis("Secondary") != 0)) {
+                useEquipment(secondary);
+            }
+        } 
+        
+        else if (timeActive != 0) {
+            timeActive -= Time.deltaTime;
+            if (timeActive <= 0) {
+                timeActive = 0;
+            }
+        } else if (timeInactive != 0) {
+            timeInactive -= Time.deltaTime;
+            if (timeInactive <= 0) {
+                timeInactive = 0;
+            }
         }
     }
 
-    void usePrimary(int weapon) {
+    void useEquipment(int weapon) {
+        Vector2 times = new Vector2();
+        
         switch (weapon) {
             case 0:
                 if (sword.timeActive == 0 && sword.timeInactive == 0) {
-                    sword.BeginAttack(0);
+                    times = sword.BeginAttack("Jab");
                 }
                 break;
+            case 1: 
+                times = shield.BeginBash();
+                break;
         }
-    }
 
-    void useSecondary(int weapon) {
-        switch (weapon) {
-            case 0:
-                if (sword.timeActive == 0 && sword.timeInactive == 0) {
-                    sword.BeginAttack(1);
-                }
-                break;
-            case 1:
-                shield.EnableShield();
-                break;
-        }
+        timeActive = times.x;
+        timeInactive = times.y;
     }
 }

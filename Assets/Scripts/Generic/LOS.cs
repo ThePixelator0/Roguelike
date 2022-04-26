@@ -16,6 +16,9 @@ namespace LineOfSight {
             List<string> badTags = new List<string>(){"Player", "Boss", "Enemy", "Environment", "Shield"};
             badTags.Remove(goodTag); 
             badTags.Remove(ignoreTag); 
+            if (ignoreTag == "Player") {
+                badTags.Remove("Shield");
+            }
 
             RaycastHit2D[] hits = Physics2D.RaycastAll(pos1, posDir, distance);
 

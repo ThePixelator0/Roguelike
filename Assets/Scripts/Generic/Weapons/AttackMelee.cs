@@ -135,15 +135,21 @@ public class AttackMelee : MonoBehaviour
         }
     }
 
-    public void BeginAttack(int attack) {
+    public Vector2 BeginAttack(string attack) {
         collisions = new List<GameObject>();
 
-        if (attack == 0) {
+        if (attack == "Jab") {
             attackType = 0;
             attackJab();
-        } else if (attack == 1) {
+            return new Vector2(0.2f, 0.1f);
+        } else if (attack == "Slash") {
             attackType = 1;
             attackSlash();
+            return new Vector2(0.2f, 0.2f);
+        } 
+
+        else {
+            return new Vector2();
         }
     }
 
