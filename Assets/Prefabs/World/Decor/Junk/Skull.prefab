@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4871733746691594676}
   - component: {fileID: 8127892123329376641}
   - component: {fileID: 1079180374155690821}
+  - component: {fileID: 8984633795721709770}
   m_Layer: 2
   m_Name: Skull
   m_TagString: Breakable
@@ -252,6 +253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   particleOffset: {x: 0.5, y: 0.35, z: 0}
+  particles: 1
+  deathEffect: 1
 --- !u!114 &1079180374155690821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,3 +270,17 @@ MonoBehaviour:
   lowerBounds: {x: -4.5, y: -4.5}
   upperBounds: {x: 5.5, y: 5.5}
   coverEnterance: 1
+--- !u!114 &8984633795721709770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098282386157585391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e4a29f4e7fa8a49a76c43b5f0ce1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minHealth: 5
+  maxHealth: 15

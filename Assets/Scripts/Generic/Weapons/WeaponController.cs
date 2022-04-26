@@ -57,9 +57,7 @@ public class WeaponController : MonoBehaviour
         
         switch (weapon) {
             case 0:
-                if (sword.timeActive == 0 && sword.timeInactive == 0) {
-                    times = sword.BeginAttack("Jab");
-                }
+                times = sword.BeginAttack("Jab");
                 break;
             case 1: 
                 times = shield.BeginBash();

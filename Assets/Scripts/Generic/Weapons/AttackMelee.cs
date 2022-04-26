@@ -13,35 +13,36 @@ public class AttackMelee : MonoBehaviour
     private TilemapRenderer rend;
     [SerializeField]
     private BoxCollider2D selfCol;
-
-    public bool primaryEnabled = false;
-    public bool secondaryEnabled = false;
     
     [Space]
     public bool attacking;
     public int attackType;  // What attack to use when used
             // 0 = Jab
             // 1 = Slash
-    public float timeActive;
-    public float timeInactive;
 
     public float turnDir;   // Dir to turn during attack
 
+
+    private Vector3[] attack_stats =    {
+                                            new Vector3(0.2f, 0.2f, 40f),      // Jab
+                                            new Vector3(0.2f, 0.3f, 25f)       // Slash
+                                        };
+
     private List<GameObject> collisions;
     LOS sight = new LOS();
+    
+    Vector3 posOffset;
+    WeaponController parent;
 
     void Start() {
         rend.enabled = false;
         selfCol.enabled = false;
+        parent = transform.parent.GetComponent<WeaponController>();
     }
 
     void Update() {
         if (attacking) {
-            transform.position = transform.parent.position;
-        } 
-        if (timeInactive != 0 || timeActive != 0) {
             AttackDetails();
-            EndAttack();
         }
     }
 
@@ -69,6 +70,8 @@ public class AttackMelee : MonoBehaviour
                     Vector2 kbAngle = col.transform.position - transform.position;
                     col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
                     col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+
+                    selfCol.enabled = false;
                 }
             }
             else if (attackType == 1) {
@@ -102,36 +105,22 @@ public class AttackMelee : MonoBehaviour
     void AttackDetails() {
         // This is where the "Special Effects" for each attack happen
 
-        if (attacking == true && attackType == 0) {
+        if (attackType == 0) {
             // Jab attack moves in, then out
-            
-            // Do this later
+            if (parent.timeActive > 0) {
+                transform.position = transform.parent.position - (posOffset * parent.timeActive * 2);
+            } else if (parent.timeInactive > 0) {
+                transform.position = transform.parent.position + (posOffset * (parent.timeInactive - attack_stats[0].y) * 2);
+                selfCol.enabled = false;
+            } else {
+                rend.enabled = false;
+                attacking = false;
+            }
         }
 
-        else if (attacking == true && attackType == 1) {
+        else if (attackType == 1) {
             // Slash attack needs to turn a total of 90 degrees over the attack time
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, transform.rotation.eulerAngles.z + (turnDir * 360 * Time.deltaTime)));
-        }
-    }
-
-    void EndAttack() {
-        if (timeActive > 0) {
-            timeActive -= Time.deltaTime;
-
-            if (timeActive <= 0) {
-                rend.enabled = false;
-                selfCol.enabled = false;
-                attacking = false;
-                timeActive = 0;
-            }
-        } else if (timeInactive > 0) {
-            timeInactive -= Time.deltaTime;
-
-            if (timeInactive < 0) {
-                timeInactive = 0;
-            }
-        } else if (timeInactive == 0 && timeActive == 0) {
-            attacking = false;
         }
     }
 
@@ -141,11 +130,11 @@ public class AttackMelee : MonoBehaviour
         if (attack == "Jab") {
             attackType = 0;
             attackJab();
-            return new Vector2(0.2f, 0.1f);
+            return attack_stats[0];
         } else if (attack == "Slash") {
             attackType = 1;
             attackSlash();
-            return new Vector2(0.2f, 0.2f);
+            return attack_stats[1];
         } 
 
         else {
@@ -153,13 +142,17 @@ public class AttackMelee : MonoBehaviour
         }
     }
 
-    public void EnableSword(int button) {
-        // button | 1 = primary, 2 = secondary
-        if (button == 0) {
-            primaryEnabled = true;
-        } else if (button == 1) {
-            secondaryEnabled = true;
-        }
+    void setPosOffset() {
+        float angle = transform.eulerAngles.z * Mathf.Deg2Rad;
+        float sin = Mathf.Sin(angle);
+        float cos = Mathf.Cos(angle);
+
+        Vector3 direction = Vector3.up;
+
+        posOffset = new Vector3(
+            direction.x * cos - direction.y * sin,
+            direction.x * sin + direction.y * cos,
+            0 );
     }
 
     // --------------- Attacks ---------------
@@ -167,41 +160,34 @@ public class AttackMelee : MonoBehaviour
     void attackJab() {
         // 0. Setup Attack
         attacking = true;
-        damage = 40 * (1 + damageMod);
+        damage = attack_stats[0].z * (PlayerStats.damageMod);
 
         // 1. Face Mouse
         FaceMouse();
+        setPosOffset();
 
         // 2. Appear
         rend.enabled = true;
         selfCol.enabled = true;
-
-        // 3. Disappear after a time
-        timeActive = 0.2f;
-        timeInactive = 0.1f;
     }
 
     void attackSlash() {
-        // 0. Setup Attack
-        attacking = true;
-        damage = 20 * (1 + damageMod);
+        // // 0. Setup Attack
+        // attacking = true;
+        // damage = 20 * (1 + damageMod);
 
-        // 1. Face Mouse, then turn +/- 45 degrees
-        int rand = Random.Range(0, 2);      // Between 0 and 1
-        FaceMouse((rand * 90f) - 45f);      // (90 * [0 or 1]) - 45 will be (0 - 45) or (90 - 45) which will be -45 or 45
+        // // 1. Face Mouse, then turn +/- 45 degrees
+        // int rand = Random.Range(0, 2);      // Between 0 and 1
+        // FaceMouse((rand * 90f) - 45f);      // (90 * [0 or 1]) - 45 will be (0 - 45) or (90 - 45) which will be -45 or 45
 
-        if (rand == 0) {
-            turnDir = 1;
-        } else {
-            turnDir = -1;
-        }
+        // if (rand == 0) {
+        //     turnDir = 1;
+        // } else {
+        //     turnDir = -1;
+        // }
 
-        // 2. Appear
-        rend.enabled = true;
-        selfCol.enabled = true;
-
-        // Disappear after a time
-        timeActive = 0.2f;
-        timeInactive = 0.2f;
+        // // 2. Appear
+        // rend.enabled = true;
+        // selfCol.enabled = true;
     }
 }

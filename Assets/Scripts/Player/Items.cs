@@ -5,6 +5,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Items : MonoBehaviour
 {
+    [HideInInspector]
+    public bool silverskull = false;
+
     void ReceiveItem(int item) {
         // Some items do something when they are picked up. This is where that happens.
         switch (item) {
@@ -31,6 +34,10 @@ public class Items : MonoBehaviour
                 // Heal player to Full
                 gameObject.SendMessage("SetHealth", gameObject.GetComponent<Health>().maxHealth);
                 break; 
+            case 5:
+                // Skulls now heal player when broken
+                silverskull = true;
+                break;
         }
     }
 }

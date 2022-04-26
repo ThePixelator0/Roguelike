@@ -36,6 +36,11 @@ public class Health : MonoBehaviour
         CheckAlive();
     }
 
+    public void applyHealing(float heal) {
+        health += heal;
+        healthBar.SetHealth(health);
+    }
+
     public void SetHealth(float newHealth) {
         health = newHealth;
         healthBar.SetHealth(health);
