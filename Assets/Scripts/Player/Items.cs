@@ -5,28 +5,30 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Items : MonoBehaviour
 {
-    // [HideInInspector]
+    // This script is used for the items the player currently has
+
+    [HideInInspector]
     public bool silverskull = false;
 
     void ReceiveItem(int item) {
-        // Some items do something when they are picked up. This is where that happens.
         switch (item) {
             case 0:
-                // Turn the Lights Up
+                // Turn the Lights Up, decrease stealth, increase damage
                 gameObject.transform.Find("Player Light").GetComponent<Light2D>().intensity = 1;
                 PlayerStats.stealthMod -= 0.15f;
                 PlayerStats.damageMod += 1f;
+                print(PlayerStats.damageMod);
                 break;
             case 1:
                 // Enable Dashing
                 gameObject.GetComponent<Movement>().canDash = true;
                 break;
             case 2:
-                // Increase speed by 50%
+                // Increase speed by 15%
                 PlayerStats.speedMod += 0.15f;
                 break;
             case 3:
-                // Increase stealth by 1
+                // Increase stealth by 75%
                 PlayerStats.stealthMod += 0.75f;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
                 break;

@@ -6,6 +6,7 @@ public class Pickup : MonoBehaviour
 {
     public int itemnum;
     public float pickupDelay = 1;
+    private bool pickedUp = false;
 
     void FixedUpdate() {
         if (pickupDelay > 0) {
@@ -20,6 +21,13 @@ public class Pickup : MonoBehaviour
         }
 
         if (col.tag == "Player") {
+            // Prevent the same item being picked up multiple times
+            if (pickedUp) {
+                return;
+            } else {
+                pickedUp = true;
+            }
+
             PlayerItems.PickupItem(itemnum);
             Destroy(gameObject);
         }

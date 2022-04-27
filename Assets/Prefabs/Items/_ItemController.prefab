@@ -43,9 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792038a7e868be043a9edaeb99934aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemList:
-  - {fileID: 647886647167977752, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-  - {fileID: 8727686894938669697, guid: 88281704c46286d4ab2ec032fe5a2635, type: 3}
-  - {fileID: 7849749726964957696, guid: 898cc137bf1dbb348a8cefddeb0540cb, type: 3}
-  - {fileID: 3676342219474572765, guid: 609d575fcbdb5ab4a9b0e59daecd13eb, type: 3}
+  genericItemList:
   - {fileID: 8104869956495226219, guid: f0b3c40655ef2a04a9ba55dfa45aba71, type: 3}
+  - {fileID: 7849749726964957696, guid: 898cc137bf1dbb348a8cefddeb0540cb, type: 3}
+  uniqueItemList:
+  - {fileID: 8727686894938669697, guid: 88281704c46286d4ab2ec032fe5a2635, type: 3}
+  - {fileID: 647886647167977752, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
+  - {fileID: 2758825988980082788, guid: 2ac9d93930a1cb9498e62a91601b9b36, type: 3}
+  - {fileID: 3676342219474572765, guid: 609d575fcbdb5ab4a9b0e59daecd13eb, type: 3}
