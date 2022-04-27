@@ -17,7 +17,7 @@ public class RoomLight : MonoBehaviour
         }
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (target > li.intensity) {
             li.intensity += Time.deltaTime / 1;
             if (target < li.intensity) {

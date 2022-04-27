@@ -16,7 +16,7 @@ public class RestartGame : MonoBehaviour
         }
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (player == null) {
             Invoke("Restart", 2f);
         }

@@ -49,7 +49,9 @@ public class Movement : MonoBehaviour
             }
             Move(GetInputs() * speed * PlayerStats.speedMod, dashMod);
         }
-        
+    }
+
+    void FixedUpdate() {
         Cooldowns();
     }
 

@@ -10,7 +10,7 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField]
     private GameObject spawn;
 
-    void Update() {
+    void FixedUpdate() {
         if (Input.GetAxis("Test") != 1) {
             buttonDown = true;
         } else {

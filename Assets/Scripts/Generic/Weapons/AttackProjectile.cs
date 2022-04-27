@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AttackProjectile : MonoBehaviour
 {
+    // THIS IS OLD. REDO THIS TO WORK WITH WEAPON CONTROLLER
+
+
+
+
     public float damageMod; // Currently does nothing
     [SerializeField]
     private GameObject projectile;

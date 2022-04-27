@@ -30,7 +30,7 @@ public class WeaponController : MonoBehaviour
         // shield.GetComponent<Shield>().EnableShield();
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (timeActive == 0 && timeInactive == 0) {
             if ((Input.GetAxis("Primary") != 0)) {
                 useEquipment(primary);

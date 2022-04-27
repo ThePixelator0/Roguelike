@@ -24,7 +24,7 @@ public class HealthBar : MonoBehaviour
         timeUntilFade = seconds;
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (timeUntilFade >= 0 && timeUntilFade != -69) {
             timeUntilFade -= Time.deltaTime;
             if (timeUntilFade < 0) {

@@ -30,7 +30,7 @@ public class AttackPlayer : MonoBehaviour
         }
     }
 
-    void Update() {
+    void FixedUpdate() {
         if (attackCooldown > 0) {
             attackCooldown -= Time.deltaTime;
             if (attackCooldown < 0) {
