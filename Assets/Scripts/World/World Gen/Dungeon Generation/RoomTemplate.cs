@@ -39,6 +39,7 @@ public class RoomTemplate : MonoBehaviour
 
     public void Start() {
         canSpawn = true;
+        GameObject.Find("Player").GetComponent<Movement>().canMove = false;
 
         bottomRooms_Names = new List<string>();
         topRooms_Names = new List<string>();
@@ -96,10 +97,8 @@ public class RoomTemplate : MonoBehaviour
                     }
                 }
 
-                // Clear all Room Spawners (Probably Helps with Lag)
-                // foreach (GameObject roomSpawn in GameObject.FindGameObjectsWithTag("SpawnPoint")) {
-                //     Destroy(roomSpawn);
-                // }
+                // Allow player to move
+                GameObject.Find("Player").GetComponent<Movement>().canMove = true;
             }
         } else if (spawnQueue.Count > 0 && canSpawn) {
             waitTime += Time.deltaTime;

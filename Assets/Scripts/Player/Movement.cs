@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     private float timeBetweenDashes = 2f;   // How long between start of each dash
     private float dashLength = 0.15f;       // How many seconds a dash lasts
 
+    public bool canMove = false;
+
 
     [Space]
     // External Components
@@ -35,19 +37,19 @@ public class Movement : MonoBehaviour
 
 
     void Update() {
-        // Dashing Currently Disabled (hence the "&& false")
-        
-        if (Mathf.Abs(knockbackDir.x) > speed / 2 || Mathf.Abs(knockbackDir.y) > speed / 2) {
-            // Being Knocked Back
-            Move(knockbackDir);
-            knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
+        if (canMove) {
+            if (Mathf.Abs(knockbackDir.x) > speed / 2 || Mathf.Abs(knockbackDir.y) > speed / 2) {
+                // Being Knocked Back
+                Move(knockbackDir);
+                knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
 
-        } else {
-            // Not Being Knocked Back
-            if (GetDashing() && dashCooldown == 0 && canDash) {
-                dashMod = InitDash(GetInputs(), dashMultiplier) * PlayerStats.speedMod;
+            } else {
+                // Not Being Knocked Back
+                if (GetDashing() && dashCooldown == 0 && canDash) {
+                    dashMod = InitDash(GetInputs(), dashMultiplier) * PlayerStats.speedMod;
+                }
+                Move(GetInputs() * speed * PlayerStats.speedMod, dashMod);
             }
-            Move(GetInputs() * speed * PlayerStats.speedMod, dashMod);
         }
     }
 
