@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3376468997394868929}
   - component: {fileID: 5454454837515052352}
   - component: {fileID: 9006712769048635177}
-  - component: {fileID: 7661678695485763207}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Shield
@@ -59,12 +58,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 7d2725cb429e8764ab7837f39f816ac4, type: 2}
+    m_Data: {fileID: 11400000, guid: 6672429e20aedf64cb9eb60eb055d2fe, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 4266833482259441017, guid: e6dd09b88de15f24698fe7f35a222af2, type: 3}
+    m_Data: {fileID: -5968707229580820096, guid: e6dd09b88de15f24698fe7f35a222af2, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1
     m_Data:
@@ -149,7 +148,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -168,11 +167,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 3094502370298516764}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 1a26d86a5bf3b7d4e8b9bfd70fe84fc7, type: 2}
-  m_IsTrigger: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0039376915, y: 1.1125994}
+  m_Offset: {x: -0.0039377213, y: 1.3085189}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -183,7 +182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9957959, y: 0.7657045}
+  m_Size: {x: 1.0546517, y: 0.3902594}
   m_EdgeRadius: 0
 --- !u!114 &9006712769048635177
 MonoBehaviour:
@@ -199,28 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 3376468997394868929}
   selfCol: {fileID: 5454454837515052352}
-  shieldEnabled: 0
---- !u!50 &7661678695485763207
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3094502370298516764}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  damage: 0
+  usingShield: 0
 --- !u!1 &8801815021625346930
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,9 +212,8 @@ GameObject:
   - component: {fileID: 8801815021625346939}
   - component: {fileID: 8801815021625346940}
   - component: {fileID: 8801815021625346941}
-  - component: {fileID: 8801815021625346942}
   - component: {fileID: 8801815021625346928}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +358,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -416,27 +394,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.35, y: 1.1}
   m_EdgeRadius: 0
---- !u!50 &8801815021625346942
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801815021625346930}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &8801815021625346928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,12 +410,8 @@ MonoBehaviour:
   damage: 10
   rend: {fileID: 8801815021625346940}
   selfCol: {fileID: 8801815021625346941}
-  primaryEnabled: 0
-  secondaryEnabled: 0
   attacking: 0
-  attackType: 0
-  timeActive: 0
-  timeInactive: 0
+  attackType: 1
   turnDir: 0
 --- !u!1 &8801815022026263369
 GameObject:
@@ -471,7 +424,7 @@ GameObject:
   - component: {fileID: 8801815022026263223}
   - component: {fileID: 8801815022026263368}
   - component: {fileID: 5149328686834023352}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerWeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,3 +475,5 @@ MonoBehaviour:
   sword: {fileID: 8801815021625346928}
   primary: 0
   secondary: 1
+  timeActive: 0
+  timeInactive: 0

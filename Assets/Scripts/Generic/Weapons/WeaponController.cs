@@ -50,6 +50,12 @@ public class WeaponController : MonoBehaviour
                 timeInactive = 0;
             }
         }
+
+
+        // Paused
+        if (Time.timeScale == 0) {
+            timeInactive = 0.2f;
+        }
     }
 
     void useEquipment(int weapon) {

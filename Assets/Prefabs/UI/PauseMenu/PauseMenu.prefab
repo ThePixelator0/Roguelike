@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 2293727385421787754}
   m_Father: {fileID: 7238755144109365480}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -246,8 +246,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1788879358595439563}
-  - {fileID: 8000933091625513132}
   - {fileID: 403097083412523861}
+  - {fileID: 8000933091625513132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,7 +275,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2509871155710703969
 MonoBehaviour:
@@ -516,7 +516,7 @@ RectTransform:
   m_Children:
   - {fileID: 4883050909315454454}
   m_Father: {fileID: 7238755144109365480}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -604,7 +604,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 745980144383498095}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4506521089995579236}
+        m_TargetAssemblyTypeName: ResumeButton, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4506521089995579236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,3 +629,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72385478df5c4b341a08cc645f37b440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resume: 0

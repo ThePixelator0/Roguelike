@@ -130,58 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1206280420788718740, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1206280420788718740, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1206280420788718740, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364641370153357593, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_PressedColor.b
-      value: 0.5660378
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_PressedColor.g
-      value: 0.5660378
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_PressedColor.r
-      value: 0.5660378
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_Colors.m_ColorMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853140686543944102, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5693779883892415432, guid: 32cc2ca6030badf489380c376c7d19fc, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -425,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035277477770838938, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 2035277478211650443, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
@@ -1545,7 +1493,7 @@ MonoBehaviour:
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Primary
-  m_CancelButton: Cancel
+  m_CancelButton: Pause
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
