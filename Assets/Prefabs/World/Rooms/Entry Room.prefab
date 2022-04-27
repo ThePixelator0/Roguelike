@@ -1099,8 +1099,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 805003495
-  m_SortingLayer: 4
+  m_SortingLayerID: 142078925
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1183348835
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1364
+  m_InstanceId: 40124
 --- !u!1 &3716709329282132543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1370
+  m_InstanceId: 40106
 --- !u!1 &3872419209685417314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1348,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -147355747
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1376
+  m_InstanceId: 40110
 --- !u!1 &5948561676175558481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,8 +3258,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 805003495
-  m_SortingLayer: 4
+  m_SortingLayerID: 1078171599
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3327,7 +3327,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -2099804259
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1382
+  m_InstanceId: 40146
 --- !u!1 &6988564665558725960
 GameObject:
   m_ObjectHideFlags: 0

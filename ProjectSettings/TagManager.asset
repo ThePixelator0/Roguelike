@@ -56,14 +56,20 @@ TagManager:
   - name: Ground
     uniqueID: 929208731
     locked: 0
-  - name: GroundDetails
+  - name: AboveGround
     uniqueID: 3528406241
     locked: 0
-  - name: Projectiles
-    uniqueID: 3714867895
+  - name: BelowUnits
+    uniqueID: 1078171599
+    locked: 0
+  - name: LowerUnits
+    uniqueID: 2203292819
     locked: 0
   - name: Units
     uniqueID: 805003495
+    locked: 0
+  - name: UpperUnits
+    uniqueID: 3804434215
     locked: 0
   - name: AboveUnits
     uniqueID: 142078925

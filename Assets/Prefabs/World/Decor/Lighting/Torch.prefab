@@ -188,7 +188,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 805003495
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.35026363, b: 0, a: 1}
   m_Intensity: 0.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 000000009b996237e1344fd2b7626cdde760fb2f
+  m_ApplyToSortingLayers: 000000009b996237e1344fd2cf97434093945383e760fb2f270fc3e2cdf37708
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

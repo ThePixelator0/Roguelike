@@ -11,6 +11,8 @@ public class Death_HealPlayer : MonoBehaviour
     
 
     public void DeathEffect() {
-        GameObject.Find("Player").SendMessage("applyHealing", Random.Range(minHealth, maxHealth) );
+        if (GameObject.Find("Player").GetComponent<Items>().silverskull == true) {
+            GameObject.Find("Player").SendMessage("applyHealing", Random.Range(minHealth, maxHealth) );
+        }
     }
 }
