@@ -316,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035277477770838938, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5.0000005
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2035277477770838938, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
@@ -336,47 +336,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2035277478477197612, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478479547310, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478479547310, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478559252118, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478559252118, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478738911978, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478738911978, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277479025091990, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277479025091990, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277479117293337, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277479117293337, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
       value: 5.0000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478479547310, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478479547310, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478559252118, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478559252118, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478738911978, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277478738911978, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277479025091990, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277479025091990, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277479117293337, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035277479117293337, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2206156653153972495, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
       propertyPath: m_Name
@@ -1008,14 +1008,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6906472319862897933, guid: c00a89c3d8cf331499962385ea766acf, type: 3}
-      propertyPath: junkDecor
-      value: 
-      objectReference: {fileID: 2283122716741955183, guid: 79acfc85dcf562442ba8e23fe4c04597, type: 3}
-    - target: {fileID: 6906472319862897933, guid: c00a89c3d8cf331499962385ea766acf, type: 3}
-      propertyPath: bossRoomDecor
-      value: 
-      objectReference: {fileID: 4807929026510248977, guid: 2263425f46061634bbacd8c86a52dda0, type: 3}
     - target: {fileID: 6906472319862897934, guid: c00a89c3d8cf331499962385ea766acf, type: 3}
       propertyPath: m_Name
       value: Room Templates
@@ -1483,6 +1475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088844183}
   - component: {fileID: 2088844182}
+  - component: {fileID: 2088844184}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -1520,6 +1513,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088844184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088844181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1d809f5e8c96d4eae274ff0bafbc98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  marker: {fileID: 3050575434323115960, guid: 36ce07a15014edf41b648fc6a5e2e6e3, type: 3}
 --- !u!1 &2136022029
 GameObject:
   m_ObjectHideFlags: 0

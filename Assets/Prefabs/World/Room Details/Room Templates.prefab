@@ -82,3 +82,6 @@ MonoBehaviour:
   waitTime: 1
   boss: {fileID: 3838839343999133495, guid: 8ffad1514651a0247817e08127c84702, type: 3}
   roomDecor: {fileID: 1225254454575593611, guid: d88331b9ee1bbfc4bb78e0219f960bc1, type: 3}
+  junkDecor: {fileID: 2283122716741955183, guid: 79acfc85dcf562442ba8e23fe4c04597, type: 3}
+  bossRoomDecor: {fileID: 4807929026510248977, guid: 2263425f46061634bbacd8c86a52dda0, type: 3}
+  roomHider: {fileID: 1645922256530192652, guid: 9148112c6bcb6c241994e5d413472d0d, type: 3}
