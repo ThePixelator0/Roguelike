@@ -41,6 +41,8 @@ public class Shield : MonoBehaviour
                 rend.enabled = false;
                 usingShield = false;
             }
+        } else {
+            transform.position = transform.parent.position;
         }
     }
 

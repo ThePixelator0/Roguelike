@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Items : MonoBehaviour
 {
-    [HideInInspector]
+    // [HideInInspector]
     public bool silverskull = false;
 
     void ReceiveItem(int item) {

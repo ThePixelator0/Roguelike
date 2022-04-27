@@ -43,6 +43,8 @@ public class AttackMelee : MonoBehaviour
     void Update() {
         if (attacking) {
             AttackDetails();
+        } else {
+            transform.position = transform.parent.position;
         }
     }
 
