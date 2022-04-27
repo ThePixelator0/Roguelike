@@ -30,11 +30,8 @@ public class FollowPlayer : MonoBehaviour
         if (player != null && !touchingShield) {
             if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
                 Move(knockbackDir);
-                knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
 
-                if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
-                    knockbackDir = new Vector2(0f, 0f);
-                }
+                CheckKnockback();
             }  
             
             else if (Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) {
@@ -69,29 +66,17 @@ public class FollowPlayer : MonoBehaviour
         knockbackDir = knockback;
     }
 
-
-
-    // void OnTriggerEnter2D(Collider2D col) {
-    //     if (col.tag == "Shield") {
-    //         touchingShield = true;
-    //     }
-    // }
-
-    // void OnTriggerExit2D(Collider2D col) {
-    //     if (col.tag == "Shield") {
-    //         touchingShield = false;
-    //     }
-    // }
-
-    void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.tag == "Shield") {
-            touchingShield = true;
+    void OnCollisionEnter2D() {
+        if (knockbackDir != new Vector2()) {
+            knockbackDir = rb.velocity;
         }
     }
 
-    void OnCollisionExit2D(Collision2D col) {
-        if (col.gameObject.tag == "Shield") {
-            touchingShield = false;
+    void CheckKnockback() {
+        knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
+
+        if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
+            knockbackDir = new Vector2(0f, 0f);
         }
     }
 }

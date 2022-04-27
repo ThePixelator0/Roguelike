@@ -113,4 +113,10 @@ public class Movement : MonoBehaviour
     public void applyKnockback(Vector2 knockback) {
         knockbackDir = knockback;
     }
+
+    void OnCollisionEnter2D() {
+        if (knockbackDir != new Vector2()) {
+            knockbackDir = rb.velocity;
+        }
+    }
 }
