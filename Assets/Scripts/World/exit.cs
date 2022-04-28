@@ -11,17 +11,18 @@ public class exit : MonoBehaviour
     [SerializeField]
     private BoxCollider2D selfCol;
 
+    bool triggered = false;
+
     void Start() {
         rend.enabled = false;
         selfCol.enabled = false;
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        if (active == false) {
-            return;
-        }
+    void OnTriggerStay2D(Collider2D col) {
+        if (triggered || !active || Input.GetAxis("Interact") == 0) return;
 
         if (col.tag == "Player") {
+            triggered = true;
             GameObject.FindWithTag("GameController").SendMessage("NextLevel");
         }
     }

@@ -69,7 +69,7 @@ public class AttackMelee : MonoBehaviour
                     // Jab can only hit 1 enemy
 
                     Vector2 kbAngle = col.transform.position - transform.position;
-                    col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
+                    col.SendMessage("applyKnockback", kbAngle.normalized * 2.5f);
                     col.SendMessage("applyDamage", damage);
 
                     selfCol.enabled = false;
@@ -78,7 +78,7 @@ public class AttackMelee : MonoBehaviour
             else if (attackType == 1) {
                 // Slash
                 Vector2 kbAngle = col.transform.position - transform.position;
-                col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
+                col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
                 col.SendMessage("applyDamage", damage);
             }
         }

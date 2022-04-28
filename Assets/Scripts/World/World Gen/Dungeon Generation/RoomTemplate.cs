@@ -36,7 +36,6 @@ public class RoomTemplate : MonoBehaviour
     public GameObject roomDecor;
     public GameObject junkDecor;
     public GameObject bossRoomDecor;
-    // public GameObject roomHider;
 
     public void Start() {
         canSpawn = true;
@@ -96,8 +95,6 @@ public class RoomTemplate : MonoBehaviour
                         Instantiate(roomDecor, real, Quaternion.identity);
                         Instantiate(junkDecor, real, Quaternion.identity);
                     }
-
-                    // Instantiate(roomHider, real, Quaternion.identity);
                 }
 
                 // Allow player to move

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class chest : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class chest : MonoBehaviour
                 itemController.GetComponent<_ItemController>().uniqueItemList.RemoveAt(rand);
             }
 
-            Instantiate(loot, transform.position + new Vector3(0.5f, 0.5f, -1), Quaternion.identity);
+            Instantiate(loot, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
         } else {
             print("No more items to give");
         }

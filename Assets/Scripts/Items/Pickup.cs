@@ -22,9 +22,7 @@ public class Pickup : MonoBehaviour
 
 
     void OnTriggerStay2D(Collider2D col) {
-        if (pickupDelay > 0) {
-            return;
-        }
+        if (pickupDelay > 0 || Input.GetAxis("Interact") == 0) return;
 
         if (col.tag == "Player") {
             // Prevent the same item being picked up multiple times
