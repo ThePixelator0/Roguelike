@@ -34,7 +34,7 @@ public class RoomHider : MonoBehaviour
         return new Vector3Int((int)pos.x, (int)pos.y, 0) * 14;
     }
 
-    string RoomNameAtPos(Vector2 pos) {
+    public string RoomNameAtPos(Vector2 pos) {
         // Returns the name of the room at a position
         RoomTemplate template = templates.GetComponent<RoomTemplate>();
         if (template.positions.Contains(pos)) {

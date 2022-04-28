@@ -1658,8 +1658,16 @@ PrefabInstance:
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4724988937459303948, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4724988937719095313, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988937719095313, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4724988937962160798, guid: 467395999af895e4da779b0426a60903, type: 3}
@@ -1676,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724988939275027997, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 5.0000005
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7114583068117922836, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_Mesh

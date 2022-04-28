@@ -5,13 +5,19 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     public int itemnum;
-    public float pickupDelay = 1;
+    public float pickupDelay = 0.5f;
     private bool pickedUp = false;
+    Vector3 dirToMoveTo;
 
     void FixedUpdate() {
         if (pickupDelay > 0) {
             pickupDelay -= Time.deltaTime;
+            transform.position += dirToMoveTo * Time.deltaTime;
         }
+    }
+
+    void Start() {
+        dirToMoveTo = (GameObject.Find("Player").transform.position - transform.position).normalized;
     }
 
 

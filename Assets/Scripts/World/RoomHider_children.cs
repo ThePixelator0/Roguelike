@@ -54,6 +54,46 @@ public class RoomHider_children : MonoBehaviour
                         rend.enabled = true;
                     }
                     break;
+
+                case "tr":
+                    if ((templates.topRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ||
+                        (templates.rightRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ) {
+
+                        rend.enabled = true;
+                    } else {
+                        rend.enabled = false;
+                    }
+                    break;
+                case "tl":
+                    if ((templates.topRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ||
+                        (templates.leftRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ) {
+
+                        rend.enabled = true;
+                    } else {
+                        rend.enabled = false;
+                    }
+                    break;
+                case "br":
+                    if ((templates.bottomRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ||
+                        (templates.rightRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ) {
+
+                        rend.enabled = true;
+                    } else {
+                        rend.enabled = false;
+                    }
+                    break;
+                case "bl":
+                    if ((templates.bottomRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ||
+                        (templates.leftRooms_Names.Contains( hider.RoomNameAtPos(transform.position / 14) )) ) {
+
+                        rend.enabled = true;
+                    } else {
+                        rend.enabled = false;
+                    }
+                    break;
+
+
+
                 default:
                     print("dir has an invalid direction");
                     break;

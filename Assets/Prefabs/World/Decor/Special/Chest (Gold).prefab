@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 92517933290736490}
   m_Layer: 2
   m_Name: Chest (Gold)
-  m_TagString: Environment
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

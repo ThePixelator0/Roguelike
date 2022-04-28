@@ -23,13 +23,7 @@ public class chest : MonoBehaviour
         itemController = GameObject.Find("_ItemController");
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        if (col.tag == "Player" && isClosed) {
-            Open(col);
-        }
-    }
-
-    void Open(Collider2D col) {
+    void Open() {
         closed.SetActive(false);
         open.SetActive(true);
         isClosed = false;
@@ -52,12 +46,15 @@ public class chest : MonoBehaviour
                 itemController.GetComponent<_ItemController>().uniqueItemList.RemoveAt(rand);
             }
 
-            Instantiate(loot, transform.position, Quaternion.identity);
+            Instantiate(loot, transform.position + new Vector3(0.5f, 0.5f, -1), Quaternion.identity);
         } else {
             print("No more items to give");
         }
-        
+    }
 
-
+    public void applyDamage(float damage) {
+        if (isClosed) {
+            Open();
+        }
     }
 }
