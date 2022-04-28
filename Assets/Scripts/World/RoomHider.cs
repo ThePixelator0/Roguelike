@@ -16,9 +16,11 @@ public class RoomHider : MonoBehaviour
 
     void FixedUpdate()
     {
-        roomPos = RoomPos(player.transform.position);
-        transform.position = roomPos + new Vector3(0, 1, 0);
-        playerRoom = RoomNameAtPos(roomPos / 14);
+        if (player != null) {
+            roomPos = RoomPos(player.transform.position);
+            transform.position = roomPos + new Vector3(0, 1, 0);
+            playerRoom = RoomNameAtPos(roomPos / 14);
+        }
     }
 
     Vector3 RoomPos(Vector3 pos) {

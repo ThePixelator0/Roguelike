@@ -63,13 +63,13 @@ public class Shield : MonoBehaviour
 
             Vector2 kbAngle = col.transform.position - transform.position;
             col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
-            col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+            col.SendMessage("applyDamage", damage);
             // col.SendMessage("applyEffect", new Vector2(0, 1));
         }
 
         // Hit a breakable object
         else if (col.tag == "Breakable") {
-            col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+            col.SendMessage("applyDamage", damage);
         } 
     }
 

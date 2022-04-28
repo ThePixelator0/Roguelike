@@ -6,7 +6,6 @@ using LineOfSight;
 
 public class AttackMelee : MonoBehaviour
 {
-    public float damageMod;
     [SerializeField]
     private float damage;
     [SerializeField]
@@ -71,7 +70,7 @@ public class AttackMelee : MonoBehaviour
 
                     Vector2 kbAngle = col.transform.position - transform.position;
                     col.SendMessage("applyKnockback", kbAngle.normalized * 5f);
-                    col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+                    col.SendMessage("applyDamage", damage);
 
                     selfCol.enabled = false;
                 }
@@ -80,13 +79,13 @@ public class AttackMelee : MonoBehaviour
                 // Slash
                 Vector2 kbAngle = col.transform.position - transform.position;
                 col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
-                col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+                col.SendMessage("applyDamage", damage);
             }
         }
 
         // Sword hit a breakable object
         else if (col.tag == "Breakable") {
-            col.SendMessage("applyDamage", damage * PlayerStats.damageMod);
+            col.SendMessage("applyDamage", damage);
         } 
     }
 
@@ -162,7 +161,7 @@ public class AttackMelee : MonoBehaviour
     void attackJab() {
         // 0. Setup Attack
         attacking = true;
-        damage = attack_stats[0].z * (PlayerStats.damageMod);
+        damage = attack_stats[0].z * PlayerStats.damageMod;
 
         // 1. Face Mouse
         FaceMouse();

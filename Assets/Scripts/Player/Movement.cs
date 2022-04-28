@@ -50,6 +50,8 @@ public class Movement : MonoBehaviour
                 }
                 Move(GetInputs() * speed * PlayerStats.speedMod, dashMod);
             }
+        } else {
+            rb.velocity = new Vector3();
         }
     }
 
