@@ -674,63 +674,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &978806749
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 647886647167977752, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_Name
-      value: Ring of the Arrogant
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754945485057283098, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}
 --- !u!4 &1013345232 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5448081119686077786, guid: 873bbf35a37a31d4297ad281de9123a8, type: 3}
@@ -1706,6 +1649,34 @@ PrefabInstance:
     - target: {fileID: 1415695772037069793, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988937190329897, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988937459303948, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988937719095313, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988937962160798, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988938103875437, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988939275027997, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724988939275027997, guid: 467395999af895e4da779b0426a60903, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 7114583068117922836, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_Mesh
