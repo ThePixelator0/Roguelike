@@ -4,41 +4,38 @@ using UnityEngine;
 
 public class RoomHider : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3[] checkPositions;
+    private Vector3 roomPos;
+    public string playerRoom;
     private GameObject player;
+    private GameObject templates;
 
     void Start() {
         player = GameObject.Find("Player");
+        templates = GameObject.Find("Room Templates");
     }
 
     void FixedUpdate()
     {
-        foreach (Vector3 vec in checkPositions) {
-            if (PositionLOS(player.transform.position, vec + transform.position)) {
-                print("Player is in LOS of " + (vec + transform.position));
-                GameObject.Find("Game Controller").SendMessage("CreateMarker", vec + transform.position);
-                Destroy(gameObject);
-                break;
-            } else {
-                // print("Player is not in LOS of " + (vec + transform.position));
-            }
-        }
+        roomPos = RoomPos(player.transform.position);
+        transform.position = roomPos + new Vector3(0, 1, 0);
+        playerRoom = RoomNameAtPos(roomPos / 14);
     }
 
-    public bool PositionLOS(Vector2 pos1, Vector2 pos2) {
-            Vector2 posDir = (pos2 - pos1).normalized;
-            float distance = Vector2.Distance(pos1, pos2);
+    Vector3 RoomPos(Vector3 pos) {
+        // Returns the position of the middle of the closest room
+        pos = ( (pos + new Vector3(7 * (pos.x / Mathf.Abs(pos.x)), 7 * (pos.y / Mathf.Abs(pos.y)), 0)) / 14);
+        return new Vector3Int((int)pos.x, (int)pos.y, 0) * 14;
+    }
 
-            RaycastHit2D hit = Physics2D.Raycast(pos1, posDir, distance);
-
-            if (hit.collider.tag == "Player") {
-                // Raycast hit the player first
-                return true;
-            }
-            else {
-                // Raycast hit something other than player
-                return false;
-            }
+    string RoomNameAtPos(Vector2 pos) {
+        // Returns the name of the room at a position
+        RoomTemplate template = templates.GetComponent<RoomTemplate>();
+        if (template.positions.Contains(pos)) {
+            int index = template.positions.IndexOf(pos);
+            return template.rooms[index].name;
+        } else {
+            return "Entry Room";
         }
+        
+    }
 }
