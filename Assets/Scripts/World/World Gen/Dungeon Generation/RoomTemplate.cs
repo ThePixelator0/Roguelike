@@ -74,6 +74,9 @@ public class RoomTemplate : MonoBehaviour
     }
 
     void FixedUpdate() {
+        // Allow player to move
+        GameObject.Find("Player").GetComponent<Movement>().canMove = true;
+
         if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
             if (spawnQueue[0] != null) {
                 waitTime = 0;
@@ -97,8 +100,8 @@ public class RoomTemplate : MonoBehaviour
                     }
                 }
 
-                // Allow player to move
-                GameObject.Find("Player").GetComponent<Movement>().canMove = true;
+                // // Allow player to move
+                // GameObject.Find("Player").GetComponent<Movement>().canMove = true;
             }
         } else if (spawnQueue.Count > 0 && canSpawn) {
             waitTime += Time.deltaTime;

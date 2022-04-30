@@ -16,6 +16,7 @@ TagManager:
   - Breakable
   - Room
   - Shield
+  - Hole
   layers:
   - Default
   - TransparentFX

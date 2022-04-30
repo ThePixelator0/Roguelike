@@ -66,9 +66,35 @@ public class FollowPlayer : MonoBehaviour
         knockbackDir = knockback;
     }
 
-    void OnCollisionEnter2D() {
+    void OnCollisionEnter2D(Collision2D col) {
+        // If being knocked back,
         if (knockbackDir != new Vector2()) {
-            knockbackDir = rb.velocity;
+            // hit an enemy or boss,
+            if (col.collider.tag == "Enemy" || col.collider.tag == "Boss") {
+                // knock them back
+                col.collider.gameObject.SendMessage("applyKnockback", knockbackDir);
+            } 
+            
+            else if (col.collider.tag == "Hole") {
+                gameObject.SendMessage("applyDamage", 100000);
+            }
+
+
+            else {
+                // update knockback direction
+                Vector2 damageVec = knockbackDir - rb.velocity;
+                damageVec = new Vector2(Mathf.Abs(damageVec.x), Mathf.Abs(damageVec.y));
+
+                if (damageVec.x > damageVec.y && damageVec.x >= 4) {
+                    // print("impact speed: " + damageVec.x);
+                    gameObject.SendMessage("applyDamage", damageVec.x * 5);
+                } else if (damageVec.y > damageVec.x && damageVec.y >= 4) {
+                    // print("impact speed: " + damageVec.y);
+                    gameObject.SendMessage("applyDamage", damageVec.y * 5);
+                }
+
+                knockbackDir = rb.velocity;
+            }
         }
     }
 
