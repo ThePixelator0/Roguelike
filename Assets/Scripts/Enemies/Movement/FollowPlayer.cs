@@ -19,6 +19,9 @@ public class FollowPlayer : MonoBehaviour
 
     LOS sight = new LOS();
 
+
+    private bool touchingHoleWalls = true;
+
     void Awake() {
         // Find player and store in var
         touchingShield = false;
@@ -76,7 +79,10 @@ public class FollowPlayer : MonoBehaviour
             } 
             
             else if (col.collider.tag == "Hole") {
-                gameObject.SendMessage("applyDamage", 100000);
+                if (col.collider.gameObject.name == "Hole") {
+                    Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
+                    touchingHoleWalls = true;
+                }
             }
 
 
@@ -95,6 +101,20 @@ public class FollowPlayer : MonoBehaviour
 
                 knockbackDir = rb.velocity;
             }
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col) {
+        if (col.tag == "Hole") {
+            if (col.gameObject.name == "Darkness" && !touchingHoleWalls) {
+                gameObject.SendMessage("applyDamage", 100000);
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col) {
+        if (col.collider.gameObject.name == "Hole") {
+            touchingHoleWalls = false;
         }
     }
 

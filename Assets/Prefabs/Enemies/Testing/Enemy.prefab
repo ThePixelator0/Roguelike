@@ -522,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
-  blood: {fileID: 5225296768686066852, guid: 45975fe468800cc48a3afff1a430567c, type: 3}
+  blood: {fileID: 7703965423976066143, guid: f3955d45f0e2ef3489054c24ae74d351, type: 3}
   healthBar: {fileID: 5697247353817826491}
 --- !u!61 &2840163094318273511
 BoxCollider2D:
