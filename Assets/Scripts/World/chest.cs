@@ -34,7 +34,7 @@ public class chest : MonoBehaviour
             goldChest = true;
         }
 
-        if (goldChest) {
+        if (goldChest || itemController.GetComponent<_ItemController>().uniqueItemList.Count == 0) {
             itemList = itemController.GetComponent<_ItemController>().uniqueItemList;
         } else {
             itemList = itemController.GetComponent<_ItemController>().genericItemList;

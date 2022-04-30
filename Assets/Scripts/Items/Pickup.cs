@@ -13,11 +13,12 @@ public class Pickup : MonoBehaviour
         if (pickupDelay > 0) {
             pickupDelay -= Time.deltaTime;
             transform.position += dirToMoveTo * Time.deltaTime;
+            dirToMoveTo /= 2;
         }
     }
 
     void Start() {
-        dirToMoveTo = (GameObject.Find("Player").transform.position - transform.position).normalized;
+        dirToMoveTo = (GameObject.Find("Player").transform.position - transform.position).normalized * 16;
     }
 
 

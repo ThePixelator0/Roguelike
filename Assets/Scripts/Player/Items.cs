@@ -10,14 +10,26 @@ public class Items : MonoBehaviour
     [HideInInspector]
     public bool silverskull = false;
 
+    public List<int> heldItems;
+
+    private GameObject itemInformation;
+
+    void Start() {
+        itemInformation = GameObject.Find("ItemInformation");
+    }
+
+
     void ReceiveItem(int item) {
+        // print("Picked up item " + item);
+        heldItems.Add(item);
+        itemInformation.SendMessage("AddItemInformation", item);
+        
         switch (item) {
             case 0:
                 // Turn the Lights Up, decrease stealth, increase damage
                 gameObject.transform.Find("Player Light").GetComponent<Light2D>().intensity = 1;
                 PlayerStats.stealthMod -= 0.15f;
                 PlayerStats.damageMod += 1f;
-                print(PlayerStats.damageMod);
                 break;
             case 1:
                 // Enable Dashing
