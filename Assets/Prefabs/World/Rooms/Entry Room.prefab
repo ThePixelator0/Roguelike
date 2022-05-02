@@ -1193,6 +1193,7 @@ GameObject:
   - component: {fileID: 5260934809409459208}
   - component: {fileID: 4769739684988650426}
   - component: {fileID: 5094046288376843405}
+  - component: {fileID: 3053660038599537559}
   m_Layer: 0
   m_Name: Entry Room
   m_TagString: Room
@@ -1243,6 +1244,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03878e994b6ddd8419454fb6184e1226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3053660038599537559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206156653153972495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab787bb10cad0a42b9a80fcbb481780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2522068017247325364
@@ -1303,7 +1316,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1183348835
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61376
+  m_InstanceId: 48582
 --- !u!1 &3716709329282132543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1375,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61522
+  m_InstanceId: 48564
 --- !u!1 &3872419209685417314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1434,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -147355747
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61070
+  m_InstanceId: 48568
 --- !u!1 &5948561676175558481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,7 +3413,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -2099804259
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61120
+  m_InstanceId: 48604
 --- !u!1 &6988564665558725960
 GameObject:
   m_ObjectHideFlags: 0

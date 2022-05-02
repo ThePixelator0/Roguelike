@@ -3826,6 +3826,7 @@ GameObject:
   - component: {fileID: 2597479724656578946}
   - component: {fileID: 3404447132494382640}
   - component: {fileID: 3152293540111878407}
+  - component: {fileID: -5030604834139955843}
   m_Layer: 0
   m_Name: Room - TBLR
   m_TagString: Room
@@ -3875,6 +3876,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03878e994b6ddd8419454fb6184e1226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5030604834139955843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328094213977846917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab787bb10cad0a42b9a80fcbb481780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8373918768027357511

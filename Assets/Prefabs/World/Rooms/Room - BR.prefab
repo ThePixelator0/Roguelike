@@ -4403,6 +4403,7 @@ GameObject:
   - component: {fileID: 2432693563499692487}
   - component: {fileID: 3094453727948756597}
   - component: {fileID: 3346598530738854210}
+  - component: {fileID: -5325947279016566757}
   m_Layer: 0
   m_Name: Room - BR
   m_TagString: Room
@@ -4450,6 +4451,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03878e994b6ddd8419454fb6184e1226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5325947279016566757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8529226656685663424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab787bb10cad0a42b9a80fcbb481780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3853279245052649061
