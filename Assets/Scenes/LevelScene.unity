@@ -1618,7 +1618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4724988937190329897, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
-      value: 5
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 4724988937190329897, guid: 467395999af895e4da779b0426a60903, type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
@@ -1717,14 +1717,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2088844183}
     m_Modifications:
-    - target: {fileID: 5147377671641919790, guid: 49d467fdbcf85c44d8b0358911a443cc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6724036901495481831, guid: 49d467fdbcf85c44d8b0358911a443cc, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 8138377776880489748, guid: 49d467fdbcf85c44d8b0358911a443cc, type: 3}
       propertyPath: m_Name
       value: MinimapController

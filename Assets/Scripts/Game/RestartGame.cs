@@ -51,10 +51,10 @@ public class RestartGame : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (Transform child in GameObject.Find("MinimapController/Hallways").transform) {
+        foreach (Transform child in GameObject.Find("MinimapController/Mask/Hallways").transform) {
             Destroy(child.gameObject);
         }
-        foreach (Transform child in GameObject.Find("MinimapController/Minimap").transform) {
+        foreach (Transform child in GameObject.Find("MinimapController/Mask/Minimap").transform) {
             Destroy(child.gameObject);
         }
 

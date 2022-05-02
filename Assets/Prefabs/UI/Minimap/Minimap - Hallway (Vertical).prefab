@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3018495013178130368}
   - component: {fileID: 3018495013178130370}
   - component: {fileID: 3018495013178130371}
-  - component: {fileID: 3018495013178130373}
+  - component: {fileID: -1475551244207254100}
   m_Layer: 5
   m_Name: Minimap - Hallway (Vertical)
   m_TagString: Untagged
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3018495013178130373
+--- !u!114 &-1475551244207254100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,6 +85,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3018495013178130369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e390ccb5d7e3a645be82b32fc1d2b02, type: 3}
+  m_Script: {fileID: 11500000, guid: b0177123c89d20b4886a05dfcc3c94b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
