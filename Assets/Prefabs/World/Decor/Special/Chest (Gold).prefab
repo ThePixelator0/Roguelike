@@ -403,15 +403,15 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 000000009b996237b7626cdde760fb2f
+  m_ApplyToSortingLayers: 000000009b996237e1344fd2cf97434093945383e760fb2f270fc3e2cdf3770875b8ba93ab60bd6b
   m_ShapePath:
-  - {x: 0, y: 0, z: 0}
-  - {x: 1, y: 0, z: 0}
-  - {x: 1, y: 0.5, z: 0}
-  - {x: 0, y: 0.5, z: 0}
-  m_ShapePathHash: 1234564373
+  - {x: 0.05, y: 0.05, z: 0}
+  - {x: 0.95, y: 0.05, z: 0}
+  - {x: 0.95, y: 0.45, z: 0}
+  - {x: 0.05, y: 0.45, z: 0}
+  m_ShapePathHash: -85354887
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41106
+  m_InstanceId: 58694
 --- !u!114 &92517933290736490
 MonoBehaviour:
   m_ObjectHideFlags: 0
