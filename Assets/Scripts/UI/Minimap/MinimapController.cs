@@ -11,6 +11,11 @@ public class MinimapController : MonoBehaviour
     [SerializeField]
     private GameObject currentRoom;
 
+    [SerializeField]
+    private GameObject hallwayVertical;
+    [SerializeField]
+    private GameObject hallwayHorizontal;
+
     private GameObject player;
     public Vector2 playerRelativePos;
 
@@ -38,11 +43,25 @@ public class MinimapController : MonoBehaviour
     }
 
 
-    public void CreateMinimapRoom(Vector2 roomPos) {
+    public void CreateMinimapRoom(Vector2 roomPos, bool[] directions) {
         // roomPos will be a vector of the relative pos. (0, 0) is the center. (0, 1) is one to the right, etc.
         Vector2 realPos = roomPos * 32;
         realPos += centerPos;
 
         Instantiate(minimapRoom, realPos, Quaternion.identity);
+
+        // 0, 1, 2, 3 is top, bottom, left, right respectively 
+        if (directions[0]) {
+            Instantiate(hallwayVertical, realPos + new Vector2(0, 16), Quaternion.identity);
+        }
+        if (directions[1]) {
+            Instantiate(hallwayVertical, realPos + new Vector2(0, -16), Quaternion.identity);
+        }
+        if (directions[2]) {
+            Instantiate(hallwayHorizontal, realPos + new Vector2(-16, 0), Quaternion.identity);
+        }
+        if (directions[3]) {
+            Instantiate(hallwayHorizontal, realPos + new Vector2(16, 0), Quaternion.identity);
+        }
     }
 }

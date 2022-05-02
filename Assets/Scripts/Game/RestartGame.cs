@@ -48,9 +48,16 @@ public class RestartGame : MonoBehaviour
         }
 
         foreach (Transform child in GameObject.Find("Grid").transform) {
-            
             Destroy(child.gameObject);
         }
+
+        foreach (Transform child in GameObject.Find("MinimapController/Hallways").transform) {
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in GameObject.Find("MinimapController/Minimap").transform) {
+            Destroy(child.gameObject);
+        }
+
 
         GameObject.Find("Player").transform.position = new Vector3(0, 0, 0);
         Instantiate(entryRoom, new Vector2(0, 0), Quaternion.identity);

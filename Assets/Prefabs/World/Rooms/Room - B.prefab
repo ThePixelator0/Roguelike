@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 7402957478697304692}
   - component: {fileID: 7894680643761640902}
   - component: {fileID: 7570479313965603569}
-  - component: {fileID: -4444567980231898446}
+  - component: {fileID: 2710699704597630824}
   m_Layer: 0
   m_Name: Room - B
   m_TagString: Room
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03878e994b6ddd8419454fb6184e1226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4444567980231898446
+--- !u!114 &2710699704597630824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab787bb10cad0a42b9a80fcbb481780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  directions: 00010000
 --- !u!1 &3929019410194563761
 GameObject:
   m_ObjectHideFlags: 0
