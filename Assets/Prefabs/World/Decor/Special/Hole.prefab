@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 255899117015369086}
   - component: {fileID: 2616024085438196190}
   - component: {fileID: 1631888676804508274}
+  - component: {fileID: 6940309491910768120}
   m_Layer: 2
   m_Name: Darkness
   m_TagString: Hole
@@ -818,6 +819,19 @@ CompositeCollider2D:
       - {x: -5.999971, y: -6}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &6940309491910768120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4019272691049773101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854259df4c5667b43a161b61d34042c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesTouchingHole: []
 --- !u!1 &7961626702138705824
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +845,7 @@ GameObject:
   - component: {fileID: 1620291472155923035}
   - component: {fileID: 40199266518772189}
   - component: {fileID: 7811594724384488415}
+  - component: {fileID: 3334673000858404933}
   m_Layer: 2
   m_Name: Hole
   m_TagString: Hole
@@ -1367,6 +1382,19 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3334673000858404933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961626702138705824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854259df4c5667b43a161b61d34042c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesTouchingHole: []
 --- !u!1 &8324943683071844371
 GameObject:
   m_ObjectHideFlags: 0

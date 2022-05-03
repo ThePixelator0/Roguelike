@@ -20,7 +20,7 @@ public class FollowPlayer : MonoBehaviour
     LOS sight = new LOS();
 
 
-    private bool touchingHoleWalls = true;
+    // private bool touchingHoleWalls = true;
 
     void Awake() {
         // Find player and store in var
@@ -78,12 +78,12 @@ public class FollowPlayer : MonoBehaviour
                 col.collider.gameObject.SendMessage("applyKnockback", knockbackDir);
             } 
             
-            else if (col.collider.tag == "Hole") {
-                if (col.collider.gameObject.name == "Hole") {
-                    Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
-                    touchingHoleWalls = true;
-                }
-            }
+            // else if (col.collider.tag == "Hole") {
+            //     if (col.collider.gameObject.name == "Hole") {
+            //         Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
+            //         touchingHoleWalls = true;
+            //     }
+            // }
 
 
             else {
@@ -104,19 +104,19 @@ public class FollowPlayer : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D col) {
-        if (col.tag == "Hole") {
-            if (col.gameObject.name == "Darkness" && !touchingHoleWalls) {
-                gameObject.SendMessage("applyDamage", 100000);
-            }
-        }
-    }
+    // void OnTriggerStay2D(Collider2D col) {
+    //     if (col.tag == "Hole") {
+    //         if (col.gameObject.name == "Darkness" && !touchingHoleWalls) {
+    //             gameObject.SendMessage("applyDamage", 100000);
+    //         }
+    //     }
+    // }
 
-    void OnCollisionExit2D(Collision2D col) {
-        if (col.collider.gameObject.name == "Hole") {
-            touchingHoleWalls = false;
-        }
-    }
+    // void OnCollisionExit2D(Collision2D col) {
+    //     if (col.collider.gameObject.name == "Hole") {
+    //         touchingHoleWalls = false;
+    //     }
+    // }
 
     void CheckKnockback() {
         knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);

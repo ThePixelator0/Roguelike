@@ -75,7 +75,9 @@ public class RoomTemplate : MonoBehaviour
 
     void FixedUpdate() {
         // Allow player to move
-        GameObject.Find("Player").GetComponent<Movement>().canMove = true;
+        if (GameObject.Find("Player") != null) {
+            GameObject.Find("Player").GetComponent<Movement>().canMove = true;
+        }
 
         if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
             if (spawnQueue[0] != null) {

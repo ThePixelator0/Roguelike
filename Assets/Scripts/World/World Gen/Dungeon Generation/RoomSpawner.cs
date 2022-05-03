@@ -52,6 +52,21 @@ public class RoomSpawner : MonoBehaviour
                 // selfCoord is set to the in-game position as a grid with room size = 1
                 Vector2 selfCoord = transform.position / 14;
 
+                // When on the edge of the minimap, don't spawn rooms with an exit outside of the minimap.
+                if (selfCoord.y == 5) {
+                    validRooms = GetValidRooms(validRooms, templates.topRooms, false);
+                }
+                if (selfCoord.y == -5) {
+                    validRooms = GetValidRooms(validRooms, templates.bottomRooms, false);
+                }
+                if (selfCoord.x == 5) {
+                    validRooms = GetValidRooms(validRooms, templates.rightRooms, false);
+                }
+                if (selfCoord.x == -5) {
+                    validRooms = GetValidRooms(validRooms, templates.leftRooms, false);
+                }
+
+
                 if ((selfCoord.y + 1 == coord.y) && (selfCoord.x == coord.x)) {
                     // Space Above Occupied
                     if (openingDirection == 2) {
@@ -74,11 +89,11 @@ public class RoomSpawner : MonoBehaviour
                     
                     if (templates.topRooms_Names.Contains(templates.rooms[i].name)) {
                         // Below room has a top doorway
-                        // Remove rooms from validRooms that do not have a top doorway
+                        // Remove rooms from validRooms that do not have a bottom doorway
                         validRooms = GetValidRooms(validRooms, templates.bottomRooms, true);
                     } else {
                         // Below room does not have a top doorway
-                        // Remove rooms from validRooms that have a top doorway
+                        // Remove rooms from validRooms that have a bottom doorway
                         validRooms = GetValidRooms(validRooms, templates.bottomRooms, false);
                     }
                 } else if ((selfCoord.y == coord.y) && (selfCoord.x + 1 == coord.x)) {

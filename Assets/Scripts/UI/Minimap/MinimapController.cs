@@ -28,18 +28,20 @@ public class MinimapController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        float playerX = player.transform.position.x;
-        float playerY = player.transform.position.y;
+        if (player != null) {    
+            float playerX = player.transform.position.x;
+            float playerY = player.transform.position.y;
 
-        playerX = (playerX + 7) / 14;
-        playerY = (playerY + 7) / 14;
+            playerX = (playerX + 7) / 14;
+            playerY = (playerY + 7) / 14;
 
-        playerX = Mathf.Floor(playerX);
-        playerY = Mathf.Floor(playerY);
+            playerX = Mathf.Floor(playerX);
+            playerY = Mathf.Floor(playerY);
 
-        playerRelativePos = new Vector2(playerX, playerY);
+            playerRelativePos = new Vector2(playerX, playerY);
 
-        currentRoom.transform.position = (playerRelativePos * 32) + centerPos + new Vector2(1920, 1080);
+            currentRoom.transform.position = (playerRelativePos * 32) + centerPos + new Vector2(1920, 1080);
+        }
     }
 
 
