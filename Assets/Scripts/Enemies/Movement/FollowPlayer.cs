@@ -8,14 +8,14 @@ public class FollowPlayer : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private float speed;
+    public bool attacking;
+    public Vector2 attackingDir;
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
     private float distance; // Max distance the entity can see the player from.
     public Vector2 knockbackDir;
     private Vector2 lastPlayerPos;
-    
-    private bool touchingShield;
 
     LOS sight = new LOS();
 
@@ -26,19 +26,26 @@ public class FollowPlayer : MonoBehaviour
 
     void Awake() {
         // Find player and store in var
-        touchingShield = false;
         player = GameObject.FindWithTag("Player");
         lastPlayerPos = transform.position;
         ignoredCollisions = new List<Collider2D>();
     }
     
     void FixedUpdate() {
-        if (player != null && !touchingShield) {
+        if (player != null) {
             if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
                 Move(knockbackDir);
 
                 CheckKnockback();
             }  
+
+            else if (attacking) {
+                if (attackingDir == new Vector2()) {
+                    rb.velocity *= 0f;
+                } else {
+                    Move(DirTo(attackingDir) * speed * -2f);
+                }
+            }
             
             else if ((Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) && (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag)) ){
                 // Player is close enough to be seen and can be seen

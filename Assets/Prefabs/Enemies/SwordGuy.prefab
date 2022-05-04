@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6927656313409023009}
   - component: {fileID: 3258555073573511133}
   - component: {fileID: 8677072438581057684}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8646098445794953857}
   - component: {fileID: 3838302174179877860}
   - component: {fileID: 8149807666229593456}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 8048039553388952832}
   - component: {fileID: 8467388051433937612}
   - component: {fileID: 6326126560066807462}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 4512447669386924461}
   - component: {fileID: 6122109507773189945}
   - component: {fileID: 6771295285850904560}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 7551824416118171861}
   - component: {fileID: 8692520533808866910}
   - component: {fileID: 3809045302705835242}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ MonoBehaviour:
   warmupTime: 0.15
   activeCooldown: 0.4
   inactiveCooldown: 0.4
-  normalCooldown: 2
+  normalCooldown: 1.2
 --- !u!1 &7551824416790276321
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +596,7 @@ GameObject:
   - component: {fileID: 7551824416790276383}
   - component: {fileID: 7551824416790276320}
   - component: {fileID: 3200103026781928740}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: WeaponController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 3809045302705835242}
+  movement: {fileID: 8999111158929611189}
   attackWarmup: 0
   timeActive: 0
   timeInactive: 0
@@ -738,7 +739,7 @@ SpriteRenderer:
   m_SortingLayerID: 805003495
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7031747988447250810, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
+  m_Sprite: {fileID: 603979391230035031, guid: a0b79dd9e46cfe643bd173df4de6b7cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -799,6 +800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  attacking: 0
+  attackingDir: {x: 0, y: 0}
   rb: {fileID: 8999111158929611146}
   distance: 6
   knockbackDir: {x: 0, y: 0}

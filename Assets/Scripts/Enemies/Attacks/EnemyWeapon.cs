@@ -81,6 +81,7 @@ public class EnemyWeapon : MonoBehaviour
         switch (type) {
             case 0:
                 // Jab
+                controller.movement.attackingDir = transform.position;
                 selfCol.enabled = true;
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
@@ -92,6 +93,11 @@ public class EnemyWeapon : MonoBehaviour
             case 0:
                 // Jab
                 selfCol.enabled = false;
+                if (controller.timeInactive > inactiveCooldown / 2) {
+                    controller.movement.attackingDir = transform.position;
+                } else {
+                    controller.movement.attackingDir = new Vector2();
+                }
                 transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
                 break;
             
