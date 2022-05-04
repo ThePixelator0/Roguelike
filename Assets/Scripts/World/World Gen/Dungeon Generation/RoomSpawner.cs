@@ -53,16 +53,16 @@ public class RoomSpawner : MonoBehaviour
                 Vector2 selfCoord = transform.position / 14;
 
                 // When on the edge of the minimap, don't spawn rooms with an exit outside of the minimap.
-                if (selfCoord.y == 5) {
+                if (selfCoord.y == 4) {
                     validRooms = GetValidRooms(validRooms, templates.topRooms, false);
                 }
-                if (selfCoord.y == -5) {
+                if (selfCoord.y == -4) {
                     validRooms = GetValidRooms(validRooms, templates.bottomRooms, false);
                 }
-                if (selfCoord.x == 5) {
+                if (selfCoord.x == 4) {
                     validRooms = GetValidRooms(validRooms, templates.rightRooms, false);
                 }
-                if (selfCoord.x == -5) {
+                if (selfCoord.x == -4) {
                     validRooms = GetValidRooms(validRooms, templates.leftRooms, false);
                 }
 

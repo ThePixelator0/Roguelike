@@ -11,11 +11,15 @@ public class exit : MonoBehaviour
     [SerializeField]
     private BoxCollider2D selfCol;
 
+    private GameObject gameController;
+
     bool triggered = false;
 
     void Start() {
         rend.enabled = false;
         selfCol.enabled = false;
+
+        gameController = GameObject.FindWithTag("GameController");
     }
 
     void OnTriggerStay2D(Collider2D col) {
@@ -23,7 +27,7 @@ public class exit : MonoBehaviour
 
         if (col.tag == "Player") {
             triggered = true;
-            GameObject.FindWithTag("GameController").SendMessage("NextLevel");
+            gameController.SendMessage("NextLevel");
         }
     }
 

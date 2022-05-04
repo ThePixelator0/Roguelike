@@ -19,6 +19,8 @@ public class FollowPlayer : MonoBehaviour
 
     LOS sight = new LOS();
 
+    private List<Collider2D> ignoredCollisions;
+
 
     // private bool touchingHoleWalls = true;
 
@@ -27,6 +29,7 @@ public class FollowPlayer : MonoBehaviour
         touchingShield = false;
         player = GameObject.FindWithTag("Player");
         lastPlayerPos = transform.position;
+        ignoredCollisions = new List<Collider2D>();
     }
     
     void FixedUpdate() {
@@ -49,6 +52,14 @@ public class FollowPlayer : MonoBehaviour
             }
         } else {
             rb.velocity *= 0f;
+        }
+
+        // Undo collision ignoring
+        if (knockbackDir == new Vector2() && ignoredCollisions.Count > 0) {
+            foreach (Collider2D col in ignoredCollisions) {
+                Physics2D.IgnoreCollision(col, GetComponent<Collider2D>(), false );
+            }
+            ignoredCollisions = new List<Collider2D>();
         }
     }
 
@@ -78,12 +89,10 @@ public class FollowPlayer : MonoBehaviour
                 col.collider.gameObject.SendMessage("applyKnockback", knockbackDir);
             } 
             
-            // else if (col.collider.tag == "Hole") {
-            //     if (col.collider.gameObject.name == "Hole") {
-            //         Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
-            //         touchingHoleWalls = true;
-            //     }
-            // }
+            else if (col.collider.tag == "Hole") {
+                Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>(), true);
+                ignoredCollisions.Add(col.collider);
+            }
 
 
             else {
@@ -103,20 +112,6 @@ public class FollowPlayer : MonoBehaviour
             }
         }
     }
-
-    // void OnTriggerStay2D(Collider2D col) {
-    //     if (col.tag == "Hole") {
-    //         if (col.gameObject.name == "Darkness" && !touchingHoleWalls) {
-    //             gameObject.SendMessage("applyDamage", 100000);
-    //         }
-    //     }
-    // }
-
-    // void OnCollisionExit2D(Collision2D col) {
-    //     if (col.collider.gameObject.name == "Hole") {
-    //         touchingHoleWalls = false;
-    //     }
-    // }
 
     void CheckKnockback() {
         knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
