@@ -40,15 +40,15 @@ public class FollowPlayer : MonoBehaviour
                 CheckKnockback();
             }  
             
-            else if (Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) {
-                if (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag) ) {
-                    Move(DirTo(player.transform.position) * speed);
-                    lastPlayerPos = player.transform.position;
-                } else {
-                    Move(DirTo(lastPlayerPos) * speed);
-                }
+            else if ((Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) && (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag)) ){
+                // Player is close enough to be seen and can be seen
+                Move(DirTo(player.transform.position) * speed);
+                lastPlayerPos = player.transform.position;
             } else {
-                Move(DirTo(lastPlayerPos) * speed);
+                // Player is either too far to be seen or is not in LOS
+                float distance = Vector2.Distance(transform.position, lastPlayerPos);
+                float distanceMod = distance > 1 ? 1 : distance;
+                Move(DirTo(lastPlayerPos) * speed * distanceMod);
             }
         } else {
             rb.velocity *= 0f;
