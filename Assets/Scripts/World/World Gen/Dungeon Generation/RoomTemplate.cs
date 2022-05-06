@@ -104,7 +104,9 @@ public class RoomTemplate : MonoBehaviour
 
                 // // Allow player to move
                 // GameObject.Find("Player").GetComponent<Movement>().canMove = true;
+                // BroadcastMessage("CreateMinimapCurrentRoom");
             }
+            
         } else if (spawnQueue.Count > 0 && canSpawn) {
             waitTime += Time.deltaTime;
         }

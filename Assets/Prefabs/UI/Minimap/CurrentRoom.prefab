@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerPos: {x: -144, y: -144}
+  controller: {fileID: 0}
 --- !u!114 &1253765865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e390ccb5d7e3a645be82b32fc1d2b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
 --- !u!114 &5683786968209630923
 MonoBehaviour:
   m_ObjectHideFlags: 0

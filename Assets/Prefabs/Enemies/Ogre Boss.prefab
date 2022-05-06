@@ -309,6 +309,7 @@ GameObject:
   - component: {fileID: 2602716338941360141}
   - component: {fileID: 1192462689621947767}
   - component: {fileID: 2978584993689394462}
+  - component: {fileID: 1896505366955432686}
   - component: {fileID: 8434167266317696750}
   - component: {fileID: 925830459625511199}
   m_Layer: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   attacking: 0
+  attackingDir: {x: 0, y: 0}
   rb: {fileID: 1192462689621947720}
   distance: 6
   knockbackDir: {x: 0, y: 0}
@@ -414,9 +416,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
+  maxHealth: 250
   blood: {fileID: 7703965423976066143, guid: f3955d45f0e2ef3489054c24ae74d351, type: 3}
   healthBar: {fileID: 2123121152163097010}
+--- !u!114 &1896505366955432686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192462689621947764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48623ae3b2ee7a46bd7ad37416676d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &8434167266317696750
 BoxCollider2D:
   m_ObjectHideFlags: 0

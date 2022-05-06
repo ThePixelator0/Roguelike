@@ -19,11 +19,22 @@ public class MinimapController : MonoBehaviour
     private GameObject player;
     public Vector2 playerRelativePos;
 
+    private List<Vector2> minimapRoomPositions;
+    private List<GameObject> minimapRooms;
+
+    public Vector2 lastPos;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
+        minimapRoomPositions = new List<Vector2>();
+        minimapRooms = new List<GameObject>();
+    }
+
+    public void CreateMinimapCurrentRoom() {
         currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
     }
 
@@ -41,6 +52,12 @@ public class MinimapController : MonoBehaviour
             playerRelativePos = new Vector2(playerX, playerY);
 
             currentRoom.transform.position = (playerRelativePos * 32) + centerPos + new Vector2(1920, 1080);
+
+            if (playerRelativePos*32 + centerPos == lastPos) {
+            } else {
+                lastPos = playerRelativePos;
+                CheckPos(lastPos);
+            }
         }
     }
 
@@ -50,20 +67,45 @@ public class MinimapController : MonoBehaviour
         Vector2 realPos = roomPos * 32;
         realPos += centerPos;
 
-        Instantiate(minimapRoom, realPos, Quaternion.identity);
+        GameObject clone = Instantiate(minimapRoom, realPos, Quaternion.identity);
+        minimapRooms.Add(clone);
+        minimapRoomPositions.Add(roomPos);
 
         // 0, 1, 2, 3 is top, bottom, left, right respectively 
         if (directions[0]) {
-            Instantiate(hallwayVertical, realPos + new Vector2(0, 16), Quaternion.identity);
+            clone = Instantiate(hallwayVertical, realPos + new Vector2(0, 16), Quaternion.identity);
+            minimapRooms.Add(clone);
+            minimapRoomPositions.Add(roomPos);
         }
         if (directions[1]) {
-            Instantiate(hallwayVertical, realPos + new Vector2(0, -16), Quaternion.identity);
+            clone = Instantiate(hallwayVertical, realPos + new Vector2(0, -16), Quaternion.identity);
+            minimapRooms.Add(clone);
+            minimapRoomPositions.Add(roomPos);
         }
         if (directions[2]) {
-            Instantiate(hallwayHorizontal, realPos + new Vector2(-16, 0), Quaternion.identity);
+            clone = Instantiate(hallwayHorizontal, realPos + new Vector2(-16, 0), Quaternion.identity);
+            minimapRooms.Add(clone);
+            minimapRoomPositions.Add(roomPos);
         }
         if (directions[3]) {
-            Instantiate(hallwayHorizontal, realPos + new Vector2(16, 0), Quaternion.identity);
+            clone = Instantiate(hallwayHorizontal, realPos + new Vector2(16, 0), Quaternion.identity);
+            minimapRooms.Add(clone);
+            minimapRoomPositions.Add(roomPos);
+        }
+    }
+
+    public void CheckPos(Vector2 pos) {
+        int i = 0;
+        foreach (Vector2 roomPos in minimapRoomPositions) {
+            if (minimapRooms[i] == null) {
+                i++;
+                continue;
+            }
+
+            if (roomPos == pos) {
+                minimapRooms[i].SendMessage("Activate");
+            }
+            i++;
         }
     }
 }
