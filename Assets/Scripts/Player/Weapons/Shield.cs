@@ -61,6 +61,7 @@ public class Shield : MonoBehaviour
                 collisions.Add(col.gameObject);
             }
 
+            col.SendMessage("Interrupt");
             Vector2 kbAngle = col.transform.position - transform.position;
             col.SendMessage("applyKnockback", kbAngle.normalized * 10f);
             col.SendMessage("applyDamage", damage);

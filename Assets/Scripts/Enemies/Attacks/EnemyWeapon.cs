@@ -44,6 +44,7 @@ public class EnemyWeapon : MonoBehaviour
         switch (attackType) {
             case 0:
                 // Jab
+                // transform.parent.parent.GetComponent<FollowPlayer>().rb.velocity = new Vector3();
                 transform.rotation = Quaternion.Euler(attackDir);
                 setPosOffset();
                 break;

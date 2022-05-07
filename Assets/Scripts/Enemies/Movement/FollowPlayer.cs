@@ -33,23 +33,26 @@ public class FollowPlayer : MonoBehaviour
     
     void FixedUpdate() {
         if (player != null && stats != null) {
-            if (Mathf.Abs(knockbackDir.x) > stats.speed || Mathf.Abs(knockbackDir.y) > stats.speed) {
+            // Attack Movement
+            if (attacking && attackingDir != new Vector2()) {
+                Move(DirTo(attackingDir) * stats.speed * -2f);
+            }
+
+            // Knockback if no attacking movement
+            else if (Mathf.Abs(knockbackDir.x) > stats.speed || Mathf.Abs(knockbackDir.y) > stats.speed) {
                 Move(knockbackDir);
 
                 CheckKnockback();
-            }  
+            } 
 
-            else if (attacking) {
-                if (attackingDir == new Vector2()) {
-                    rb.velocity *= 0f;
-                } else {
-                    Move(DirTo(attackingDir) * stats.speed * -2f);
-                }
+            // If no knockback, attack stops movement
+            else if (attacking && attackingDir == new Vector2()) {
+                rb.velocity = new Vector3();
             }
-            
+
+            // If no attack, Normal Movement
             else if ((Vector2.Distance(transform.position, player.transform.position) <= stats.vision / PlayerStats.stealthMod) && (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag)) ){
                 // Player is close enough to be seen and can be seen
-                print("Close and in LOS!");
                 Move(DirTo(player.transform.position) * stats.speed);
                 lastPlayerPos = player.transform.position;
             } else {
@@ -58,7 +61,9 @@ public class FollowPlayer : MonoBehaviour
                 float distanceMod = distance > 1 ? 1 : distance;
                 Move(DirTo(lastPlayerPos) * stats.speed * distanceMod);
             }
-        } else {
+        } 
+        // Player doesn't exist
+        else {
             rb.velocity *= 0f;
         }
 
@@ -85,7 +90,20 @@ public class FollowPlayer : MonoBehaviour
     }
 
     public void applyKnockback(Vector2 knockback) {
-        knockbackDir = knockback;
+        if (!attacking) {
+            knockbackDir = knockback;
+        } else {
+            // attacking = false;
+        }
+    }
+
+    public void Interrupt() {
+        if (attacking) {
+            attacking = false;
+            foreach (Transform child in transform) {
+                child.SendMessage("Interrupt", null, SendMessageOptions.DontRequireReceiver);
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col) {
@@ -118,6 +136,14 @@ public class FollowPlayer : MonoBehaviour
 
                 knockbackDir = rb.velocity;
             }
+        }
+
+        // If attacking
+        else if (attacking && attackingDir != new Vector2()) {
+            if (col.collider.tag == "Hole") {
+                Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>(), true);
+                ignoredCollisions.Add(col.collider);
+            }   
         }
     }
 

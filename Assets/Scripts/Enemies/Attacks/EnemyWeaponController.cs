@@ -67,6 +67,12 @@ public class EnemyWeaponController : MonoBehaviour
     }
 
 
+    public void Interrupt() {
+        attackWarmup = 0;
+        timeActive = 0;
+        timeInactive = 0;
+    }
+
     Vector3 DirTowardsPos(Vector2 pos, float offset = 0f) {
         // Face towards pos
         Vector2 objectPos = transform.position;
