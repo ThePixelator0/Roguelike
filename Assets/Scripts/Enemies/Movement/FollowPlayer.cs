@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using LineOfSight;
 
+[RequireComponent(typeof(StatController))]
 public class FollowPlayer : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField]
-    private float speed;
     public bool attacking;
     public Vector2 attackingDir;
-    [SerializeField]
     private Rigidbody2D rb;
-    [SerializeField]
-    private float distance; // Max distance the entity can see the player from.
+    
     public Vector2 knockbackDir;
     private Vector2 lastPlayerPos;
 
+    private StatController stats;
     LOS sight = new LOS();
 
     private List<Collider2D> ignoredCollisions;
@@ -25,15 +23,17 @@ public class FollowPlayer : MonoBehaviour
     // private bool touchingHoleWalls = true;
 
     void Awake() {
-        // Find player and store in var
+        stats = GetComponent<StatController>();
+
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
         lastPlayerPos = transform.position;
         ignoredCollisions = new List<Collider2D>();
     }
     
     void FixedUpdate() {
-        if (player != null) {
-            if (Mathf.Abs(knockbackDir.x) > speed || Mathf.Abs(knockbackDir.y) > speed) {
+        if (player != null && stats != null) {
+            if (Mathf.Abs(knockbackDir.x) > stats.speed || Mathf.Abs(knockbackDir.y) > stats.speed) {
                 Move(knockbackDir);
 
                 CheckKnockback();
@@ -43,19 +43,20 @@ public class FollowPlayer : MonoBehaviour
                 if (attackingDir == new Vector2()) {
                     rb.velocity *= 0f;
                 } else {
-                    Move(DirTo(attackingDir) * speed * -2f);
+                    Move(DirTo(attackingDir) * stats.speed * -2f);
                 }
             }
             
-            else if ((Vector2.Distance(transform.position, player.transform.position) <= distance / PlayerStats.stealthMod) && (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag)) ){
+            else if ((Vector2.Distance(transform.position, player.transform.position) <= stats.vision / PlayerStats.stealthMod) && (sight.PositionLOS(transform.position - new Vector3(0, 0.4f, 0), player.transform.position - new Vector3(0, 0.4f, 0), player.tag, gameObject.tag)) ){
                 // Player is close enough to be seen and can be seen
-                Move(DirTo(player.transform.position) * speed);
+                print("Close and in LOS!");
+                Move(DirTo(player.transform.position) * stats.speed);
                 lastPlayerPos = player.transform.position;
             } else {
                 // Player is either too far to be seen or is not in LOS
                 float distance = Vector2.Distance(transform.position, lastPlayerPos);
                 float distanceMod = distance > 1 ? 1 : distance;
-                Move(DirTo(lastPlayerPos) * speed * distanceMod);
+                Move(DirTo(lastPlayerPos) * stats.speed * distanceMod);
             }
         } else {
             rb.velocity *= 0f;
@@ -108,11 +109,11 @@ public class FollowPlayer : MonoBehaviour
                 damageVec = new Vector2(Mathf.Abs(damageVec.x), Mathf.Abs(damageVec.y));
 
                 if (damageVec.x > damageVec.y && damageVec.x >= 4) {
-                    // print("impact speed: " + damageVec.x);
                     gameObject.SendMessage("applyDamage", damageVec.x * 5);
+
                 } else if (damageVec.y > damageVec.x && damageVec.y >= 4) {
-                    // print("impact speed: " + damageVec.y);
                     gameObject.SendMessage("applyDamage", damageVec.y * 5);
+
                 }
 
                 knockbackDir = rb.velocity;
@@ -123,7 +124,7 @@ public class FollowPlayer : MonoBehaviour
     void CheckKnockback() {
         knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
 
-        if (Mathf.Abs(knockbackDir.x) < speed && Mathf.Abs(knockbackDir.y) < speed) {
+        if (Mathf.Abs(knockbackDir.x) < stats.speed && Mathf.Abs(knockbackDir.y) < stats.speed) {
             knockbackDir = new Vector2(0f, 0f);
         }
     }
