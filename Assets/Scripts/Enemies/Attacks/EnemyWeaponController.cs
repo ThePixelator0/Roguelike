@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyWeaponController : MonoBehaviour
 {
-    // This script controls which weapon the play has and can use.
+    // This script controls which weapon the enemy has and can use.
     [SerializeField]
     private EnemyWeapon weapon;
     public FollowPlayer movement;

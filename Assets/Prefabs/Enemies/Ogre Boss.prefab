@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bb603757c42984089e629d7d8e49fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 60
+  damage: 50
   kbStrength: 10
   ignoreTag: Boss
   selfCol: {fileID: 333901750229140503}
@@ -291,10 +291,10 @@ MonoBehaviour:
   selfCol: {fileID: 333901750229140503}
   attackType: 0
   attackRange: 1.7
-  warmupTime: 0.2
+  warmupTime: 0.75
   activeCooldown: 0.4
-  inactiveCooldown: 0
-  normalCooldown: 2
+  inactiveCooldown: 0.4
+  normalCooldown: 1.25
 --- !u!1 &1192462689621947764
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,9 +351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   knockbackResistance: 0
-  damageMod: 0
   knockbackMod: 0
+  damageMod: 0
   weaknessMod: 0
+  vision: 1
 --- !u!114 &3887860978840872131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,11 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2791118c076c1614398c944e8841dfa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   attacking: 0
   attackingDir: {x: 0, y: 0}
-  rb: {fileID: 1192462689621947720}
-  distance: 6
   knockbackDir: {x: 0, y: 0}
 --- !u!114 &2978584993689394462
 MonoBehaviour:

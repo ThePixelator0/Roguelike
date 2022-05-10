@@ -28,10 +28,14 @@ public class MinimapController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
         minimapRoomPositions = new List<Vector2>();
         minimapRooms = new List<GameObject>();
+        player = GameObject.FindWithTag("Player");
+        currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
+    }
+
+    void InitVars() {
+
     }
 
     public void CreateMinimapCurrentRoom() {

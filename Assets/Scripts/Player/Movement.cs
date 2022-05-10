@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // Normal Movement
-    public float speed = 5;     // Speed of normal movement
+    public float speed = 5;                 // Speed of normal movement
 
     // Dash
     [Space]
@@ -18,11 +18,14 @@ public class Movement : MonoBehaviour
 
     public bool canMove = false;
 
+    public bool attacking;
+    public Vector2 attackingDir;
+
 
     [Space]
     // External Components
     [SerializeField]
-    private Rigidbody2D rb;     // Local var of RigidBody2D (Physics for player)
+    public Rigidbody2D rb;     // Local var of RigidBody2D (Physics for player)
 
     // Knockback
     [SerializeField]
@@ -38,7 +41,11 @@ public class Movement : MonoBehaviour
 
     void Update() {
         if (canMove) {
-            if (Mathf.Abs(knockbackDir.x) > speed / 2 || Mathf.Abs(knockbackDir.y) > speed / 2) {
+            if (attackingDir != new Vector2() && attacking) {
+                // Attacking
+                Move(attackingDir);
+
+            } else if (Mathf.Abs(knockbackDir.x) > speed / 2 || Mathf.Abs(knockbackDir.y) > speed / 2) {
                 // Being Knocked Back
                 Move(knockbackDir);
                 knockbackDir *= Mathf.Pow(Time.deltaTime, 1f / 120f);
@@ -121,6 +128,9 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D() {
         if (knockbackDir != new Vector2()) {
             knockbackDir = rb.velocity;
+        } 
+        if (attackingDir != new Vector2()) {
+            attackingDir = rb.velocity;
         }
     }
 }

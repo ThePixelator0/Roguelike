@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5276378960439267159}
   - component: {fileID: 5276378960439267157}
   - component: {fileID: 5276378960439267156}
-  - component: {fileID: 814938387704619640}
-  - component: {fileID: 1253765865}
   - component: {fileID: 5683786968209630923}
   m_Layer: 5
   m_Name: CurrentRoom
@@ -78,33 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &814938387704619640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276378960439267158}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7c89a4734ccd140b1d1afe5eb1b980, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerPos: {x: -144, y: -144}
-  controller: {fileID: 0}
---- !u!114 &1253765865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276378960439267158}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e390ccb5d7e3a645be82b32fc1d2b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  img: {fileID: 0}
 --- !u!114 &5683786968209630923
 MonoBehaviour:
   m_ObjectHideFlags: 0

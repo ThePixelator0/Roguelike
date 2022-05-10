@@ -20,6 +20,9 @@ public class RoomTemplate : MonoBehaviour
     [HideInInspector]
     public List<string> rightRooms_Names;
 
+    [HideInInspector]
+    public List<GameObject> SendStartMessage;
+
     [Space]
     // The List of all rooms
     public List<GameObject> rooms;
@@ -104,7 +107,10 @@ public class RoomTemplate : MonoBehaviour
 
                 // // Allow player to move
                 // GameObject.Find("Player").GetComponent<Movement>().canMove = true;
-                // BroadcastMessage("CreateMinimapCurrentRoom");
+                foreach (GameObject gameObj in SendStartMessage) {
+                    gameObj.SendMessage("StartGame");
+                }
+                SendStartMessage = new List<GameObject>();
             }
             
         } else if (spawnQueue.Count > 0 && canSpawn) {
