@@ -36,6 +36,7 @@ public class Movement : MonoBehaviour
         dashMod = new Vector2(0, 0);
         dashCooldown = 0f;
 
+        if (canDash) GetComponent<CooldownContoller>().EnableCooldown(0);
     }
 
 
@@ -79,10 +80,14 @@ public class Movement : MonoBehaviour
     }
 
     bool GetDashing() {
+        if (!canDash) return false;
+
         // Get input from Dash button and turn it into a boolean
         bool dash;
 
         dash = Input.GetAxis("Dash") > 0 ? true : false;
+
+        if (dash) GetComponent<CooldownContoller>().SetCooldown(new Vector2(0, timeBetweenDashes + dashLength));
 
         return dash;
     }
