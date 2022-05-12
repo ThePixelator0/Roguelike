@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  kbStrength: 5
+  kbStrength: 850
   ignoreTag: Enemy
   selfCol: {fileID: 7551824416118171861}
 --- !u!114 &3809045302705835242
