@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerWeaponController : MonoBehaviour
 {
     // This script controls which weapon the player has and can use.
-    [SerializeField]
-    private PlayerWeapon weapon;        // Local var of PlayerWeapon Script 
+    public PlayerWeapon weapon;        // Local var of PlayerWeapon Script 
     [HideInInspector]
     public Movement movement;           // Local var of Movement Script
+    private GameObject player;
 
     public float attackWarmup;   // How long before attack starts
     public float timeActive;     // First part of attack
@@ -18,13 +18,16 @@ public class PlayerWeaponController : MonoBehaviour
 
 
     void Start() {
-        movement = transform.parent.GetComponent<Movement>();
+        player = GameObject.Find("Player");
+        movement = player.GetComponent<Movement>();
     }
 
 
 
 
     void FixedUpdate() {
+        transform.position = player.transform.position;
+
         if (timeActive == 0 && timeInactive == 0 && attackCooldown == 0 && attackWarmup == 0) {
             if (Input.GetAxis("Primary") != 0) {
                 Attack();

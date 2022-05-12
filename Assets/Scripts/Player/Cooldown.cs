@@ -26,8 +26,13 @@ public class Cooldown : MonoBehaviour
     }
 
     public void Enable() {
+        Invoke("DelayedEnable", 0.5f);
+    }
+
+    void DelayedEnable() {
         img.enabled = true;
         txt.enabled = true;
+
     }
 
     public void SetCooldown(float num) {

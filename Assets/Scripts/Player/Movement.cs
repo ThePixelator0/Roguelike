@@ -27,6 +27,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     public Rigidbody2D rb;     // Local var of RigidBody2D (Physics for player)
 
+    public Animator animator;
+
     // Knockback
     [SerializeField]
     private Vector2 knockbackDir;
@@ -103,6 +105,10 @@ public class Movement : MonoBehaviour
     void Move(Vector2 moveVec, Vector2 dashVec = new Vector2() ) {
         // Apply velocity
         rb.velocity = moveVec + dashVec;
+
+        // print(rb.velocity);
+        animator.SetFloat("Speed_X", rb.velocity.x);
+        animator.SetFloat("Speed_Y", rb.velocity.y);
     }
 
     void Cooldowns() {
