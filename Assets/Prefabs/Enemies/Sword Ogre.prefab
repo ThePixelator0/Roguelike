@@ -353,6 +353,67 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5125916299203515524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2497530332289975475}
+  - component: {fileID: 1795105404197204486}
+  - component: {fileID: 5844971840574067331}
+  m_Layer: 0
+  m_Name: NPC Movement Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2497530332289975475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125916299203515524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8999111158929611188}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795105404197204486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125916299203515524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6969723e09175f4eb5164297d59632e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  NPCmovement: {fileID: 5844971840574067331}
+--- !u!114 &5844971840574067331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5125916299203515524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f18165715ee3a4eb4cca83f04af6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8999111158929611146}
+  speed: 1500
+  maxSpeed: 3.5
 --- !u!1 &7551824416118171866
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,12 +640,14 @@ MonoBehaviour:
   controller: {fileID: 3200103026781928740}
   selfRend: {fileID: 7551824416118171860}
   selfCol: {fileID: 7551824416118171861}
+  stats: {fileID: 1961936125268282522}
+  movement: {fileID: 5844971840574067331}
   attackType: 0
   attackRange: 1.6
-  warmupTime: 0.15
-  activeCooldown: 0.4
-  inactiveCooldown: 0.4
-  normalCooldown: 1.2
+  warmupTime: 0.4
+  activeCooldown: 0.3
+  inactiveCooldown: 0.5
+  normalCooldown: 1
 --- !u!1 &7551824416790276321
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +706,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 3809045302705835242}
-  movement: {fileID: 8999111158929611189}
   attackWarmup: 0
   timeActive: 0
   timeInactive: 0
@@ -662,7 +724,6 @@ GameObject:
   - component: {fileID: 8999111158929611145}
   - component: {fileID: 8999111158929611146}
   - component: {fileID: 5220108665585276111}
-  - component: {fileID: 8999111158929611189}
   - component: {fileID: 4988078336765342172}
   - component: {fileID: 1829332148935823916}
   m_Layer: 0
@@ -685,6 +746,7 @@ Transform:
   m_Children:
   - {fileID: 3171996487052322247}
   - {fileID: 7551824416790276383}
+  - {fileID: 2497530332289975475}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -701,11 +763,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  speedMod: 1
   knockbackResistance: 1
   knockbackMod: 1
   damageMod: 1
   weaknessMod: 1
   vision: 6
+  objectTag: 
 --- !u!114 &6456839577817303041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,7 +846,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -806,21 +870,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.4}
   m_Size: {x: 0.31168616, y: 0.2876852}
   m_Direction: 1
---- !u!114 &8999111158929611189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999111158929611190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2791118c076c1614398c944e8841dfa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attacking: 0
-  attackingDir: {x: 0, y: 0}
-  knockbackDir: {x: 0, y: 0}
 --- !u!114 &4988078336765342172
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class EnemyWeaponController : MonoBehaviour
     // This script controls which weapon the enemy has and can use.
     [SerializeField]
     private EnemyWeapon weapon;
-    public FollowPlayer movement;
+    // public FollowPlayer movement;
 
     private GameObject player;
 
@@ -28,8 +28,8 @@ public class EnemyWeaponController : MonoBehaviour
 
         if (timeActive == 0 && timeInactive == 0 && attackCooldown == 0 && attackWarmup == 0) {
             if (Vector2.Distance(transform.position, player.transform.position) <= weapon.attackRange) {
-                movement.attacking = true;
-                movement.attackingDir = new Vector2();
+                // movement.attacking = true;
+                // movement.attackingDir = new Vector2();
                 Attack();
             } 
         } 
@@ -46,7 +46,7 @@ public class EnemyWeaponController : MonoBehaviour
             timeInactive -= Time.deltaTime;
             if (timeInactive <= 0) {
                 timeInactive = 0;
-                movement.attacking = false;
+                // movement.attacking = false;
             }
             
         } else if (attackCooldown != 0) {

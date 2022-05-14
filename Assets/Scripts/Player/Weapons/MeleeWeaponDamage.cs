@@ -49,9 +49,9 @@ public class MeleeWeaponDamage : MonoBehaviour
             }
 
             Vector2 kbAngle = col.transform.position - transform.position;
-            col.SendMessage("applyKnockback", kbAngle.normalized * kbStrength);
-            col.SendMessage("applyDamage", damage);
-            if (interrupt) col.SendMessage("Interrupt");
+            col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength);
+            col.BroadcastMessage("applyDamage", damage);
+            if (interrupt) col.BroadcastMessage("Interrupt");
         }
 
         // Sword hit a breakable object

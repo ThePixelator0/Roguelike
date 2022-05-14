@@ -9,6 +9,7 @@ namespace LineOfSight {
         Vector2 pos2;
 
         public bool PositionLOS(Vector2 pos1, Vector2 pos2, string goodTag, string ignoreTag) {
+            // pos1 = current pos, pos2 = pos to check LOS on, goodTag = tag that ur looking for, ignoreTag - tag to ignore
             Vector2 posDir = (pos2 - pos1).normalized;
             float distance = Vector2.Distance(pos1, pos2);
             bool boolReturn = false;

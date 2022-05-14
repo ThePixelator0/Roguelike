@@ -5,7 +5,8 @@ using UnityEngine;
 public class StatController : MonoBehaviour
 {
     // This script stores values for a GameObject's stats. It does not modify them, just allows different scripts to reference and use it.
-    public float speed = 2;                 // Movement Speed Multiplier
+    public float speed = 2;                 
+    public float speedMod = 1;              // Movement Speed Multiplier
     [Space]
     public float knockbackResistance = 1;   // Resistance to Knockback Multiplier
     public float knockbackMod = 1;          // Knockback Dealt Multiplier
@@ -14,4 +15,9 @@ public class StatController : MonoBehaviour
     public float weaknessMod = 1;           // Damage Taken Multiplier
     [Space]
     public float vision = 1;                 // Distance the GameObject can see
+    [HideInInspector] public string objectTag;                 // Distance the GameObject can see
+
+    void Start() {
+        objectTag = gameObject.tag;
+    }
 }

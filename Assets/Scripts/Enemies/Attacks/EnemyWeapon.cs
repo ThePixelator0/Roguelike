@@ -12,8 +12,15 @@ public class EnemyWeapon : MonoBehaviour
     private TilemapRenderer selfRend;
     [SerializeField]
     private BoxCollider2D selfCol;
+    [SerializeField]
+    private StatController stats;
+    [SerializeField]
+    private NPCMovement movement;
 
     Vector3 posOffset;
+    Vector2 attackingDir;
+    [Space]
+    [Space]
 
     public int attackType;
         // 0 = Jab
@@ -25,26 +32,40 @@ public class EnemyWeapon : MonoBehaviour
     public float inactiveCooldown;
     public float normalCooldown;
 
+    bool doneWarmup = false;
+    bool doneActive = false;
+    bool doneInactive = false;
+    bool doneNormal = false;
+
     void Update() {
         if (controller.attackWarmup > 0) {
             WarmupDetails(attackType);
+            doneWarmup = true;
         }
         else if (controller.timeActive > 0) {
             ActiveDetails(attackType);
+            doneActive = true;
         } 
         else if (controller.timeInactive > 0) {
             InactiveDetails(attackType);
+            doneInactive = true;
         } 
-        else {
+        else if (controller.attackCooldown > 0) {
             CooldownDetails(attackType);
+            doneNormal = true;
         }
     }
 
     public void Attack(Vector3 attackDir) {
+        // Start Attack
+        doneWarmup = false;
+        doneActive = false;
+        doneInactive = false;
+        doneNormal = false;
+
         switch (attackType) {
             case 0:
                 // Jab
-                // transform.parent.parent.GetComponent<FollowPlayer>().rb.velocity = new Vector3();
                 transform.rotation = Quaternion.Euler(attackDir);
                 setPosOffset();
                 break;
@@ -57,22 +78,28 @@ public class EnemyWeapon : MonoBehaviour
         float cos = Mathf.Cos(angle);
 
         Vector3 direction = Vector3.up;
-
-        posOffset = new Vector3(
+        direction = new Vector3(
             direction.x * cos - direction.y * sin,
             direction.x * sin + direction.y * cos,
             0 );
+
+        posOffset = direction; 
+        attackingDir = direction;
     }
 
 
-
+    // -----------------------------------------------------------------------
 
 
     void WarmupDetails(int type) {
         switch (type) {
             case 0:
                 // Jab
-                selfRend.enabled = true;
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                    stats.speedMod -= 0.7f;
+                }
+
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
         }
@@ -82,8 +109,12 @@ public class EnemyWeapon : MonoBehaviour
         switch (type) {
             case 0:
                 // Jab
-                controller.movement.attackingDir = transform.position;
-                selfCol.enabled = true;
+                if (!doneActive) {
+                    selfCol.enabled = true;
+                    movement.rb.AddForce(attackingDir * 675);   // Jump towards attacking direction
+                }
+
+                // controller.movement.attackingDir = transform.position;
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
         }
@@ -93,12 +124,15 @@ public class EnemyWeapon : MonoBehaviour
         switch (type) {
             case 0:
                 // Jab
-                selfCol.enabled = false;
-                if (controller.timeInactive > inactiveCooldown / 2) {
-                    controller.movement.attackingDir = transform.position;
-                } else {
-                    controller.movement.attackingDir = new Vector2();
+                if (!doneInactive) {
+                    selfCol.enabled = false;
                 }
+                
+                // if (controller.timeInactive > inactiveCooldown / 2) {
+                //     controller.movement.attackingDir = transform.position;
+                // } else {
+                //     controller.movement.attackingDir = new Vector2();
+                // }
                 transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
                 break;
             
@@ -109,7 +143,11 @@ public class EnemyWeapon : MonoBehaviour
         switch (type) {
             case 0:
                 // Jab
-                selfRend.enabled = false;
+                if (!doneNormal) {
+                    selfRend.enabled = false;
+                    stats.speedMod += 0.7f;
+                }
+
                 break;
         }
     }
