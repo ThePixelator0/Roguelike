@@ -71,6 +71,9 @@ public class RestartGame : MonoBehaviour
         PlayerStats.speedMod = 1;
         PlayerStats.stealthMod = 1;
         PlayerStats.damageMod = 1;
+        PlayerStats.weaknessMod = 1;
+
+        PlayerStats.canTakeDamage = true;
 
         PlayerItems.items = new List<int>();
     }

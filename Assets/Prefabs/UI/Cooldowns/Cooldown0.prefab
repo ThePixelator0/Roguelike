@@ -190,8 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  img: {fileID: 0}
-  txt: {fileID: 0}
+  img: {fileID: 1306687925994688252}
+  txt: {fileID: 1536322055560314957}
 --- !u!1 &7787917208364215241
 GameObject:
   m_ObjectHideFlags: 0

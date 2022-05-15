@@ -7,12 +7,13 @@ public class CooldownContoller : MonoBehaviour
     [SerializeField]
     private List<Cooldown> cooldowns;
 
-    public void EnableCooldown(int cooldownNum) {
-        cooldowns[cooldownNum].Enable();
+    public void EnableCooldown(int cooldownNum, bool enable = true) {
+        if (enable) cooldowns[cooldownNum].Enable();
+        else cooldowns[cooldownNum].Enable(false);
     }
 
-    public void SetCooldown(Vector2 cooldownInfo) {
-        // cooldownInfo.x = what cooldown, y = length in seconds
-        cooldowns[(int)cooldownInfo.x].SetCooldown(cooldownInfo.y);
+    public void SetCooldown(int cooldownNum, float length) {
+        // cooldownNum = what cooldown, length = length in seconds
+        cooldowns[cooldownNum].SetCooldown(length);
     }
 }

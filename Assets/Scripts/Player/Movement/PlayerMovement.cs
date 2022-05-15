@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Movement Vars
+    public bool canDash = true;
+
+    [Space]
     public Rigidbody2D rb;
     public Animator animator;
     [Space]
     public float speed = 5000;                 // Speed of normal movement
     public float maxSpeed = 4;
     
+    public bool canMove = true;
     Vector2 inputs;
 
     void Update() {
@@ -17,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (rb.velocity.magnitude <= maxSpeed * PlayerStats.speedMod) {
-            rb.AddForce(inputs * speed * Time.fixedDeltaTime * PlayerStats.speedMod);
+        if (canMove) {
+            if (rb.velocity.magnitude <= maxSpeed * PlayerStats.speedMod) {
+                rb.AddForce(inputs * speed * Time.fixedDeltaTime * PlayerStats.speedMod);
+            }
+            
+            animator.SetFloat("Speed_X", rb.velocity.x);
+            animator.SetFloat("Speed_Y", rb.velocity.y);
         }
-        
-        animator.SetFloat("Speed_X", rb.velocity.x);
-        animator.SetFloat("Speed_Y", rb.velocity.y);
     }
 
     

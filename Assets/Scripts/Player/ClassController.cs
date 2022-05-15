@@ -6,22 +6,19 @@ public class ClassController : MonoBehaviour
 {
     // Controller for which class the player has.
     // Function changes the variables.
-    private GameObject player;
-    private Movement playerMovement;
-    private PlayerWeaponController playerWeaponController;
+    public GameObject player;
+    public PlayerMovement movement;
+    public PlayerWeaponController playerWeaponController;
     public List<GameObject> playerWeapons;
 
+    [Space] public int defaultClass = 0;
+
     void Start() {
-        player = GameObject.Find("Player");
-        playerMovement = player.GetComponent<Movement>();
-        foreach (Transform child in player.transform) {
-            if (child.gameObject.name == "PlayerWeaponController") playerWeaponController = child.gameObject.GetComponent<PlayerWeaponController>();
-        }
+        ChangeClass(defaultClass);
     }
 
     public void ChangeClass(int classNum) {
         ResetClass();
-
 
         switch (classNum) {
             case 0:
@@ -35,7 +32,8 @@ public class ClassController : MonoBehaviour
 
     void Fighter() {
         ChangePlayerWeapon(0);
-        playerMovement.canDash = true;
+        movement.canDash = true;
+        player.GetComponent<CooldownContoller>().EnableCooldown(0);
     }
 
     void Puncher() {
@@ -44,7 +42,8 @@ public class ClassController : MonoBehaviour
 
 
     void ResetClass() {
-        playerMovement.canDash = false;
+        movement.canDash = false;
+        player.GetComponent<CooldownContoller>().EnableCooldown(0, false);
 
     }
 

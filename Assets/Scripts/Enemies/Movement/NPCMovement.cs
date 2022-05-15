@@ -12,6 +12,8 @@ public class NPCMovement : MonoBehaviour
     public float speed = 5000;                 // Speed of normal movement
     public float maxSpeed = 4;
 
+    public bool canMove = true;
+
     StatController stats; 
 
     Vector2 moveDir;
@@ -25,9 +27,9 @@ public class NPCMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (player != null) {
+        if (player != null && canMove) {
             if (canSee(player.transform.position - new Vector3(0, 0.4f, 0))) {
-                playerLastSeenPos = player.transform.position;
+                playerLastSeenPos = player.transform.position - new Vector3(0, 0.4f, 0);
             } 
 
             moveDir = DirTo(playerLastSeenPos);
@@ -58,7 +60,7 @@ public class NPCMovement : MonoBehaviour
         // Returns true if this gameobject can see the Vector2
 
         // Check is player is close enough to see
-        if (Vector2.Distance(transform.position - new Vector3(0, 0.4f, 0), checkPos) > stats.vision) return false;
+        if (Vector2.Distance(transform.position - new Vector3(0, 0.4f, 0), checkPos) > stats.vision / PlayerStats.stealthMod) return false;
 
         // Check LOS
         return sight.PositionLOS(transform.position, checkPos, stats.tag, "Player");

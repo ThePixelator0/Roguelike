@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    private PlayerWeaponController controller;
+    
+    public PlayerWeaponController controller;
 
     [SerializeField]
     private TilemapRenderer selfRend;
@@ -24,10 +25,16 @@ public class PlayerWeapon : MonoBehaviour
     public float inactiveCooldown;      // Second part of attack
     public float normalCooldown;        // how long before input can be made
 
-    public float warmupSpeedMod;        // Speed Mod during weapon warmup
-    [HideInInspector]
+    public float warmupSpeedMod;        // Speed Mod during weapon warmup[Space]
+    [Space]
+    public float chargeTimeMin;        // The minimum amout of time the weapon can be charged for.
+    public float chargeTimeMax;        // The maximum amout of time the weapon can be charged for.
     public float chargeTime;            // How long the weapon was charged for (for charged weapons)
 
+    bool doneWarmup = false;
+    bool doneActive = false;
+    bool doneInactive = false;
+    bool doneNormal = false;
 
     void Start() {
         controller = transform.parent.GetComponent<PlayerWeaponController>();
@@ -36,27 +43,33 @@ public class PlayerWeapon : MonoBehaviour
     void Update() {
         if (controller.attackWarmup > 0 || controller.attackWarmup == -1) {
             WarmupDetails(attackType);
+            doneWarmup = true;
         }
         else if (controller.timeActive > 0) {
             ActiveDetails(attackType);
+            doneActive = true;
         } 
         else if (controller.timeInactive > 0) {
             InactiveDetails(attackType);
+            doneInactive = true;
         } 
-        else {
+        else if (controller.attackCooldown > 0) {
             CooldownDetails(attackType);
+            doneNormal = true;
         }
     }
 
     public void Attack(Vector3 attackDir) {
-        // This is called when the attack begins
+        // Start Attack
+        doneWarmup = false;
+        doneActive = false;
+        doneInactive = false;
+        doneNormal = false;
 
         switch (attackType) {
             case 0:
                 // Jab
                 transform.rotation = Quaternion.Euler(attackDir);
-                controller.movement.attacking = true;
-                controller.movement.attackingDir = new Vector2();
                 setPosOffset();
                 break;
             case 1:
@@ -80,25 +93,41 @@ public class PlayerWeapon : MonoBehaviour
             0 );
     }
 
+    Vector2 RotationToVector() {
+        float angle = transform.eulerAngles.z * Mathf.Deg2Rad;
+        float sin = Mathf.Sin(angle);
+        float cos = Mathf.Cos(angle);
+
+        Vector3 direction = Vector3.up;
+
+        posOffset = new Vector3(
+            direction.x * cos - direction.y * sin,
+            direction.x * sin + direction.y * cos,
+            0 );
+        return posOffset.normalized;
+    }
+
 
     // --------------- Attack Details ---------------
 
     void WarmupDetails(int type) {
-        // PlayerStats.speedMod += warmupSpeedMod;
 
         switch (type) {
             case 0:
                 // Jab
-                selfRend.enabled = true;
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                }
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
             case 1:
                 // Punch
-                selfRend.enabled = true;
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                }
                 transform.position = transform.parent.position;
                 transform.rotation = Quaternion.Euler(controller.DirToMouse());
-                controller.movement.attackingDir = transform.up * 15f;
-                controller.timeActive = chargeTime < 2 ? chargeTime / 4 : 0.5f;   // Charge time caps at .8s, punch lasts for charge time ^ 3 seconds. (max is 0.8^3 or .4096)
+                controller.timeActive = chargeTime / 2;   // Punch lasts for half time spent charging
                 break;
         }
     }
@@ -107,44 +136,65 @@ public class PlayerWeapon : MonoBehaviour
         switch (type) {
             case 0:
                 // Jab
-                // controller.movement.attackingDir = transform.position;
-                selfCol.enabled = true;
+                if (!doneActive) {
+                    selfCol.enabled = true;
+                }
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
             case 1:
                 // Punch
-                selfCol.enabled = true;
-                controller.movement.attacking = true;
+                if (chargeTime < chargeTimeMin) {
+                    controller.timeActive = 0;
+                }
+                else if (!doneActive) {
+                    selfCol.enabled = true;
+                    controller.movement.rb.AddForce(RotationToVector() * 4000 * chargeTime);
+                    controller.conditions.Immune(controller.timeActive);
+                }
+
                 break;
         }
     }
 
     void InactiveDetails(int type) {
-        selfCol.enabled = false;
-        
+        if (!doneInactive) {
+            selfCol.enabled = false;
+        }
+
         switch (type) {
             case 0:
                 // Jab
+                if (!doneInactive) {
+                    
+                }
                 transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
                 break;
             case 1:
                 // Punch
-                
-                controller.movement.attackingDir = new Vector2();
+                if (!doneInactive) {
+                    
+                }
                 break;
         }
     } 
 
     void CooldownDetails(int type) {
-        selfRend.enabled = false;
-        controller.movement.attacking = false;
+        if (!doneNormal) {
+            selfRend.enabled = false;
+        }
 
         switch (type) {
             case 0:
                 // Jab
+                if (!doneNormal) {
+                    
+                }
                 break;
             case 1:
                 // Punch
+                if (!doneNormal) {
+                    
+                }
                 
                 break;
         }

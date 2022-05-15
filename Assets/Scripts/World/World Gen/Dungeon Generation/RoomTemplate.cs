@@ -42,7 +42,6 @@ public class RoomTemplate : MonoBehaviour
 
     public void Start() {
         canSpawn = true;
-        GameObject.Find("Player").GetComponent<Movement>().canMove = false;
 
         bottomRooms_Names = new List<string>();
         topRooms_Names = new List<string>();
@@ -77,11 +76,6 @@ public class RoomTemplate : MonoBehaviour
     }
 
     void FixedUpdate() {
-        // Allow player to move
-        if (GameObject.Find("Player") != null) {
-            GameObject.Find("Player").GetComponent<Movement>().canMove = true;
-        }
-
         if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
             if (spawnQueue[0] != null) {
                 waitTime = 0;
@@ -105,8 +99,6 @@ public class RoomTemplate : MonoBehaviour
                     }
                 }
 
-                // // Allow player to move
-                // GameObject.Find("Player").GetComponent<Movement>().canMove = true;
                 foreach (GameObject gameObj in SendStartMessage) {
                     gameObj.SendMessage("StartGame");
                 }

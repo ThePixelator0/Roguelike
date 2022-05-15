@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     private HealthBar healthBar;
 
+    bool player = false;
+    StatController stats;
+
 
     void Awake() {
         health = maxHealth;
@@ -23,10 +26,17 @@ public class Health : MonoBehaviour
             // Player and Boss health bars never disappear
             healthBar.FadeAway(-69f);
         }
+
+        if (gameObject.tag == "Player") player = true;
+        else stats = GetComponent<StatController>();
     }
 
     public void applyDamage(float damage) {
-        health -= damage;
+        if (player) {
+            if (PlayerStats.canTakeDamage) health -= damage * PlayerStats.weaknessMod;
+        }
+        else if (stats.canTakeDamage) health -= damage * stats.weaknessMod;
+
         healthBar.SetHealth(health);
         if (gameObject.tag == "Enemy") {
             healthBar.FadeAway(2f);

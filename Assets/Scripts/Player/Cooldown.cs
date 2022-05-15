@@ -13,26 +13,9 @@ public class Cooldown : MonoBehaviour
     [SerializeField]
     private Text txt;
 
-    void Start() {
-        foreach (Transform child in transform) {
-            if (child.gameObject.name == "Image") {
-                img = child.GetComponent<Image>();
-            } 
-
-            else if (child.gameObject.name == "Text") {
-                txt = child.GetComponent<Text>();
-            }
-        }
-    }
-
-    public void Enable() {
-        Invoke("DelayedEnable", 0.5f);
-    }
-
-    void DelayedEnable() {
-        img.enabled = true;
-        txt.enabled = true;
-
+    public void Enable(bool enable = true) {
+        img.enabled = enable;
+        txt.enabled = enable;
     }
 
     public void SetCooldown(float num) {

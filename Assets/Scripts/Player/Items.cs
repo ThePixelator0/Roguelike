@@ -33,7 +33,7 @@ public class Items : MonoBehaviour
                 break;
             case 1:
                 // Enable Dashing
-                gameObject.GetComponent<Movement>().canDash = true;
+                gameObject.GetComponent<PlayerMovement>().canDash = true;
                 break;
             case 2:
                 // Increase speed by 15%

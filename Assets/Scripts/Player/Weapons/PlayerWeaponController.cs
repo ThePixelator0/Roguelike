@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerWeaponController : MonoBehaviour
 {
     // This script controls which weapon the player has and can use.
-    public PlayerWeapon weapon;        // Local var of PlayerWeapon Script 
-    [HideInInspector]
-    public Movement movement;           // Local var of Movement Script
+    public PlayerWeapon weapon;         // Local var of PlayerWeapon Script 
+    public PlayerMovement movement;     // Local var of Movement Script
+    public Conditions conditions;       // conditions script
     private GameObject player;
 
+    [Space]
     public float attackWarmup;   // How long before attack starts
     public float timeActive;     // First part of attack
     public float timeInactive;   // Second part of attack
@@ -19,7 +20,6 @@ public class PlayerWeaponController : MonoBehaviour
 
     void Start() {
         player = GameObject.Find("Player");
-        movement = player.GetComponent<Movement>();
     }
 
 
@@ -45,10 +45,11 @@ public class PlayerWeaponController : MonoBehaviour
             if (attackWarmup <= 0) attackWarmup = 0;
             
         } else if (attackWarmup == -1) {
-            // attackWarmpup == -1 means that it is a held attack
-            if (Input.GetAxis("Primary") != 0) {
+            // attackWarmpup == -1 means that it is a charged attack
+            if (Input.GetAxis("Primary") != 0 && weapon.chargeTime < weapon.chargeTimeMax) {
                 weapon.chargeTime += Time.deltaTime;
-            } else {
+                if (weapon.chargeTime > weapon.chargeTimeMax) weapon.chargeTime = weapon.chargeTimeMax;
+            } else if (Input.GetAxis("Primary") == 0) {
                 attackWarmup = 0;
                 PlayerStats.speedMod -= weapon.warmupSpeedMod;
             }
@@ -60,7 +61,6 @@ public class PlayerWeaponController : MonoBehaviour
             timeInactive -= Time.deltaTime;
             if (timeInactive <= 0) {
                 timeInactive = 0;
-                movement.attacking = false;
             }
             
         } else if (attackCooldown != 0) {
@@ -97,7 +97,7 @@ public class PlayerWeaponController : MonoBehaviour
     }
 
     public Vector3 DirToMouse(float offset = 0) {
-        // Returns a Vector2 that will be pointing to the mouse position
+        // Returns a Vector3 that will be pointing to the mouse position
 
         Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
         Vector3 mousePos = Input.mousePosition;

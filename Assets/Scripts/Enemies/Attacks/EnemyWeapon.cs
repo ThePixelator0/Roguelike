@@ -65,7 +65,7 @@ public class EnemyWeapon : MonoBehaviour
 
         switch (attackType) {
             case 0:
-                // Jab
+                // Lunge
                 transform.rotation = Quaternion.Euler(attackDir);
                 setPosOffset();
                 break;
@@ -94,7 +94,7 @@ public class EnemyWeapon : MonoBehaviour
     void WarmupDetails(int type) {
         switch (type) {
             case 0:
-                // Jab
+                // Lunge
                 if (!doneWarmup) {
                     selfRend.enabled = true;
                     stats.speedMod -= 0.7f;
@@ -108,7 +108,7 @@ public class EnemyWeapon : MonoBehaviour
     void ActiveDetails(int type) {
         switch (type) {
             case 0:
-                // Jab
+                // Lunge
                 if (!doneActive) {
                     selfCol.enabled = true;
                     movement.rb.AddForce(attackingDir * 675);   // Jump towards attacking direction
@@ -123,7 +123,7 @@ public class EnemyWeapon : MonoBehaviour
     void InactiveDetails(int type) {
         switch (type) {
             case 0:
-                // Jab
+                // Lunge
                 if (!doneInactive) {
                     selfCol.enabled = false;
                 }
@@ -142,7 +142,7 @@ public class EnemyWeapon : MonoBehaviour
     void CooldownDetails(int type) {
         switch (type) {
             case 0:
-                // Jab
+                // Lunge
                 if (!doneNormal) {
                     selfRend.enabled = false;
                     stats.speedMod += 0.7f;

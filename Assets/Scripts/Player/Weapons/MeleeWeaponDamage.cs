@@ -15,14 +15,17 @@ public class MeleeWeaponDamage : MonoBehaviour
     [SerializeField]
     private BoxCollider2D selfCol;
 
-    [SerializeField]
-    private bool interrupt;
+    [SerializeField] private bool stun;
+    [SerializeField] private float stunDuration;
+
 
     List<GameObject> collisions;
     LOS sight = new LOS();
+    PlayerWeapon weapon;
 
     void Start() {
         collisions = new List<GameObject>();
+        weapon = GetComponent<PlayerWeapon>();
     }
 
     void FixedUpdate() {
@@ -49,9 +52,13 @@ public class MeleeWeaponDamage : MonoBehaviour
             }
 
             Vector2 kbAngle = col.transform.position - transform.position;
-            col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength);
+            if (weapon.chargeTime > 0) {
+                col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength * weapon.controller.timeActive);
+            } else {
+                col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength);
+            }
             col.BroadcastMessage("applyDamage", damage);
-            if (interrupt) col.BroadcastMessage("Interrupt");
+            if (stun) col.BroadcastMessage("Stun", stunDuration);
         }
 
         // Sword hit a breakable object

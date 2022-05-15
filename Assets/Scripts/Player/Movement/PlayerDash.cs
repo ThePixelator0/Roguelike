@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     public PlayerMovement movement;
+    public CooldownContoller cooldown;
     [Space]
-    public bool canDash = true;
     public float dashSpeed = 1500f;         // How fast dash is compared to regular speed
     public float dashCooldown = 0f;         // How long until next dash available
     public float timeBetweenDashes = 2f;    // How long between start of each dash
@@ -14,7 +14,7 @@ public class PlayerDash : MonoBehaviour
     bool dashButton;
 
     void Update() {
-        dashButton = Input.GetAxis("Dash") == 0 && canDash ? false : true;
+        dashButton = (Input.GetAxis("Dash") == 0 || !movement.canDash) ? false : true;
     }
 
     void FixedUpdate() {
@@ -33,5 +33,7 @@ public class PlayerDash : MonoBehaviour
         Vector2 dashDir = movement.GetInputs();
         
         movement.rb.AddForce(dashDir * dashSpeed * PlayerStats.speedMod);
+
+        cooldown.SetCooldown(0, dashCooldown);
     }
 }
