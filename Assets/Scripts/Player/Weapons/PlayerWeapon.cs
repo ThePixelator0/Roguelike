@@ -36,6 +36,8 @@ public class PlayerWeapon : MonoBehaviour
     bool doneInactive = false;
     bool doneNormal = false;
 
+    public Vector2 attackAngle;         // Used for knockback direction, etc
+
     void Start() {
         controller = transform.parent.GetComponent<PlayerWeaponController>();
     }
@@ -71,9 +73,15 @@ public class PlayerWeapon : MonoBehaviour
                 // Jab
                 transform.rotation = Quaternion.Euler(attackDir);
                 setPosOffset();
+                attackAngle = RotationToVector();
                 break;
             case 1:
                 // Punch
+                chargeTime = 0f;
+                PlayerStats.speedMod += warmupSpeedMod;
+                break;
+            case 2:
+                // Bow
                 chargeTime = 0f;
                 PlayerStats.speedMod += warmupSpeedMod;
                 break;
@@ -129,6 +137,14 @@ public class PlayerWeapon : MonoBehaviour
                 transform.rotation = Quaternion.Euler(controller.DirToMouse());
                 controller.timeActive = chargeTime / 2;   // Punch lasts for half time spent charging
                 break;
+            case 2:
+                // Bow
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                }
+                transform.position = transform.parent.position;
+                transform.rotation = Quaternion.Euler(controller.DirToMouse());
+                break;
         }
     }
 
@@ -148,10 +164,25 @@ public class PlayerWeapon : MonoBehaviour
                 }
                 else if (!doneActive) {
                     selfCol.enabled = true;
+                    attackAngle = RotationToVector();
                     controller.movement.rb.AddForce(RotationToVector() * 4000 * chargeTime);
                     controller.conditions.Immune(controller.timeActive);
                 }
+                break;
+            case 2:
+                // Bow
+                if (chargeTime < chargeTimeMin) {
+                    controller.timeActive = 0;
+                }
+                else if (!doneActive) {
+                    // attackAngle = RotationToVector();
+                    List<Vector3> spawnInfo = new List<Vector3>();
 
+                    spawnInfo.Add(transform.eulerAngles);
+                    spawnInfo.Add(new Vector3(chargeTime * 2, 0, 0));
+
+                    gameObject.SendMessage("SpawnAttack", spawnInfo);
+                }
                 break;
         }
     }
@@ -171,6 +202,12 @@ public class PlayerWeapon : MonoBehaviour
                 break;
             case 1:
                 // Punch
+                if (!doneInactive) {
+                    
+                }
+                break;
+            case 2:
+                // Bow
                 if (!doneInactive) {
                     
                 }
@@ -196,6 +233,12 @@ public class PlayerWeapon : MonoBehaviour
                     
                 }
                 
+                break;
+            case 2:
+                // Bow
+                if (!doneNormal) {
+                    
+                }
                 break;
         }
     }

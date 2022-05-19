@@ -102,6 +102,15 @@ public class EnemyWeapon : MonoBehaviour
 
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
+            case 1:
+                // Bow
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                    stats.speedMod -= 1f;
+                }
+
+                transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
+                break;
         }
     }
 
@@ -112,6 +121,20 @@ public class EnemyWeapon : MonoBehaviour
                 if (!doneActive) {
                     selfCol.enabled = true;
                     movement.rb.AddForce(attackingDir * 675);   // Jump towards attacking direction
+                }
+
+                // controller.movement.attackingDir = transform.position;
+                transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
+                break;
+            case 0:
+                // Bow
+                if (!doneActive) {
+                    List<Vector3> spawnInfo = new List<Vector3>();
+
+                    spawnInfo.Add(transform.eulerAngles);
+                    spawnInfo.Add(new Vector3(1, 0, 0));
+
+                    gameObject.SendMessage("SpawnAttack", spawnInfo);
                 }
 
                 // controller.movement.attackingDir = transform.position;
@@ -128,14 +151,16 @@ public class EnemyWeapon : MonoBehaviour
                     selfCol.enabled = false;
                 }
                 
-                // if (controller.timeInactive > inactiveCooldown / 2) {
-                //     controller.movement.attackingDir = transform.position;
-                // } else {
-                //     controller.movement.attackingDir = new Vector2();
-                // }
                 transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
                 break;
-            
+            case 0:
+                // Bow
+                if (!doneInactive) {
+                    
+                }
+                
+                transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
+                break;
         }
     } 
 
@@ -146,6 +171,14 @@ public class EnemyWeapon : MonoBehaviour
                 if (!doneNormal) {
                     selfRend.enabled = false;
                     stats.speedMod += 0.7f;
+                }
+
+                break;
+            case 1:
+                // Bow
+                if (!doneNormal) {
+                    selfRend.enabled = false;
+                    stats.speedMod += 1f;
                 }
 
                 break;

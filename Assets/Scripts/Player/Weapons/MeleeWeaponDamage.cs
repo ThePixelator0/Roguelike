@@ -52,12 +52,15 @@ public class MeleeWeaponDamage : MonoBehaviour
             }
 
             Vector2 kbAngle = col.transform.position - transform.position;
+            kbAngle = (kbAngle.normalized + weapon.attackAngle.normalized).normalized;
+
             if (weapon.chargeTime > 0) {
-                col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength * weapon.controller.timeActive);
+                // Melee weapons with a charge time do less knockback over time
+                col.BroadcastMessage("applyKnockback", kbAngle * kbStrength * weapon.controller.movement.rb.velocity.magnitude);
             } else {
-                col.BroadcastMessage("applyKnockback", kbAngle.normalized * kbStrength);
+                col.BroadcastMessage("applyKnockback", kbAngle * kbStrength);
             }
-            col.BroadcastMessage("applyDamage", damage);
+            col.BroadcastMessage("applyDamage", damage * PlayerStats.damageMod);
             if (stun) col.BroadcastMessage("Stun", stunDuration);
         }
 

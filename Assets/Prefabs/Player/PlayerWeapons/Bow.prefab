@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6468567051767662871
+--- !u!1 &2892450112168539048
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6468567051767662868}
-  - component: {fileID: 6468567051767662878}
-  - component: {fileID: 6468567051767662873}
-  - component: {fileID: 6468567051767662872}
-  - component: {fileID: 6886055393130996054}
-  - component: {fileID: 4534789601852144994}
+  - component: {fileID: 2892450112168539051}
+  - component: {fileID: 2892450112168539041}
+  - component: {fileID: 2892450112168539046}
+  - component: {fileID: 2892450112168539047}
+  - component: {fileID: 3346409398238714857}
+  - component: {fileID: 6198847296081388633}
   m_Layer: 2
-  m_Name: Punch
+  m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!4 &6468567051767662868
+--- !u!4 &2892450112168539051
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 2892450112168539048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1839735485 &6468567051767662878
+--- !u!1839735485 &2892450112168539041
 Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
+  m_GameObject: {fileID: 2892450112168539048}
   m_Enabled: 1
   m_Tiles:
   - first: {x: 0, y: 0, z: 0}
@@ -111,13 +111,13 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!483693784 &6468567051767662873
+--- !u!483693784 &2892450112168539046
 TilemapRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
+  m_GameObject: {fileID: 2892450112168539048}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -159,13 +159,13 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!61 &6468567051767662872
+--- !u!61 &2892450112168539047
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
+  m_GameObject: {fileID: 2892450112168539048}
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
@@ -185,21 +185,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0014744, y: 1.299104}
   m_EdgeRadius: 0
---- !u!114 &6886055393130996054
+--- !u!114 &3346409398238714857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
+  m_GameObject: {fileID: 2892450112168539048}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 481591c1744a13940b83f33a9f01888f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
-  selfRend: {fileID: 6468567051767662873}
-  selfCol: {fileID: 6468567051767662872}
+  selfRend: {fileID: 2892450112168539046}
+  selfCol: {fileID: 2892450112168539047}
   attackType: 1
   warmupTime: -1
   activeCooldown: 0
@@ -210,21 +210,16 @@ MonoBehaviour:
   chargeTimeMax: 0
   chargeTime: 0
   attackAngle: {x: 0, y: 0}
---- !u!114 &4534789601852144994
+--- !u!114 &6198847296081388633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6468567051767662871}
+  m_GameObject: {fileID: 2892450112168539048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5dee741b4d709745aefdd8256b7e543, type: 3}
+  m_Script: {fileID: 11500000, guid: 07a27567fdd6bf44ca9cd5244cee973c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
-  kbStrength: 10
-  ignoreTag: Player
-  selfCol: {fileID: 6468567051767662872}
-  stun: 0
-  stunDuration: 0
+  spawn: {fileID: 6523799677298103784, guid: 7f1910fde0cbbe04cbd324b791923c13, type: 3}

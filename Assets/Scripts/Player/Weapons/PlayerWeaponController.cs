@@ -50,8 +50,13 @@ public class PlayerWeaponController : MonoBehaviour
                 weapon.chargeTime += Time.deltaTime;
                 if (weapon.chargeTime > weapon.chargeTimeMax) weapon.chargeTime = weapon.chargeTimeMax;
             } else if (Input.GetAxis("Primary") == 0) {
-                attackWarmup = 0;
-                PlayerStats.speedMod -= weapon.warmupSpeedMod;
+                if (weapon.chargeTimeMin > weapon.chargeTime) {
+                    weapon.chargeTime += Time.deltaTime;
+                    if (weapon.chargeTime > weapon.chargeTimeMax) weapon.chargeTime = weapon.chargeTimeMax;
+                } else {
+                    attackWarmup = 0;
+                    PlayerStats.speedMod -= weapon.warmupSpeedMod;
+                }
             }
         } else if (timeActive != 0) {
             timeActive -= Time.deltaTime;

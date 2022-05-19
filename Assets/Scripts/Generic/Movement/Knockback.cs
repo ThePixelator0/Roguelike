@@ -10,6 +10,7 @@ public class Knockback : MonoBehaviour
     public Vector2 kbDir;
 
     public void applyKnockback(Vector2 knockback) {
+        // print("Knockback recieved: " + knockback);
         kbDir = knockback;
 
         if (NPCmovement != null) {

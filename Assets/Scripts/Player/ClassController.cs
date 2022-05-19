@@ -27,8 +27,13 @@ public class ClassController : MonoBehaviour
             case 1:
                 Puncher();
                 break;
+            case 2:
+                Bower();
+                break;
         }
     }
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------
 
     void Fighter() {
         ChangePlayerWeapon(0);
@@ -38,10 +43,18 @@ public class ClassController : MonoBehaviour
 
     void Puncher() {
         ChangePlayerWeapon(1);
+        movement.maxSpeed += 0.5f;
     }
 
+    void Bower() {
+        ChangePlayerWeapon(2);
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------
 
     void ResetClass() {
+        movement.maxSpeed = 4;
+
         movement.canDash = false;
         player.GetComponent<CooldownContoller>().EnableCooldown(0, false);
 

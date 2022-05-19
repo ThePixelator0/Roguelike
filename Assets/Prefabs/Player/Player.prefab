@@ -224,7 +224,7 @@ MonoBehaviour:
   playerWeapons:
   - {fileID: 6276077392178158667}
   - {fileID: 2892450112248363985}
-  defaultClass: 1
+  defaultClass: 0
 --- !u!1 &1731442802
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 283496766}
   NPCmovement: {fileID: 0}
+  kbDir: {x: 0, y: 0}
 --- !u!1 &5291576845047292833
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597ca0470fe54cf49be9f2d5e94d071a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunTime: 0
+  immuneTime: 0
 --- !u!1001 &3260411525668443961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,6 +815,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 5448081119686077786}
     m_Modifications:
     - target: {fileID: 238579300134061225, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: chargeTimeMax
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 238579300134061225, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: chargeTimeMin
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238579300134061225, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: chargeTime_min
       value: 0.2
       objectReference: {fileID: 0}
@@ -819,17 +830,21 @@ PrefabInstance:
       propertyPath: movement
       value: 
       objectReference: {fileID: 283496766}
+    - target: {fileID: 6597692098371237806, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
+      propertyPath: conditions
+      value: 
+      objectReference: {fileID: 7730336681145955597}
     - target: {fileID: 7075572162189645981, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: stun
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7075572162189645981, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: kbStrength
-      value: 750
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 7075572162189645981, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: stunDuration
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8801815022026263223, guid: 0ee749ac355e29145aaccc7174083a77, type: 3}
       propertyPath: m_RootOrder

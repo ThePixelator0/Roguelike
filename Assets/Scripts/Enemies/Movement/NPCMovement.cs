@@ -47,6 +47,11 @@ public class NPCMovement : MonoBehaviour
     }
 
 
+    public void MakeAware(Vector2 position) {
+        playerLastSeenPos = position;
+    }
+
+
     Vector2 DirTo(Vector2 pos) {
         // Takes a position Vector and returns a directional vector towards it
         Vector2 vec;

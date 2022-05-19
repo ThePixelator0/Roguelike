@@ -560,6 +560,7 @@ GameObject:
   - component: {fileID: 2888277576344930981}
   - component: {fileID: 4532739573362716963}
   - component: {fileID: 5909016997386412833}
+  - component: {fileID: 2183132001129253703}
   m_Layer: 2
   m_Name: Hole
   m_TagString: Hole
@@ -796,3 +797,15 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &2183132001129253703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770297396647485278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a57fe9ee9c8864eb07d529b6c46d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
