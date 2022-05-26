@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec54709d1dd3db4bb9684a73496dd1b, type: 3}
+  m_Name: Ring of Arrogance
+  m_EditorClassIdentifier: 
+  name: Ring of Arrogance
+  description: Deal and take more damage.
+  art: {fileID: 21300000, guid: 4d10f4d0a287c4842915201f94b3d84f, type: 3}
+  id: 0
+  gameObject: {fileID: 647886647167977752, guid: 8561271157dbdce44b477bd20c63eaa8, type: 3}

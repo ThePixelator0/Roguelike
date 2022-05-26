@@ -15,42 +15,22 @@ public class chest : MonoBehaviour
     public bool isClosed;
 
     [SerializeField]
-    private GameObject itemController;
+    private _ItemController itemController;
     
     void Start() {
         closed.SetActive(true);
         open.SetActive(false);
 
-        itemController = GameObject.Find("_ItemController");
+        itemController = GameObject.Find("_ItemController").GetComponent<_ItemController>();
     }
 
     void Open() {
         closed.SetActive(false);
         open.SetActive(true);
         isClosed = false;
-        List<GameObject> itemList;
-
-        if ((int)Random.Range(0, 9) == 0) { // 10% Change silver chest has unqiue loot
-            goldChest = true;
-        }
-
-        if (goldChest || itemController.GetComponent<_ItemController>().uniqueItemList.Count == 0) {
-            itemList = itemController.GetComponent<_ItemController>().uniqueItemList;
-        } else {
-            itemList = itemController.GetComponent<_ItemController>().genericItemList;
-        }
         
-        if (itemList.Count > 0) {
-            int rand = Random.Range(0, itemList.Count);
-            GameObject loot = itemList[rand];
-            if (goldChest) {
-                itemController.GetComponent<_ItemController>().uniqueItemList.RemoveAt(rand);
-            }
-
-            Instantiate(loot, transform.position + new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
-        } else {
-            print("No more items to give");
-        }
+        if (goldChest) itemController.CreateItem(transform.position);       // Gold Chests have 100% chance at unqiue item
+        else itemController.CreateItem(transform.position, 20);             // Silver Chests have 20% chance at unqiue item
     }
 
     public void applyDamage(float damage) {

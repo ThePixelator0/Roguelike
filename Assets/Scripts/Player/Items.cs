@@ -12,17 +12,17 @@ public class Items : MonoBehaviour
 
     public List<int> heldItems;
 
-    private GameObject itemInformation;
+    private _ItemController itemController;
 
     void Start() {
-        itemInformation = GameObject.Find("ItemInformation");
+        itemController = GameObject.Find("_ItemController").GetComponent<_ItemController>();
     }
 
 
     void ReceiveItem(int item) {
         // print("Picked up item " + item);
         heldItems.Add(item);
-        itemInformation.SendMessage("AddItemInformation", item);
+        itemController.AddItemToDisplay(item);
         
         switch (item) {
             case 0:

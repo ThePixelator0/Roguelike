@@ -126,15 +126,15 @@ public class EnemyWeapon : MonoBehaviour
                 // controller.movement.attackingDir = transform.position;
                 transform.position = transform.parent.position - (posOffset * controller.timeActive * 2);
                 break;
-            case 0:
+            case 1:
                 // Bow
                 if (!doneActive) {
-                    List<Vector3> spawnInfo = new List<Vector3>();
+                    // List<Vector3> spawnInfo = new List<Vector3>();
 
-                    spawnInfo.Add(transform.eulerAngles);
-                    spawnInfo.Add(new Vector3(1, 0, 0));
+                    // spawnInfo.Add();
+                    // spawnInfo.Add(new Vector3(1, 0, 0));
 
-                    gameObject.SendMessage("SpawnAttack", spawnInfo);
+                    // gameObject.SendMessage("SpawnAttack", spawnInfo);
                 }
 
                 // controller.movement.attackingDir = transform.position;
@@ -153,7 +153,7 @@ public class EnemyWeapon : MonoBehaviour
                 
                 transform.position = transform.parent.position + (posOffset * (controller.timeInactive - inactiveCooldown) * 2);
                 break;
-            case 0:
+            case 1:
                 // Bow
                 if (!doneInactive) {
                     
