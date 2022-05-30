@@ -25,19 +25,13 @@ public class PlayerWeaponController : MonoBehaviour
 
 
 
-    void FixedUpdate() {
+    void Update() {
         transform.position = player.transform.position;
 
         if (timeActive == 0 && timeInactive == 0 && attackCooldown == 0 && attackWarmup == 0) {
             if (Input.GetAxis("Primary") != 0) {
                 Attack();
             } 
-
-            // else if (Input.GetAxis("Secondary") != 0) {
-            //     movement.attacking = true;
-            //     movement.attackingDir = new Vector2();
-            //     Attack();
-            // }
         } 
         
         else if (attackWarmup != 0 && attackWarmup != -1) {
@@ -45,7 +39,7 @@ public class PlayerWeaponController : MonoBehaviour
             if (attackWarmup <= 0) attackWarmup = 0;
             
         } else if (attackWarmup == -1) {
-            // attackWarmpup == -1 means that it is a charged attack
+            // attackWarmup == -1 means that it is a charged attack
             if (Input.GetAxis("Primary") != 0 && weapon.chargeTime < weapon.chargeTimeMax) {
                 weapon.chargeTime += Time.deltaTime;
                 if (weapon.chargeTime > weapon.chargeTimeMax) weapon.chargeTime = weapon.chargeTimeMax;
@@ -55,7 +49,6 @@ public class PlayerWeaponController : MonoBehaviour
                     if (weapon.chargeTime > weapon.chargeTimeMax) weapon.chargeTime = weapon.chargeTimeMax;
                 } else {
                     attackWarmup = 0;
-                    PlayerStats.speedMod -= weapon.warmupSpeedMod;
                 }
             }
         } else if (timeActive != 0) {

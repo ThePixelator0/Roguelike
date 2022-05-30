@@ -26,8 +26,6 @@ public class _ItemController : MonoBehaviour
                 break;
             }
         }
-        print(item.name);
-
         GameObject itemDisplay = Instantiate(blankItemDisplay, itemDisplayPos, Quaternion.identity);
         itemDisplay.GetComponent<ItemDisplay>().SetItem(item);
 

@@ -30,6 +30,9 @@ public class ClassController : MonoBehaviour
             case 2:
                 Bower();
                 break;
+            case 3:
+                MagicUser();
+                break;
         }
     }
 
@@ -48,6 +51,10 @@ public class ClassController : MonoBehaviour
 
     void Bower() {
         ChangePlayerWeapon(2);
+    }
+
+    void MagicUser() {
+        ChangePlayerWeapon(3);
     }
 
     // ------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d45716594307674abc7eefae2a006f9, type: 3}
+  m_Name: Force Bolt
+  m_EditorClassIdentifier: 
+  name: Force Bolt
+  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  gameObject: {fileID: 6523799677298103784, guid: 7f1910fde0cbbe04cbd324b791923c13, type: 3}
+  ignoredTags:
+  - SpawnPoint
+  - Untagged
+  - Projectile
+  moveSpeed: 5
+  damage: 35
+  knockbackStrength: 800
+  rotationOffset: 90
+  charged: 0
+  scale: 1
+  offset: {x: 0, y: 0}
+  size: {x: 0.15, y: 0.15}

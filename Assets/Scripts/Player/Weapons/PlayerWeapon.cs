@@ -7,6 +7,7 @@ public class PlayerWeapon : MonoBehaviour
 {
     
     public PlayerWeaponController controller;
+    public attackSpawner projectileSpawner;
 
     [SerializeField]
     private TilemapRenderer selfRend;
@@ -16,7 +17,11 @@ public class PlayerWeapon : MonoBehaviour
     Vector3 posOffset;
 
     public int attackType;
-        // 0 = Jab
+        // 0 = Uncharged Melee
+        // 1 = Charged Melee
+        // 2 = Charged Projectile
+        // 3 = Uncharged Projectile
+    
     
     [Space]
     [Header("Weapon Stats")]
@@ -27,16 +32,20 @@ public class PlayerWeapon : MonoBehaviour
 
     public float warmupSpeedMod;        // Speed Mod during weapon warmup[Space]
     [Space]
-    public float chargeTimeMin;        // The minimum amout of time the weapon can be charged for.
-    public float chargeTimeMax;        // The maximum amout of time the weapon can be charged for.
+    public float chargeTimeMin;         // The minimum amout of time the weapon can be charged for.
+    public float chargeTimeMax;         // The maximum amout of time the weapon can be charged for.
     public float chargeTime;            // How long the weapon was charged for (for charged weapons)
 
     bool doneWarmup = false;
     bool doneActive = false;
     bool doneInactive = false;
     bool doneNormal = false;
+    [Space]
+    [Header("Projectile Stats")]
+    public Projectile spawnedProjectile;// What the projectile is
+    public float spawnDistance;         // Distance from the center of the player and where the projectile is spawned
 
-    public Vector2 attackAngle;         // Used for knockback direction, etc
+    public Vector2 attackAngle;         // Angle of the attack
 
     void Start() {
         controller = transform.parent.GetComponent<PlayerWeaponController>();
@@ -67,6 +76,8 @@ public class PlayerWeapon : MonoBehaviour
         doneActive = false;
         doneInactive = false;
         doneNormal = false;
+            // print("Changing speed mod from " + PlayerStats.speedMod + " to " + (PlayerStats.speedMod + warmupSpeedMod));
+        PlayerStats.speedMod += warmupSpeedMod;
 
         switch (attackType) {
             case 0:
@@ -78,12 +89,16 @@ public class PlayerWeapon : MonoBehaviour
             case 1:
                 // Punch
                 chargeTime = 0f;
-                PlayerStats.speedMod += warmupSpeedMod;
                 break;
             case 2:
                 // Bow
                 chargeTime = 0f;
-                PlayerStats.speedMod += warmupSpeedMod;
+                break;
+            case 3:
+                // Magic
+                transform.rotation = Quaternion.Euler(attackDir);
+                setPosOffset();
+                attackAngle = RotationToVector();
                 break;
         }
     }
@@ -145,10 +160,23 @@ public class PlayerWeapon : MonoBehaviour
                 transform.position = transform.parent.position;
                 transform.rotation = Quaternion.Euler(controller.DirToMouse());
                 break;
+            case 3:
+                // Magic
+                if (!doneWarmup) {
+                    selfRend.enabled = true;
+                }
+                transform.position = transform.parent.position;
+                break;
         }
     }
 
     void ActiveDetails(int type) {
+        if (!doneActive) {
+            // print("Changing speed mod from " + PlayerStats.speedMod + " to " + (PlayerStats.speedMod - warmupSpeedMod));
+            PlayerStats.speedMod -= warmupSpeedMod;
+
+        }
+
         switch (type) {
             case 0:
                 // Jab
@@ -175,13 +203,14 @@ public class PlayerWeapon : MonoBehaviour
                     controller.timeActive = 0;
                 }
                 else if (!doneActive) {
-                    // attackAngle = RotationToVector();
-                    List<Vector3> spawnInfo = new List<Vector3>();
-
-                    spawnInfo.Add(transform.eulerAngles);
-                    spawnInfo.Add(new Vector3(chargeTime * 2, 0, 0));
-
-                    gameObject.SendMessage("SpawnAttack", spawnInfo);
+                    // The bow is already pointing towards the mouse from the charge up time
+                    projectileSpawner.SpawnAttack(spawnDistance * attackAngle, spawnedProjectile, 2 * chargeTime/chargeTimeMax);
+                }
+                break;
+            case 3:
+                // Magic
+                if (!doneActive) {
+                    projectileSpawner.SpawnAttack(spawnDistance * attackAngle, spawnedProjectile);
                 }
                 break;
         }
@@ -212,6 +241,12 @@ public class PlayerWeapon : MonoBehaviour
                     
                 }
                 break;
+            case 3:
+                if (!doneInactive) {
+
+                }
+                break;
+        
         }
     } 
 
@@ -238,6 +273,12 @@ public class PlayerWeapon : MonoBehaviour
                 // Bow
                 if (!doneNormal) {
                     
+                }
+                break;
+            case 3:
+                // Magic
+                if (!doneNormal) {
+
                 }
                 break;
         }

@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Arrow : MonoBehaviour
+public class ProjectileObject : MonoBehaviour
 {
-    public GameObject creator;
+    [SerializeField] private SpriteRenderer sprite;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed;
-    [SerializeField] private double rotationOffset;
+    [SerializeField] private BoxCollider2D selfCol;
+
+
+    public GameObject creator;
+    public float speed;
+    private double rotationOffset;
     public float damage;
     private List<GameObject> alreadyHit;
-    [SerializeField] private List<string> ignoredTags;
+    [HideInInspector] public List<string> ignoredTags;
     private Vector2 attackDir;
     public float kbStr;
     float timeToDeath = 10;
+
+    public bool active;
 
     void Awake() {
         transform.parent = GameObject.Find("Parents/Projectiles").transform;
@@ -22,33 +28,40 @@ public class Arrow : MonoBehaviour
         attackDir = transform.rotation * Vector3.up;
     }
 
-    public void SetCreator(GameObject creatorToSet) {
-        creator = creatorToSet;
+    public void SetInfo(GameObject a_creator, Projectile a, float chargeMod = 1) {
+        creator = a_creator;
+        sprite.sprite = a.sprite;
+        ignoredTags = a.ignoredTags;
+        speed = a.moveSpeed;
+        damage = a.damage * PlayerStats.damageMod;
+        rotationOffset = a.rotationOffset;
+        kbStr = a.knockbackStrength;
+
+        transform.localScale = new Vector3(a.scale, a.scale, 1);
+        selfCol.offset = a.offset;
+        selfCol.size = a.size;
+
+        if (a.charged) {
+            speed *= chargeMod;
+            damage *= chargeMod;
+            kbStr *= chargeMod;
+        }
+        active = true;
     }
 
-    public void SetInfo(float info = 0f) {
-        /*  infoVector
-            x = speed modifier
-            y = damage modifier
-            z = knockback modifier
-        */
-        damage *= info;
-        speed *= info;
-        kbStr *= info;
-        timeToDeath *= info;
+    void FixedUpdate() {
+        if (active) {
+            Move(FacingtoVec((double)gameObject.transform.rotation.eulerAngles.z + 90), speed);
+            if (timeToDeath < 0) {
+                Destroy(gameObject);
+            } else {
+                timeToDeath -= Time.fixedDeltaTime;
+            }   
+        }
     }
 
     void Move(Vector2 dir, float speed) {
         rb.velocity = dir * speed;
-    }
-
-    void FixedUpdate() {
-        Move(FacingtoVec((double)gameObject.transform.rotation.eulerAngles.z + 90), speed);
-        if (timeToDeath < 0) {
-            Destroy(gameObject);
-        } else {
-            timeToDeath -= Time.fixedDeltaTime;
-        }
     }
 
     Vector2 FacingtoVec(double degrees) {
