@@ -13,19 +13,33 @@ public class _ItemController : MonoBehaviour
     Vector2 itemDisplayPos;
     public GameObject blankItemDisplay;
 
+    public List<Item> itemsOnDisplay;
+
     void Start() {
         itemDisplayPos = new Vector2(-750, 400);
+        itemsOnDisplay = new List<Item>();
         allItems = uniqueItemList.Union(genericItemList).ToList<Item>();
     }
 
     public void AddItemToDisplay(int itemNum) {
         Item item = null;
+
+
         foreach (Item i in allItems) {
             if (i.id == itemNum) {
                 item = i;
                 break;
             }
         }
+
+        // Check if item is already on display
+        if (itemsOnDisplay.Contains(item)) {
+            return;
+        } else {
+            itemsOnDisplay.Add(item);
+        }
+
+
         GameObject itemDisplay = Instantiate(blankItemDisplay, itemDisplayPos, Quaternion.identity);
         itemDisplay.GetComponent<ItemDisplay>().SetItem(item);
 

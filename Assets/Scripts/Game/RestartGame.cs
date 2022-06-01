@@ -7,6 +7,10 @@ public class RestartGame : MonoBehaviour
 {
     public GameObject player;
     public GameObject entryRoom;
+    public ClassController playerClass;
+
+    [Space]
+    public bool loadOnStart = false;
     
     void Start() {
         player = GameObject.Find("Player");
@@ -14,6 +18,8 @@ public class RestartGame : MonoBehaviour
         if (PlayerStats.setup != true) {
             InitPlayerVars();
         }
+
+        if (loadOnStart) LoadGame();
     }
 
     void FixedUpdate() {
@@ -29,6 +35,8 @@ public class RestartGame : MonoBehaviour
     }
 
     public void NextLevel() {
+        SaveGame();
+
         RoomTemplate template = GameObject.Find("Room Templates").GetComponent<RoomTemplate>();
 
         template.spawnQueue = new List<GameObject>();
@@ -59,7 +67,7 @@ public class RestartGame : MonoBehaviour
         }
 
 
-        GameObject.Find("Player").transform.position = new Vector3(0, 0, 0);
+        player.transform.position = new Vector3(0, 0, 0);
         Instantiate(entryRoom, new Vector2(0, 0), Quaternion.identity);
 
         
@@ -76,5 +84,24 @@ public class RestartGame : MonoBehaviour
         PlayerStats.canTakeDamage = true;
 
         PlayerItems.items = new List<int>();
+    }
+
+    void LoadGame() {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data == null) return;
+
+        Health playerHP = player.GetComponent<Health>();
+        playerHP.health = data.health;
+        playerHP.maxHealth = data.maxHealth;
+
+        foreach (int item in data.items) {
+            PlayerItems.PickupItem(item);
+        }
+
+        playerClass.ChangeClass(data.currentClass);
+    }
+
+    void SaveGame() {
+        SaveSystem.SavePlayer(player.GetComponent<Health>());
     }
 }

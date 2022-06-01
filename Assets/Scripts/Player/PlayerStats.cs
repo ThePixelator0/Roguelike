@@ -13,4 +13,6 @@ public static class PlayerStats
     public static float speedMod { get; set; }      // movement speed multiplier
 
     public static bool canTakeDamage { get; set; }  // Can take damage?
+
+    public static int currentClass { get; set; }    // Current class of the player
 }

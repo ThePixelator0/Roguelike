@@ -11,14 +11,19 @@ public class ClassController : MonoBehaviour
     public PlayerWeaponController playerWeaponController;
     public List<GameObject> playerWeapons;
 
+    bool noClass = true;
+
     [Space] public int defaultClass = 0;
 
     void Start() {
-        ChangeClass(defaultClass);
+        if (noClass) ChangeClass(defaultClass);
     }
 
     public void ChangeClass(int classNum) {
+        if (noClass) noClass = false;
+
         ResetClass();
+        PlayerStats.currentClass = classNum;
 
         switch (classNum) {
             case 0:

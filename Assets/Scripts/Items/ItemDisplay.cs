@@ -12,6 +12,7 @@ public class ItemDisplay : MonoBehaviour
 
     public Image artworkImage;
 
+
     public void Start() {
         transform.SetParent(GameObject.Find("ItemDisplay").transform, false);
     }
