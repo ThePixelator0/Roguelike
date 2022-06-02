@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Health : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class Health : MonoBehaviour
     }
 
     void bleed() {
-        var bloodClone = Instantiate(blood, transform.position, Quaternion.identity);
+        var bloodClone = PhotonNetwork.Instantiate(blood.name, transform.position, Quaternion.identity);
     }
 
     void CheckAlive() {

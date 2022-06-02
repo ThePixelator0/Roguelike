@@ -19,7 +19,7 @@ public class PlayerWeaponController : MonoBehaviour
 
 
     void Start() {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
     }
 
 

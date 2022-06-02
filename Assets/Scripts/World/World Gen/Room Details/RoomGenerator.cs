@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RoomGenerator : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class RoomGenerator : MonoBehaviour
     void Start() {
         // *Add random decorations to the room*
         roomType = Random.Range(0, rooms.Count);
-        Instantiate(rooms[roomType], transform.position, Quaternion.identity);
+        PhotonNetwork.Instantiate(rooms[roomType].name, transform.position, Quaternion.identity);
 
         // *Leaves without elaborating*
         Destroy(gameObject);

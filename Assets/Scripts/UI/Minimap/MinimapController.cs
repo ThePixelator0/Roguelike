@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class MinimapController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MinimapController : MonoBehaviour
     [SerializeField]
     private GameObject hallwayHorizontal;
 
-    private GameObject player;
+    private PlayerTracker players;
     public Vector2 playerRelativePos;
 
     private List<Vector2> minimapRoomPositions;
@@ -30,37 +31,35 @@ public class MinimapController : MonoBehaviour
     {
         minimapRoomPositions = new List<Vector2>();
         minimapRooms = new List<GameObject>();
-        player = GameObject.FindWithTag("Player");
+        players = GameObject.FindWithTag("GameController").GetComponent<PlayerTracker>();
         currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
-    }
-
-    void InitVars() {
-
     }
 
     public void CreateMinimapCurrentRoom() {
-        currentRoom = Instantiate(currentRoom, centerPos, Quaternion.identity);
+        currentRoom = PhotonNetwork.Instantiate(currentRoom.name, centerPos, Quaternion.identity);
     }
 
     void FixedUpdate() {
-        if (player != null) {    
-            float playerX = player.transform.position.x;
-            float playerY = player.transform.position.y;
+        if (players.livingPlayers.Count > 0) {    
+            foreach (GameObject player in players.livingPlayers) {
+                float playerX = player.transform.position.x;
+                float playerY = player.transform.position.y;
 
-            playerX = (playerX + 7) / 14;
-            playerY = (playerY + 7) / 14;
+                playerX = (playerX + 7) / 14;
+                playerY = (playerY + 7) / 14;
 
-            playerX = Mathf.Floor(playerX);
-            playerY = Mathf.Floor(playerY);
+                playerX = Mathf.Floor(playerX);
+                playerY = Mathf.Floor(playerY);
 
-            playerRelativePos = new Vector2(playerX, playerY);
+                playerRelativePos = new Vector2(playerX, playerY);
 
-            currentRoom.transform.position = (playerRelativePos * 32) + centerPos + new Vector2(1920, 1080);
+                currentRoom.transform.position = (playerRelativePos * 32) + centerPos + new Vector2(1920, 1080);
 
-            if (playerRelativePos*32 + centerPos == lastPos) {
-            } else {
-                lastPos = playerRelativePos;
-                CheckPos(lastPos);
+                if (playerRelativePos*32 + centerPos == lastPos) {
+                } else {
+                    lastPos = playerRelativePos;
+                    CheckPos(lastPos);
+                }
             }
         }
     }
@@ -71,28 +70,28 @@ public class MinimapController : MonoBehaviour
         Vector2 realPos = roomPos * 32;
         realPos += centerPos;
 
-        GameObject clone = Instantiate(minimapRoom, realPos, Quaternion.identity);
+        GameObject clone = PhotonNetwork.Instantiate(minimapRoom.name, realPos, Quaternion.identity);
         minimapRooms.Add(clone);
         minimapRoomPositions.Add(roomPos);
 
         // 0, 1, 2, 3 is top, bottom, left, right respectively 
         if (directions[0]) {
-            clone = Instantiate(hallwayVertical, realPos + new Vector2(0, 16), Quaternion.identity);
+            clone = PhotonNetwork.Instantiate(hallwayVertical.name, realPos + new Vector2(0, 16), Quaternion.identity);
             minimapRooms.Add(clone);
             minimapRoomPositions.Add(roomPos);
         }
         if (directions[1]) {
-            clone = Instantiate(hallwayVertical, realPos + new Vector2(0, -16), Quaternion.identity);
+            clone = PhotonNetwork.Instantiate(hallwayVertical.name, realPos + new Vector2(0, -16), Quaternion.identity);
             minimapRooms.Add(clone);
             minimapRoomPositions.Add(roomPos);
         }
         if (directions[2]) {
-            clone = Instantiate(hallwayHorizontal, realPos + new Vector2(-16, 0), Quaternion.identity);
+            clone = PhotonNetwork.Instantiate(hallwayHorizontal.name, realPos + new Vector2(-16, 0), Quaternion.identity);
             minimapRooms.Add(clone);
             minimapRoomPositions.Add(roomPos);
         }
         if (directions[3]) {
-            clone = Instantiate(hallwayHorizontal, realPos + new Vector2(16, 0), Quaternion.identity);
+            clone = PhotonNetwork.Instantiate(hallwayHorizontal.name, realPos + new Vector2(16, 0), Quaternion.identity);
             minimapRooms.Add(clone);
             minimapRoomPositions.Add(roomPos);
         }

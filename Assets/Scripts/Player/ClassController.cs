@@ -11,19 +11,16 @@ public class ClassController : MonoBehaviour
     public PlayerWeaponController playerWeaponController;
     public List<GameObject> playerWeapons;
 
-    bool noClass = true;
-
     [Space] public int defaultClass = 0;
 
     void Start() {
-        if (noClass) ChangeClass(defaultClass);
+        ChangeClass(defaultClass);
     }
 
     public void ChangeClass(int classNum) {
-        if (noClass) noClass = false;
-
         ResetClass();
         PlayerStats.currentClass = classNum;
+        print("Class changed to " + classNum);
 
         switch (classNum) {
             case 0:
@@ -46,7 +43,7 @@ public class ClassController : MonoBehaviour
     void Fighter() {
         ChangePlayerWeapon(0);
         movement.canDash = true;
-        player.GetComponent<CooldownContoller>().EnableCooldown(0);
+        // player.GetComponent<CooldownContoller>().EnableCooldown(0);
     }
 
     void Puncher() {
@@ -68,7 +65,7 @@ public class ClassController : MonoBehaviour
         movement.maxSpeed = 4;
 
         movement.canDash = false;
-        player.GetComponent<CooldownContoller>().EnableCooldown(0, false);
+        // player.GetComponent<CooldownContoller>().EnableCooldown(0, false);
 
     }
 

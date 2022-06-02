@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShowWhenButtonHeld : MonoBehaviour
 {
-    private string button = "Info";
+    public string button = "Info";
 
     void FixedUpdate() {
         if (Input.GetAxis(button) != 0) {

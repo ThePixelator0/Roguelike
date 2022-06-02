@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerDash : MonoBehaviour
 {
@@ -13,8 +14,14 @@ public class PlayerDash : MonoBehaviour
     
     bool dashButton;
 
+    PhotonView view;
+
+    void Start() {
+        view = transform.parent.GetComponent<PhotonView>();
+    }
+
     void Update() {
-        dashButton = (Input.GetAxis("Dash") == 0 || !movement.canDash) ? false : true;
+        if (view.IsMine) dashButton = (Input.GetAxis("Dash") == 0 || !movement.canDash) ? false : true;
     }
 
     void FixedUpdate() {

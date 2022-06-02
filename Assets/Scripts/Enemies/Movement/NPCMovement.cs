@@ -7,7 +7,8 @@ public class NPCMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
     // public Animator animator;
-    private GameObject player;
+    private PlayerTracker players;
+    public GameObject currentTarget;
     [Space]
     public float speed = 5000;                 // Speed of normal movement
     public float maxSpeed = 4;
@@ -22,14 +23,14 @@ public class NPCMovement : MonoBehaviour
 
     void Awake() {
         playerLastSeenPos = transform.position;
-        player = GameObject.Find("Player");
+        players = GameObject.FindWithTag("GameController").GetComponent<PlayerTracker>();
         stats = transform.parent.GetComponent<StatController>();
     }
 
     void FixedUpdate() {
-        if (player != null && canMove) {
-            if (canSee(player.transform.position - new Vector3(0, 0.4f, 0))) {
-                playerLastSeenPos = player.transform.position - new Vector3(0, 0.4f, 0);
+        if (currentTarget != null && canMove) {
+            if (canSee(currentTarget.transform.position - new Vector3(0, 0.4f, 0))) {
+                playerLastSeenPos = currentTarget.transform.position - new Vector3(0, 0.4f, 0);
             } 
 
             moveDir = DirTo(playerLastSeenPos);
@@ -43,6 +44,8 @@ public class NPCMovement : MonoBehaviour
             // Un-Comment when naxx is out (Animations added)
             // animator.SetFloat("Speed_X", rb.velocity.x);
             // animator.SetFloat("Speed_Y", rb.velocity.y);
+        } else if (currentTarget == null) {
+            currentTarget = players.GetClosestPlayer(transform.position);
         }
     }
 

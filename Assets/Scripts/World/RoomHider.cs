@@ -6,23 +6,23 @@ public class RoomHider : MonoBehaviour
 {
     private Vector3 roomPos;
     public string playerRoom;
-    private GameObject player;
+    public GameObject player;
     private GameObject templates;
 
     void Start() {
-        player = GameObject.Find("Player");
         templates = GameObject.Find("Room Templates");
     }
 
-    void FixedUpdate()
-    {
+    void Update()
+    {   
+        transform.position = RoomPos(player.transform.position) + new Vector3Int(0, 1, 0);
+
         if (player != null) {
             Vector3 newRoomPos = RoomPos(player.transform.position);
             if (newRoomPos == roomPos) {
 
             } else {
                 roomPos = newRoomPos;
-                transform.position = roomPos + new Vector3(0, 1, 0);
                 playerRoom = RoomNameAtPos(roomPos / 14);
             }
         }

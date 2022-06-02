@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Photon.Pun;
 
 public class _ItemController : MonoBehaviour
 {
@@ -66,6 +67,6 @@ public class _ItemController : MonoBehaviour
         }
 
         
-        Instantiate(itemObject, pos + new Vector2(0.5f, 0.5f), Quaternion.identity);
+        PhotonNetwork.Instantiate(itemObject.name, pos + new Vector2(0.5f, 0.5f), Quaternion.identity);
     }
 }

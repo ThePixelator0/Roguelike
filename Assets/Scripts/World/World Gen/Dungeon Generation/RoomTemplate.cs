@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RoomTemplate : MonoBehaviour
 {
@@ -85,7 +86,7 @@ public class RoomTemplate : MonoBehaviour
             spawnQueue.RemoveAt(0);
 
             if (spawnQueue.Count == 0) {
-                GameObject bossObject = Instantiate(boss, positions[positions.Count - 1] * 14, Quaternion.identity);
+                GameObject bossObject = PhotonNetwork.Instantiate(boss.name, positions[positions.Count - 1] * 14, Quaternion.identity);
 
                 foreach (Vector2 coord in positions) {
                     Vector3 real = new Vector3(coord.x, coord.y, 0);

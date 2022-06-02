@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RoomSpawner : MonoBehaviour
 {
@@ -126,7 +127,7 @@ public class RoomSpawner : MonoBehaviour
                 }
             }
             rand = Random.Range(0, validRooms.Count);
-            GameObject createdRoom = Instantiate(validRooms[rand], transform.position, Quaternion.identity);
+            GameObject createdRoom = PhotonNetwork.Instantiate(validRooms[rand].name, transform.position, Quaternion.identity);
 
             templates.positions.Add(transform.position / 14);
             templates.rooms.Add(createdRoom);
