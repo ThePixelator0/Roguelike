@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3741586470958293178}
   - component: {fileID: 4642522996025938782}
   - component: {fileID: 6952253565662259251}
-  - component: {fileID: -7686565838023001812}
+  - component: {fileID: -610814613939856165}
   m_Layer: 2
   m_Name: Decor - Exit
   m_TagString: Environment
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 4293198416747572379}
   selfCol: {fileID: 3741586470958293178}
---- !u!114 &-7686565838023001812
+--- !u!114 &-610814613939856165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1194,8 +1194,7 @@ GameObject:
   - component: {fileID: 4769739684988650426}
   - component: {fileID: 5094046288376843405}
   - component: {fileID: 848713852558113640}
-  - component: {fileID: 8843330185728706800}
-  - component: {fileID: -4662365926377386374}
+  - component: {fileID: 8212132305209274633}
   m_Layer: 0
   m_Name: Room - Entry Room
   m_TagString: Room
@@ -1262,23 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directions: 01010101
---- !u!114 &8843330185728706800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206156653153972495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &-4662365926377386374
+--- !u!114 &8212132305209274633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1296,8 +1279,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 8843330185728706800}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1359,7 +1341,7 @@ MonoBehaviour:
   - {x: -6.5, y: 8.5, z: 0}
   m_ShapePathHash: -1183348835
   m_Mesh: {fileID: 0}
-  m_InstanceId: 123590
+  m_InstanceId: 140476
 --- !u!1 &3716709329282132543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1400,7 @@ MonoBehaviour:
   - {x: 7.5, y: 8.5, z: 0}
   m_ShapePathHash: 1375176605
   m_Mesh: {fileID: 0}
-  m_InstanceId: 123570
+  m_InstanceId: 140456
 --- !u!1 &3872419209685417314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1459,7 @@ MonoBehaviour:
   - {x: -6.5, y: -6, z: 0}
   m_ShapePathHash: -147355747
   m_Mesh: {fileID: 0}
-  m_InstanceId: 123574
+  m_InstanceId: 140460
 --- !u!1 &5108696664806942517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1473,7 @@ GameObject:
   - component: {fileID: 4287336452712158637}
   - component: {fileID: 8074051797797774301}
   - component: {fileID: 5832676564802187790}
+  - component: {fileID: 977231700719353346}
   m_Layer: 0
   m_Name: Blocker
   m_TagString: Untagged
@@ -1834,6 +1817,29 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &977231700719353346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108696664806942517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7710772983855455550}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5948561676175558481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,7 +3818,7 @@ MonoBehaviour:
   - {x: 7, y: -6, z: 0}
   m_ShapePathHash: -2099804259
   m_Mesh: {fileID: 0}
-  m_InstanceId: 123614
+  m_InstanceId: 140500
 --- !u!1 &6988564665558725960
 GameObject:
   m_ObjectHideFlags: 0
@@ -5270,6 +5276,10 @@ PrefabInstance:
     - target: {fileID: 1508702920566349738, guid: 18e69598e0619844ba84b8c4e4a2f3c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035277478826532879, guid: 18e69598e0619844ba84b8c4e4a2f3c5, type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[0].second.m_AnimationSpeed
+      value: 5.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 3558359732095942459, guid: 18e69598e0619844ba84b8c4e4a2f3c5, type: 3}
       propertyPath: sceneViewId

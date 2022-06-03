@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Flying : MonoBehaviour
+public class Flying : MonoBehaviourPunCallbacks
 {
     void Start() {
         GetComponent<SpriteRenderer>().sortingLayerName = "AboveUnits";

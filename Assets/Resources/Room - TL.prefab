@@ -772,8 +772,7 @@ GameObject:
   - component: {fileID: 6520505674259171420}
   - component: {fileID: 6844708071297468267}
   - component: {fileID: -7073495382803550528}
-  - component: {fileID: -7370832539566250416}
-  - component: {fileID: 5160005847922617335}
+  - component: {fileID: -587029026834295115}
   m_Layer: 0
   m_Name: Room - TL
   m_TagString: Room
@@ -836,23 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directions: 01000100
---- !u!114 &-7370832539566250416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491224877679606505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &5160005847922617335
+--- !u!114 &-587029026834295115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

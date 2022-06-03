@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerCamera : MonoBehaviour
+public class DisableOtherPlayerObjects : MonoBehaviour
 {
     PhotonView view;
 

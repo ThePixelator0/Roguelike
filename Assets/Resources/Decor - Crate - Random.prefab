@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6049957718679749256}
   - component: {fileID: 6049957718679749259}
   - component: {fileID: 9135983034425096406}
-  - component: {fileID: 791527476881019883}
+  - component: {fileID: 4971678075988389555}
   m_Layer: 6
   m_Name: Decor - Crate - Random
   m_TagString: Environment
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385c2f8f89e1e2747a27f0d07e63a3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &791527476881019883
+--- !u!114 &4971678075988389555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

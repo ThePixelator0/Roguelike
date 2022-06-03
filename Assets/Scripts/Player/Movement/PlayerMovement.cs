@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
     // Movement Vars
     public bool canDash = true;
@@ -18,6 +18,25 @@ public class PlayerMovement : MonoBehaviour
     
     public bool canMove = true;
     Vector2 inputs;
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+        // Sync Data
+        if (stream.IsWriting) {
+            // We are writing
+            stream.SendNext(transform.position);
+        }
+        else {
+            // We are reading
+            transform.position = (Vector3)stream.ReceiveNext();
+        }
+    }
+
+    
+    void Awake() {
+        view = transform.parent.GetComponent<PhotonView>();
+        if (view == null) print("PlayerMovement PhotonView is null!");
+    }
 
     void Update() {
         inputs = GetInputs();

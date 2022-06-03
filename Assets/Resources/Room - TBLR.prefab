@@ -3827,8 +3827,7 @@ GameObject:
   - component: {fileID: 3404447132494382640}
   - component: {fileID: 3152293540111878407}
   - component: {fileID: 7446379888210983631}
-  - component: {fileID: -7664166166177592178}
-  - component: {fileID: -5606903382256416305}
+  - component: {fileID: 1639002110151796810}
   m_Layer: 0
   m_Name: Room - TBLR
   m_TagString: Room
@@ -3893,23 +3892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directions: 01010101
---- !u!114 &-7664166166177592178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8328094213977846917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &-5606903382256416305
+--- !u!114 &1639002110151796810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3927,8 +3910,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: -7664166166177592178}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

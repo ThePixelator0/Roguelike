@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6548849275314093739}
   - component: {fileID: 2982342504596016463}
   - component: {fileID: 7756114980753614745}
-  - component: {fileID: -6789141846649123113}
+  - component: {fileID: 7404282030684458825}
   m_Layer: 6
   m_Name: Decor - Crate - 1
   m_TagString: Environment
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_ShapePathHash: 1234564373
   m_Mesh: {fileID: 0}
   m_InstanceId: 56234
---- !u!114 &-6789141846649123113
+--- !u!114 &7404282030684458825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

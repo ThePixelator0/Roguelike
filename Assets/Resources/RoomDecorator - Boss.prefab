@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7768287722282774650}
   - component: {fileID: 2204434658649020067}
+  - component: {fileID: -8183332868555351175}
   m_Layer: 0
   m_Name: RoomDecorator - Boss
   m_TagString: Untagged
@@ -43,6 +44,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44656d7023f6c04f834bf0331b591b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomType: 0
   rooms:
   - {fileID: 2970864166855162677, guid: 100a7f9c1263dfb4f94a5025723fff32, type: 3}
+--- !u!114 &-8183332868555351175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807929026510248977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class BossDie : MonoBehaviour
+public class BossDie : MonoBehaviourPunCallbacks
 {
     public void Die_Boss() {
         GameObject.Find("Exit").SendMessage("ShowExit");

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 335670422411517934}
   - component: {fileID: 5610470983790176181}
   - component: {fileID: -2497872171260411577}
-  - component: {fileID: 3558359732095942459}
+  - component: {fileID: -6580690511301924576}
   m_Layer: 2
   m_Name: Decor - Torch
   m_TagString: Environment
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190dbe71cb20b9a4ea53c4ebfa4c53b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3558359732095942459
+--- !u!114 &-6580690511301924576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7817056027108790665}
   - component: {fileID: 2031370871932763651}
+  - component: {fileID: 7452910637648814543}
   m_Layer: 5
   m_Name: UI - ItemDisplay
   m_TagString: Untagged
@@ -209,6 +210,28 @@ MonoBehaviour:
   nameText: {fileID: 7817056027739342464}
   descriptionText: {fileID: 7817056026027706141}
   artworkImage: {fileID: 7817056026963799778}
+--- !u!114 &7452910637648814543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817056027108790664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7817056027739342466
 GameObject:
   m_ObjectHideFlags: 0

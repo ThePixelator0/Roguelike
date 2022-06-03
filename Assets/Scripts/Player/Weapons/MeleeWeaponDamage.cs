@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 using LineOfSight;
 
-public class MeleeWeaponDamage : MonoBehaviour
+public class MeleeWeaponDamage : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private float damage;
@@ -22,10 +23,15 @@ public class MeleeWeaponDamage : MonoBehaviour
     List<GameObject> collisions;
     LOS sight = new LOS();
     PlayerWeapon weapon;
+    PhotonView view;
+
+    // To send data between RPC and non-RPC
+    Collider2D hitCollider;
 
     void Start() {
         collisions = new List<GameObject>();
         weapon = GetComponent<PlayerWeapon>();
+        view = GetComponent<PhotonView>();
     }
 
     void FixedUpdate() {
@@ -33,7 +39,6 @@ public class MeleeWeaponDamage : MonoBehaviour
             collisions = new List<GameObject>();
         }
     }
-
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.tag == "Enemy" || col.tag == "Boss") {
@@ -43,7 +48,6 @@ public class MeleeWeaponDamage : MonoBehaviour
                 return;
             }
 
-
             // Check if Already Hit 
             if (collisions.Contains(col.gameObject)) {
                 return;
@@ -51,22 +55,29 @@ public class MeleeWeaponDamage : MonoBehaviour
                 collisions.Add(col.gameObject);
             }
 
-            Vector2 kbAngle = col.transform.position - transform.position;
-            kbAngle = (kbAngle.normalized + weapon.attackAngle.normalized).normalized;
-
-            if (weapon.chargeTime > 0) {
-                // Melee weapons with a charge time do less knockback over time
-                col.BroadcastMessage("applyKnockback", kbAngle * kbStrength * weapon.controller.movement.rb.velocity.magnitude);
-            } else {
-                col.BroadcastMessage("applyKnockback", kbAngle * kbStrength);
-            }
-            col.BroadcastMessage("applyDamage", damage * PlayerStats.damageMod);
-            if (stun) col.BroadcastMessage("Stun", stunDuration);
+            hitCollider = col;
+            view.RPC("HitEnemy", RpcTarget.All);
         }
 
         // Sword hit a breakable object
         else if (col.tag == "Breakable") {
             col.SendMessage("applyDamage", damage);
         } 
+    }
+
+    
+    [PunRPC]
+    void HitEnemy() {
+            Vector2 kbAngle = hitCollider.transform.position - transform.position;
+            kbAngle = (kbAngle.normalized + weapon.attackAngle.normalized).normalized;
+
+            if (weapon.chargeTime > 0) {
+                // Melee weapons with a charge time do less knockback over time
+                hitCollider.BroadcastMessage("applyKnockback", kbAngle * kbStrength * weapon.controller.movement.rb.velocity.magnitude);
+            } else {
+                hitCollider.BroadcastMessage("applyKnockback", kbAngle * kbStrength);
+            }
+            hitCollider.BroadcastMessage("applyDamage", damage * PlayerStats.damageMod);
+            if (stun) hitCollider.BroadcastMessage("Stun", stunDuration);
     }
 }

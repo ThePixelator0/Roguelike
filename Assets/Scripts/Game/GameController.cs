@@ -4,10 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviourPunCallbacks, IPunObservable
 {
     public GameObject entryRoom;
-    public PlayerTracker playerTracker;
 
     [Space]
     public bool loadOnStart = false;
@@ -21,28 +20,38 @@ public class GameController : MonoBehaviour
             InitPlayerVars();
         }
     }
+    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+        // // Sync Data
+        // if (stream.IsWriting) {
+        //     // We are writing
+        //     stream.SendNext();
+        // }
+        // else {
+        //     // We are reading
+        //      = ()stream.ReceiveNext();
+        // }
+    }
 
-    public void PlayerJoinedLobby(GameObject player) {
+    [PunRPC]
+    public void PlayerJoinedLobby() {
 
-        if (playersInLobby == 0) {
-            PhotonNetwork.Instantiate(entryRoom.name, new Vector2(), Quaternion.identity);
-            print("First Player Joined");
+        if (PhotonNetwork.IsMasterClient) {
+            print("Master Client!");
+            PhotonNetwork.InstantiateRoomObject(entryRoom.name, new Vector2(), Quaternion.identity, 0);
         }
 
         playersInLobby += 1;
         livingPlayers += 1;
-        playerTracker.livingPlayers.Add(player);
     } 
 
     public void PlayerLeftLobby(GameObject player) {
         playersInLobby -= 1;
         livingPlayers -= 1;
-        playerTracker.livingPlayers.Remove(player);
     }
 
     public void PlayerDied(GameObject player) {
         livingPlayers -= 1;
-        playerTracker.livingPlayers.Remove(player);
     }
 
     void FixedUpdate() {
@@ -91,7 +100,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        PhotonNetwork.Instantiate(entryRoom.name, new Vector2(0, 0), Quaternion.identity);
+        PhotonNetwork.InstantiateRoomObject(entryRoom.name, new Vector2(0, 0), Quaternion.identity, 0);
 
         
         template.Start();

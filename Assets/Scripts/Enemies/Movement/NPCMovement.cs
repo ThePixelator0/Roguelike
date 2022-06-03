@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LineOfSight;
+using Photon.Pun;
 
-public class NPCMovement : MonoBehaviour
+public class NPCMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Rigidbody2D rb;
     // public Animator animator;
-    private PlayerTracker players;
-    public GameObject currentTarget;
+    private GameObject player;
     [Space]
     public float speed = 5000;                 // Speed of normal movement
     public float maxSpeed = 4;
@@ -21,31 +21,55 @@ public class NPCMovement : MonoBehaviour
     Vector2 playerLastSeenPos;
     LOS sight = new LOS();
 
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+        // Sync Data
+        if (stream.IsWriting) {
+            // We are writing
+            stream.SendNext(transform.position);
+            stream.SendNext(playerLastSeenPos);
+        }
+        else {
+            // We are reading
+            transform.position = (Vector3)stream.ReceiveNext();
+            playerLastSeenPos = (Vector2)stream.ReceiveNext();
+        }
+    }
+
     void Awake() {
         playerLastSeenPos = transform.position;
-        players = GameObject.FindWithTag("GameController").GetComponent<PlayerTracker>();
         stats = transform.parent.GetComponent<StatController>();
     }
 
     void FixedUpdate() {
-        if (currentTarget != null && canMove) {
-            if (canSee(currentTarget.transform.position - new Vector3(0, 0.4f, 0))) {
-                playerLastSeenPos = currentTarget.transform.position - new Vector3(0, 0.4f, 0);
-            } 
+        if (player != null && canMove) {
+            if (canSee(player.transform.position - new Vector3(0, 0.4f, 0))) {
+                playerLastSeenPos = player.transform.position - new Vector3(0, 0.4f, 0);
+            }
 
             moveDir = DirTo(playerLastSeenPos);
 
             if (rb.velocity.magnitude <= maxSpeed * stats.speedMod) {   // If not moving faster than max speed
                 if (Vector2.Distance(playerLastSeenPos, transform.position) > 1) {  // if close enough to position of player last seen
                     rb.AddForce(moveDir * speed * Time.fixedDeltaTime * stats.speedMod);
+                    player = null;
                 }
             }
 
             // Un-Comment when naxx is out (Animations added)
             // animator.SetFloat("Speed_X", rb.velocity.x);
             // animator.SetFloat("Speed_Y", rb.velocity.y);
-        } else if (currentTarget == null) {
-            currentTarget = players.GetClosestPlayer(transform.position);
+        } else if (player == null) {
+            GameObject targetPlayer = null;
+            float targetDistance = -69;
+            foreach (GameObject p in GameObject.FindGameObjectsWithTag("Player")) {
+                if (Vector2.Distance(p.transform.position, transform.position) < targetDistance || targetDistance == -69) {
+                    targetDistance = Vector2.Distance(p.transform.position, transform.position);
+                    targetPlayer = p;
+                }
+            } 
+
+            player = targetPlayer;
         }
     }
 

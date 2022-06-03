@@ -77,37 +77,40 @@ public class RoomTemplate : MonoBehaviour
     }
 
     void Update() {
-        if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
-            if (spawnQueue[0] != null) {
-                waitTime = 0;
-                canSpawn = false;
-                spawnQueue[0].SendMessage("Spawn");
-            }
-            spawnQueue.RemoveAt(0);
+        if (PhotonNetwork.IsMasterClient) {
+            if (spawnQueue.Count > 0 && canSpawn && waitTime > 0.1) {
+                if (spawnQueue[0] != null) {
+                    waitTime = 0;
+                    canSpawn = false;
+                    spawnQueue[0].SendMessage("Spawn");
+                }
+                spawnQueue.RemoveAt(0);
 
-            if (spawnQueue.Count == 0) {
-                GameObject bossObject = PhotonNetwork.Instantiate(boss.name, positions[positions.Count - 1] * 14, Quaternion.identity);
+                if (spawnQueue.Count == 0) {
+                    GameObject bossObject = PhotonNetwork.InstantiateRoomObject(boss.name, positions[positions.Count - 1] * 14, Quaternion.identity, 0);
 
-                foreach (Vector2 coord in positions) {
-                    Vector3 real = new Vector3(coord.x, coord.y, 0);
-                    real *= 14;
-                    
-                    if (coord == positions[positions.Count - 1]) {
-                        Instantiate(bossRoomDecor, real, Quaternion.identity);
-                    } else {
-                        Instantiate(roomDecor, real, Quaternion.identity);
-                        Instantiate(junkDecor, real, Quaternion.identity);
+                    foreach (Vector2 coord in positions) {
+                        Vector3 real = new Vector3(coord.x, coord.y, 0);
+                        real *= 14;
+                        
+                        if (coord == positions[positions.Count - 1]) {
+                            PhotonNetwork.InstantiateRoomObject(bossRoomDecor.name, real, Quaternion.identity, 0);
+                        } else {
+                            // PhotonNetwork.InstantiateRoomObject(roomDecor.name, real, Quaternion.identity, 0);
+                            // PhotonNetwork.InstantiateRoomObject(junkDecor.name, real, Quaternion.identity, 0);
+                            PhotonNetwork.InstantiateRoomObject("Enemy - Ogre (Sword)", real, Quaternion.identity, 0, new object[]{real.ToString()});
+                        }
                     }
-                }
 
-                foreach (GameObject gameObj in SendStartMessage) {
-                    gameObj.SendMessage("StartGame");
+                    foreach (GameObject gameObj in SendStartMessage) {
+                        gameObj.SendMessage("StartGame");
+                    }
+                    SendStartMessage = new List<GameObject>();
                 }
-                SendStartMessage = new List<GameObject>();
+                
+            } else if (spawnQueue.Count > 0 && canSpawn) {
+                waitTime += Time.deltaTime;
             }
-            
-        } else if (spawnQueue.Count > 0 && canSpawn) {
-            waitTime += Time.deltaTime;
         }
     }
 }

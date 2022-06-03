@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Photon.Pun;
 
-public class PlayerWeapon : MonoBehaviour
+public class PlayerWeapon : MonoBehaviourPunCallbacks, IPunObservable
 {
     
     public PlayerWeaponController controller;
     public attackSpawner projectileSpawner;
 
-    [SerializeField]
-    private TilemapRenderer selfRend;
-    [SerializeField]
-    private BoxCollider2D selfCol;
+    public TilemapRenderer selfRend;
+    public BoxCollider2D selfCol;
 
     Vector3 posOffset;
 
@@ -51,6 +50,21 @@ public class PlayerWeapon : MonoBehaviour
         controller = transform.parent.GetComponent<PlayerWeaponController>();
     }
 
+    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+        // Sync Data
+        if (stream.IsWriting) {
+            // We are writing
+            stream.SendNext(selfRend.enabled);
+            stream.SendNext(selfCol.enabled);
+        }
+        else {
+            // We are reading
+            selfRend.enabled = (bool)stream.ReceiveNext();
+            selfCol.enabled = (bool)stream.ReceiveNext();
+        }
+    }
+
     void Update() {
         if (controller.attackWarmup > 0 || controller.attackWarmup == -1) {
             WarmupDetails(attackType);
@@ -76,7 +90,7 @@ public class PlayerWeapon : MonoBehaviour
         doneActive = false;
         doneInactive = false;
         doneNormal = false;
-            // print("Changing speed mod from " + PlayerStats.speedMod + " to " + (PlayerStats.speedMod + warmupSpeedMod));
+        
         PlayerStats.speedMod += warmupSpeedMod;
 
         switch (attackType) {

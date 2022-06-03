@@ -641,8 +641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2088844183}
   - component: {fileID: 2088844182}
-  - component: {fileID: 2088844185}
-  - component: {fileID: 2088844186}
+  - component: {fileID: 2088844184}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -663,7 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryRoom: {fileID: 2206156653153972495, guid: 201473e89c87d1a4991a2f051eee9a64, type: 3}
-  playerTracker: {fileID: 2088844185}
   loadOnStart: 0
   playersInLobby: 0
   livingPlayers: 0
@@ -688,20 +686,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2088844185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088844181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c40b948b231a74fb06d5687a41cc55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livingPlayers: []
---- !u!114 &2088844186
+--- !u!114 &2088844184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -719,8 +704,9 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 10
+  ObservedComponents:
+  - {fileID: 2088844182}
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &2090789095

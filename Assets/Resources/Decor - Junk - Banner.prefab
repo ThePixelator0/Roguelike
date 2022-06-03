@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 1083959228334121772}
   - component: {fileID: 3362085947616631879}
   - component: {fileID: 1634320364627961106}
-  - component: {fileID: 5842293115120899906}
+  - component: {fileID: 8770295055970838891}
   m_Layer: 2
   m_Name: Decor - Junk - Banner
   m_TagString: Untagged
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385c2f8f89e1e2747a27f0d07e63a3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5842293115120899906
+--- !u!114 &8770295055970838891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

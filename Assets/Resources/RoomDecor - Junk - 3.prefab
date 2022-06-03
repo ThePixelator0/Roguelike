@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3935337595683658809}
   - component: {fileID: 3935337595683658258}
   - component: {fileID: 3935337595683657752}
+  - component: {fileID: -7982702244666004660}
   m_Layer: 0
   m_Name: RoomDecor - Junk - 3
   m_TagString: Untagged
@@ -58,6 +59,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03878e994b6ddd8419454fb6184e1226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7982702244666004660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935337595683659531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &285937241645287956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,6 +166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3935337595683658809}
     m_Modifications:
+    - target: {fileID: -207717661244582696, guid: 2100102ea5f89a2468f7256b0b9284c3, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6098282386157585388, guid: 2100102ea5f89a2468f7256b0b9284c3, type: 3}
       propertyPath: m_RootOrder
       value: 1

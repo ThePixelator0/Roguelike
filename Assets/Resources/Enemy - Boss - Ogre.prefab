@@ -19,8 +19,9 @@ GameObject:
   - component: {fileID: 925830459625511199}
   - component: {fileID: 955291428123504552}
   - component: {fileID: -3243940236247461360}
-  - component: {fileID: 2423183138599413376}
-  - component: {fileID: 5134596339672614292}
+  - component: {fileID: -7255366358565419859}
+  - component: {fileID: -194348366071886919}
+  - component: {fileID: 5077541329496775084}
   m_Layer: 0
   m_Name: Enemy - Boss - Ogre
   m_TagString: Boss
@@ -207,40 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3b67330bb642a04f882850458c9582b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2423183138599413376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1192462689621947764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
---- !u!114 &5134596339672614292
+--- !u!114 &-7255366358565419859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,10 +227,40 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 2423183138599413376}
+  - {fileID: 2978584993689394462}
+  - {fileID: -194348366071886919}
+  - {fileID: 8437021089681312343}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-194348366071886919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192462689621947764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &5077541329496775084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192462689621947764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6939a02652b886b40b160ae31e00728a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4406572235152431862
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +765,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1192462689621947720}
-  currentTarget: {fileID: 0}
   speed: 2500
   maxSpeed: 3.5
   canMove: 1

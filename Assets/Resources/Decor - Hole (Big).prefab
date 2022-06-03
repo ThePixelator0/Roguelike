@@ -1350,7 +1350,7 @@ GameObject:
   - component: {fileID: 4770553122537893320}
   - component: {fileID: 2729039201202506365}
   - component: {fileID: 6686849349987546881}
-  - component: {fileID: 1626173360736980185}
+  - component: {fileID: -4174705509141046996}
   m_Layer: 2
   m_Name: Decor - Hole (Big)
   m_TagString: Hole
@@ -1408,7 +1408,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &1626173360736980185
+--- !u!114 &-4174705509141046996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

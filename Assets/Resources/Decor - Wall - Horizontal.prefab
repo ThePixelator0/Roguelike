@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4401205452334208982}
   - component: {fileID: 4748999724557292101}
   - component: {fileID: -3009688144871927392}
-  - component: {fileID: 9186244559964556916}
+  - component: {fileID: 9165816766919126551}
   m_Layer: 6
   m_Name: Decor - Wall - Horizontal
   m_TagString: Environment
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_ShapePathHash: 827820575
   m_Mesh: {fileID: 0}
   m_InstanceId: 209478
---- !u!114 &9186244559964556916
+--- !u!114 &9165816766919126551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

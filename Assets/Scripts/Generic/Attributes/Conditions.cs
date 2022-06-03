@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Conditions : MonoBehaviour
+public class Conditions : MonoBehaviourPunCallbacks
 {
     // NPC
     NPCMovement npc_movement;

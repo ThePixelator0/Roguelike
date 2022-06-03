@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6408534122980289320}
   - component: {fileID: 563700752402632909}
   - component: {fileID: 3687570827496988757}
-  - component: {fileID: -5841617260423807669}
+  - component: {fileID: 5409753569018506897}
   m_Layer: 2
   m_Name: Decor - Room Light
   m_TagString: Untagged
@@ -115,7 +115,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14, y: 14}
   m_EdgeRadius: 0
---- !u!114 &-5841617260423807669
+--- !u!114 &5409753569018506897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

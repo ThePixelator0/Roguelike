@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4068803324096206048}
   - component: {fileID: 5561508152568590905}
+  - component: {fileID: -844537401289969227}
   m_Layer: 0
   m_Name: RoomDecorator - Normal
   m_TagString: Untagged
@@ -43,10 +44,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44656d7023f6c04f834bf0331b591b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomType: 0
   rooms:
   - {fileID: 4472156658409884205, guid: 5ae6114e6a563ff4dbcd63b6e48d1020, type: 3}
   - {fileID: 7408104673419493783, guid: 02719c1bf07091945a69c140bc748da5, type: 3}
   - {fileID: 1781936435007847033, guid: df865bc3d58d84a48ba1003f05a40ab1, type: 3}
   - {fileID: 8037714732980685106, guid: 6b7fb642711b88140a3d6923526e0a72, type: 3}
   - {fileID: 1103989161321042632, guid: 9b8d0e08cc1b75944809e193ba3b0fba, type: 3}
+--- !u!114 &-844537401289969227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225254454575593611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 8127892123329376641}
   - component: {fileID: 1079180374155690821}
   - component: {fileID: 8984633795721709770}
-  - component: {fileID: 2579255364500989453}
+  - component: {fileID: -207717661244582696}
+  - component: {fileID: -2303509715615301367}
   m_Layer: 2
   m_Name: Decor - Junk - Skull
   m_TagString: Breakable
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minHealth: 5
   maxHealth: 15
---- !u!114 &2579255364500989453
+--- !u!114 &-207717661244582696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -307,3 +308,19 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-2303509715615301367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6098282386157585391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1

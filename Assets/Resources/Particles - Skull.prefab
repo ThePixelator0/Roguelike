@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2760723605897705118}
   - component: {fileID: 4939938458388106134}
   - component: {fileID: 2529368058906465939}
+  - component: {fileID: 8576662311257680427}
   m_Layer: 0
   m_Name: Particles - Skull
   m_TagString: Untagged
@@ -4820,6 +4821,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathTimer: 0.41
 --- !u!114 &2529368058906465939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122449313942517700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8576662311257680427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

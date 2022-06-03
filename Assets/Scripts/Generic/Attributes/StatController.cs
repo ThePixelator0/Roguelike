@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class StatController : MonoBehaviour
+public class StatController : MonoBehaviourPunCallbacks
 {
     // This script stores values for a GameObject's stats. It does not modify them, just allows different scripts to reference and use it.
     public float speedMod = 1;              // Movement Speed Multiplier

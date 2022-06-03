@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class EnemyWeaponController : MonoBehaviour
+public class EnemyWeaponController : MonoBehaviourPunCallbacks
 {
     // This script controls which weapon the enemy has and can use.
     [SerializeField]

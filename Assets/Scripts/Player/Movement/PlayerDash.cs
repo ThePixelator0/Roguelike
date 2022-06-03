@@ -14,14 +14,8 @@ public class PlayerDash : MonoBehaviour
     
     bool dashButton;
 
-    PhotonView view;
-
-    void Start() {
-        view = transform.parent.GetComponent<PhotonView>();
-    }
-
     void Update() {
-        if (view.IsMine) dashButton = (Input.GetAxis("Dash") == 0 || !movement.canDash) ? false : true;
+        if (movement.view.IsMine) dashButton = (Input.GetAxis("Dash") == 0 || !movement.canDash) ? false : true;
     }
 
     void FixedUpdate() {
@@ -41,6 +35,6 @@ public class PlayerDash : MonoBehaviour
         
         movement.rb.AddForce(dashDir * dashSpeed * PlayerStats.speedMod);
 
-        cooldown.SetCooldown(0, dashCooldown);
+        // cooldown.SetCooldown(0, dashCooldown);
     }
 }

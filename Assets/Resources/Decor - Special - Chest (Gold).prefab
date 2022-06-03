@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 7938642001204308813}
   - component: {fileID: 3236840294441697691}
   - component: {fileID: 92517933290736490}
-  - component: {fileID: 3591335292289664671}
+  - component: {fileID: 2987478281426737732}
   m_Layer: 2
   m_Name: Decor - Special - Chest (Gold)
   m_TagString: Breakable
@@ -430,7 +430,7 @@ MonoBehaviour:
   goldChest: 1
   isClosed: 1
   itemController: {fileID: 0}
---- !u!114 &3591335292289664671
+--- !u!114 &2987478281426737732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LineOfSight;
+using Photon.Pun;
 
-public class MeleeDamage : MonoBehaviour
+public class MeleeDamage : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     private float damage;

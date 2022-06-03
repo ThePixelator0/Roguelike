@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using LineOfSight;
+using Photon.Pun;
 
-public class EnemyWeapon : MonoBehaviour
+public class EnemyWeapon : MonoBehaviourPunCallbacks
 {
     public EnemyWeaponController controller;
 

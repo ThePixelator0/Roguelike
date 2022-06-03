@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float health;
     public float maxHealth;
@@ -14,6 +14,18 @@ public class Health : MonoBehaviour
 
     bool player = false;
     StatController stats;
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+        // Sync Health
+        if (stream.IsWriting) {
+            // We are writing
+            stream.SendNext(health);
+        }
+        else {
+            // We are reading
+            health = (float)stream.ReceiveNext();
+        }
+    }
 
 
     void Awake() {
@@ -66,6 +78,7 @@ public class Health : MonoBehaviour
         var bloodClone = PhotonNetwork.Instantiate(blood.name, transform.position, Quaternion.identity);
     }
 
+    [PunRPC]
     void CheckAlive() {
         if (health <= 0) {
             if (gameObject.tag == "Player") {
@@ -78,7 +91,7 @@ public class Health : MonoBehaviour
             } 
             
             else {
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }

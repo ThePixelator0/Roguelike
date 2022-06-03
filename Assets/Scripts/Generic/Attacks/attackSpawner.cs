@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class attackSpawner : MonoBehaviour
+public class attackSpawner : MonoBehaviourPunCallbacks
 {
     public GameObject creator;
 

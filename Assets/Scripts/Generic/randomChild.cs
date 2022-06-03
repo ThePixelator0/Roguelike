@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class randomChild : MonoBehaviour
+public class randomChild : MonoBehaviourPunCallbacks
 {
     // This script chooses one out of a number of children to remain.
     private List<Transform> childrenMarkedForDeath;
